@@ -67,6 +67,8 @@
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
 <layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
+<layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -11396,63 +11398,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="CNP-miscellaneous">
-<packages>
-<package name="OSCILLATOR_3.2X2.5">
-<text x="-2.26" y="2.02" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.36" y="-2.98" size="1.27" layer="27">&gt;VALUE</text>
-<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
-<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
-<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
-<wire x1="-0.1" y1="1.25" x2="0.1" y2="1.25" width="0.254" layer="21"/>
-<wire x1="-0.1" y1="-1.25" x2="0.1" y2="-1.25" width="0.254" layer="21"/>
-<smd name="P$1" x="-1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$2" x="1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$3" x="1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$4" x="-1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
-<circle x="-2.2" y="-0.8" radius="0.14141875" width="0" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="OSCILLATOR">
-<pin name="VDD" x="-5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="GND" x="5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<pin name="STANDBY#" x="-5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<text x="10.16" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
-<text x="10.16" y="0" size="1.778" layer="95">&gt;NAME</text>
-<text x="4.064" y="-1.651" size="0.8128" layer="94" font="vector" ratio="15">GND</text>
-<text x="-6.096" y="1.016" size="0.8128" layer="94" font="vector" ratio="15">VDD</text>
-<text x="2.921" y="1.016" size="0.8128" layer="94" font="vector" ratio="15">Output</text>
-<text x="-7.366" y="-1.651" size="0.8128" layer="94" font="vector" ratio="15">!Standby</text>
-<pin name="OUTPUT" x="5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<wire x1="-7.62" y1="2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="OSCILLATOR">
-<gates>
-<gate name="G$1" symbol="OSCILLATOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="OSCILLATOR_3.2X2.5">
-<connects>
-<connect gate="G$1" pin="GND" pad="P$2"/>
-<connect gate="G$1" pin="OUTPUT" pad="P$3"/>
-<connect gate="G$1" pin="STANDBY#" pad="P$1"/>
-<connect gate="G$1" pin="VDD" pad="P$4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="xmega-a4">
 <description>&lt;B&gt;ATMEL XMEGA A4 Microcontroller&lt;/b&gt;&lt;p&gt;
 &lt;B&gt; ATxmega A4 TQFP44, VQFN44 and VFBGA49 &lt;/b&gt;&lt;p&gt;
@@ -12749,68 +12694,6 @@ W = angled&lt;p&gt;
 <connect gate="G$1" pin="GNDT" pad="1"/>
 <connect gate="G$1" pin="LED" pad="10"/>
 <connect gate="G$1" pin="RES" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="Buzzer Coil">
-<packages>
-<package name="SMT-0540-S-R">
-<description>Square - 5mmx5mmx2mm &lt;br&gt; Surface Mount</description>
-<wire x1="0.6" y1="2.5" x2="0.9" y2="2.2" width="0.127" layer="51"/>
-<wire x1="0.9" y1="2.2" x2="2.5" y2="2.2" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="2.2" x2="-0.9" y2="2.2" width="0.127" layer="51"/>
-<wire x1="-0.9" y1="2.2" x2="-0.6" y2="2.5" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="-2.2" x2="-0.9" y2="-2.2" width="0.127" layer="51"/>
-<wire x1="-0.9" y1="-2.2" x2="-0.6" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="2.2" x2="-2.5" y2="-2.2" width="0.127" layer="21"/>
-<wire x1="-0.6" y1="-2.5" x2="1.85" y2="-2.5" width="0.127" layer="21"/>
-<wire x1="1.85" y1="-2.5" x2="2.5" y2="-1.85" width="0.127" layer="21"/>
-<wire x1="2.5" y1="-1.85" x2="2.5" y2="2.2" width="0.127" layer="21"/>
-<wire x1="0.6" y1="2.5" x2="-0.6" y2="2.5" width="0.127" layer="21"/>
-<circle x="-1.65" y="1.25" radius="0.1118" width="0.254" layer="21"/>
-<smd name="+" x="-1.6" y="2.2" dx="0.9" dy="0.9" layer="1"/>
-<smd name="-" x="-1.6" y="-2.2" dx="0.9" dy="0.9" layer="1"/>
-<smd name="3" x="1.6" y="2.2" dx="0.9" dy="0.9" layer="1"/>
-<text x="-0.975" y="3.4" size="0.4064" layer="25" ratio="10">&gt;NAME</text>
-<text x="-0.86" y="-3.325" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="BUZZER">
-<wire x1="-1.905" y1="-0.635" x2="1.905" y2="-0.635" width="0.254" layer="94"/>
-<wire x1="1.905" y1="-0.635" x2="1.905" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="2.54" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="-0.635" x2="-1.905" y2="0" width="0.254" layer="94"/>
-<wire x1="1.905" y1="2.54" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="2.54" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="1.905" y1="0" x2="1.905" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.905" y1="0" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
-<text x="-3.81" y="6.35" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="-" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
-<pin name="+" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SMT-0540-S-R" prefix="SP">
-<description>&lt;b&gt;Buzzers&lt;/b&gt;&lt;p&gt; Magnetic Transducer &lt;p&gt; Source: PUI Audio</description>
-<gates>
-<gate name="G$1" symbol="BUZZER" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SMT-0540-S-R">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -19565,6 +19448,133 @@ http://www.zetex.com&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="harp rfid reader v1.0">
+<description>Generated from &lt;b&gt;harp rfid reader v1.0.sch&lt;/b&gt;&lt;p&gt;
+by exp-lbrs.ulp</description>
+<packages>
+<package name="CNP-MISCELLANEOUS_OSCILLATOR_3.2X2.5">
+<circle x="-2.2" y="-0.8" radius="0.14141875" width="0" layer="21"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-0.1" y1="1.25" x2="0.1" y2="1.25" width="0.254" layer="21"/>
+<wire x1="-0.1" y1="-1.25" x2="0.1" y2="-1.25" width="0.254" layer="21"/>
+<smd name="P$1" x="-1.3" y="-1.05" dx="1.4" dy="1.2" layer="1" roundness="20"/>
+<smd name="P$2" x="1.3" y="-1.05" dx="1.4" dy="1.2" layer="1" roundness="20"/>
+<smd name="P$3" x="1.3" y="1.05" dx="1.4" dy="1.2" layer="1" roundness="20"/>
+<smd name="P$4" x="-1.3" y="1.05" dx="1.4" dy="1.2" layer="1" roundness="20"/>
+<text x="-2.26" y="2.02" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.36" y="-2.98" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="BUZZER-COIL_SMT-0540-S-R">
+<description>Square - 5mmx5mmx2mm &lt;br&gt; Surface Mount</description>
+<circle x="-1.65" y="1.25" radius="0.1118" width="0.254" layer="21"/>
+<wire x1="0.6" y1="2.5" x2="0.9" y2="2.2" width="0.127" layer="51"/>
+<wire x1="0.9" y1="2.2" x2="2.5" y2="2.2" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="2.2" x2="-0.9" y2="2.2" width="0.127" layer="51"/>
+<wire x1="-0.9" y1="2.2" x2="-0.6" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-2.2" x2="-0.9" y2="-2.2" width="0.127" layer="51"/>
+<wire x1="-0.9" y1="-2.2" x2="-0.6" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="2.2" x2="-2.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="-0.6" y1="-2.5" x2="1.85" y2="-2.5" width="0.127" layer="21"/>
+<wire x1="1.85" y1="-2.5" x2="2.5" y2="-1.85" width="0.127" layer="21"/>
+<wire x1="2.5" y1="-1.85" x2="2.5" y2="2.2" width="0.127" layer="21"/>
+<wire x1="0.6" y1="2.5" x2="-0.6" y2="2.5" width="0.127" layer="21"/>
+<text x="-0.975" y="3.4" size="0.4064" layer="25" ratio="10">&gt;NAME</text>
+<text x="-0.86" y="-3.325" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
+<circle x="-1.65" y="1.25" radius="0.1118" width="0.254" layer="21"/>
+<wire x1="0.6" y1="2.5" x2="0.9" y2="2.2" width="0.127" layer="51"/>
+<wire x1="0.9" y1="2.2" x2="2.5" y2="2.2" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="2.2" x2="-0.9" y2="2.2" width="0.127" layer="51"/>
+<wire x1="-0.9" y1="2.2" x2="-0.6" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-2.2" x2="-0.9" y2="-2.2" width="0.127" layer="51"/>
+<wire x1="-0.9" y1="-2.2" x2="-0.6" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="2.2" x2="-2.5" y2="-2.2" width="0.127" layer="21"/>
+<wire x1="-0.6" y1="-2.5" x2="1.85" y2="-2.5" width="0.127" layer="21"/>
+<wire x1="1.85" y1="-2.5" x2="2.5" y2="-1.85" width="0.127" layer="21"/>
+<wire x1="2.5" y1="-1.85" x2="2.5" y2="2.2" width="0.127" layer="21"/>
+<wire x1="0.6" y1="2.5" x2="-0.6" y2="2.5" width="0.127" layer="21"/>
+<smd name="+" x="-1.6" y="2.65" dx="1.1" dy="1.8" layer="1" roundness="20"/>
+<smd name="-" x="-1.6" y="-2.65" dx="1.1" dy="1.8" layer="1" roundness="20"/>
+<smd name="3" x="1.6" y="2.65" dx="1.1" dy="1.8" layer="1" roundness="20"/>
+<text x="-0.975" y="3.4" size="0.4064" layer="25" ratio="10">&gt;NAME</text>
+<text x="-0.86" y="-3.325" size="0.4064" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="CNP-MISCELLANEOUS_OSCILLATOR">
+<wire x1="-7.62" y1="2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
+<pin name="GND" x="5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="OUTPUT" x="5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="STANDBY#" x="-5.08" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="VDD" x="-5.08" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<text x="10.16" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<text x="10.16" y="0" size="1.778" layer="95">&gt;NAME</text>
+<text x="4.064" y="-1.651" size="0.8128" layer="94" font="vector" ratio="15">GND</text>
+<text x="-6.096" y="1.016" size="0.8128" layer="94" font="vector" ratio="15">VDD</text>
+<text x="2.921" y="1.016" size="0.8128" layer="94" font="vector" ratio="15">Output</text>
+<text x="-7.366" y="-1.651" size="0.8128" layer="94" font="vector" ratio="15">!Standby</text>
+</symbol>
+<symbol name="BUZZER-COIL_BUZZER">
+<wire x1="-1.905" y1="-0.635" x2="1.905" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-0.635" x2="1.905" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="2.54" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="-0.635" x2="-1.905" y2="0" width="0.254" layer="94"/>
+<wire x1="1.905" y1="2.54" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="2.54" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.905" y1="0" x2="1.905" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="0" x2="-1.905" y2="2.54" width="0.254" layer="94"/>
+<pin name="+" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+<pin name="-" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<text x="-3.81" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CNP-MISCELLANEOUS_OSCILLATOR">
+<gates>
+<gate name="G$1" symbol="CNP-MISCELLANEOUS_OSCILLATOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CNP-MISCELLANEOUS_OSCILLATOR_3.2X2.5">
+<connects>
+<connect gate="G$1" pin="GND" pad="P$2"/>
+<connect gate="G$1" pin="OUTPUT" pad="P$3"/>
+<connect gate="G$1" pin="STANDBY#" pad="P$1"/>
+<connect gate="G$1" pin="VDD" pad="P$4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BUZZER-COIL_SMT-0540-S-R" prefix="SP">
+<description>&lt;b&gt;Buzzers&lt;/b&gt;&lt;p&gt; Magnetic Transducer &lt;p&gt; Source: PUI Audio</description>
+<gates>
+<gate name="G$1" symbol="BUZZER-COIL_BUZZER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BUZZER-COIL_SMT-0540-S-R">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -19597,7 +19607,6 @@ http://www.zetex.com&lt;p&gt;
 <part name="USB" library="CNP-connectors" deviceset="USB_MINI_B" device="" value=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0402" value="1M"/>
 <part name="VCC12" library="supply1" deviceset="VCCIO" device="" value="VDDIO"/>
-<part name="OSC1" library="CNP-miscellaneous" deviceset="OSCILLATOR" device="" value=""/>
 <part name="GND59" library="supply1" deviceset="GND" device=""/>
 <part name="C12" library="rcl" deviceset="C-EU" device="C0402" value="100nF"/>
 <part name="GND60" library="supply1" deviceset="GND" device=""/>
@@ -19627,7 +19636,6 @@ http://www.zetex.com&lt;p&gt;
 <part name="U1" library="SparkFun" deviceset="ID-12/20" device="SMD"/>
 <part name="GND5" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun" deviceset="GND" device=""/>
-<part name="SP1" library="Buzzer Coil" deviceset="SMT-0540-S-R" device=""/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0402" value="75 &gt;1/4W"/>
 <part name="STATE" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="910"/>
@@ -19655,6 +19663,8 @@ http://www.zetex.com&lt;p&gt;
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="910"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="VCC1" library="supply1" deviceset="VCCIO" device="" value="VDDIO"/>
+<part name="OSC1" library="harp rfid reader v1.0" deviceset="CNP-MISCELLANEOUS_OSCILLATOR" device=""/>
+<part name="SP1" library="harp rfid reader v1.0" deviceset="BUZZER-COIL_SMT-0540-S-R" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20001,10 +20011,6 @@ http://www.zetex.com&lt;p&gt;
 <attribute name="LAST_DATE_TIME" x="344.17" y="10.16" size="2.286" layer="94" font="vector"/>
 <attribute name="SHEET" x="357.505" y="5.08" size="2.54" layer="94" font="vector"/>
 </instance>
-<instance part="OSC1" gate="G$1" x="172.72" y="116.84" smashed="yes">
-<attribute name="VALUE" x="182.88" y="114.3" size="1.778" layer="96"/>
-<attribute name="NAME" x="182.88" y="116.84" size="1.778" layer="95"/>
-</instance>
 <instance part="GND59" gate="1" x="177.8" y="106.68" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="180.34" y="104.14" size="1.778" layer="96" rot="MR0"/>
 </instance>
@@ -20056,7 +20062,6 @@ http://www.zetex.com&lt;p&gt;
 <instance part="GND6" gate="1" x="160.02" y="182.88" smashed="yes">
 <attribute name="VALUE" x="157.48" y="180.34" size="1.778" layer="96"/>
 </instance>
-<instance part="SP1" gate="G$1" x="73.66" y="114.3" smashed="yes" rot="R270"/>
 <instance part="R7" gate="G$1" x="73.66" y="101.6" smashed="yes" rot="MR90">
 <attribute name="NAME" x="75.1586" y="97.79" size="1.778" layer="95" rot="MR90"/>
 </instance>
@@ -20152,6 +20157,12 @@ http://www.zetex.com&lt;p&gt;
 <instance part="VCC1" gate="G$1" x="96.52" y="185.42" smashed="yes">
 <attribute name="VALUE" x="93.98" y="182.88" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="OSC1" gate="G$1" x="172.72" y="116.84" smashed="yes">
+<attribute name="NAME" x="169.418" y="120.142" size="1.778" layer="95"/>
+</instance>
+<instance part="SP1" gate="G$1" x="73.66" y="114.3" smashed="yes" rot="R270">
+<attribute name="NAME" x="80.01" y="118.11" size="1.778" layer="95" rot="R270"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -20219,7 +20230,6 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="279.4" y1="160.02" x2="279.4" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="OSC1" gate="G$1" pin="VDD"/>
 <wire x1="167.64" y1="121.92" x2="167.64" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="124.46" x2="157.48" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="1"/>
@@ -20227,6 +20237,7 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="157.48" y1="124.46" x2="157.48" y2="127" width="0.1524" layer="91"/>
 <junction x="157.48" y="124.46"/>
 <pinref part="VCC10" gate="G$1" pin="VCCIO"/>
+<pinref part="OSC1" gate="G$1" pin="VDD"/>
 </segment>
 <segment>
 <wire x1="342.9" y1="198.12" x2="340.36" y2="198.12" width="0.1524" layer="91"/>
@@ -20252,9 +20263,9 @@ http://www.zetex.com&lt;p&gt;
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="OSC1" gate="G$1" pin="GND"/>
 <pinref part="GND59" gate="1" pin="GND"/>
 <wire x1="177.8" y1="109.22" x2="177.8" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="OSC1" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C12" gate="G$1" pin="2"/>
@@ -20370,10 +20381,10 @@ http://www.zetex.com&lt;p&gt;
 </net>
 <net name="OSC1" class="0">
 <segment>
-<pinref part="OSC1" gate="G$1" pin="OUTPUT"/>
 <wire x1="177.8" y1="121.92" x2="177.8" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="PR1/XTAL1"/>
 <wire x1="177.8" y1="129.54" x2="198.12" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="OSC1" gate="G$1" pin="OUTPUT"/>
 </segment>
 </net>
 <net name="FT_TXD" class="0">
@@ -20437,8 +20448,8 @@ http://www.zetex.com&lt;p&gt;
 <net name="N$20" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
-<pinref part="SP1" gate="G$1" pin="-"/>
 <wire x1="73.66" y1="106.68" x2="73.66" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="SP1" gate="G$1" pin="-"/>
 </segment>
 </net>
 <net name="STATE" class="0">
@@ -20494,8 +20505,8 @@ http://www.zetex.com&lt;p&gt;
 <net name="BUZ_T" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="D"/>
-<pinref part="SP1" gate="G$1" pin="+"/>
 <wire x1="73.66" y1="121.92" x2="73.66" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="SP1" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="N$1" class="0">
