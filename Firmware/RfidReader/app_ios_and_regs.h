@@ -71,12 +71,12 @@ typedef struct
 #define ADD_REG_RESERVED1                   34 // U8     
 #define ADD_REG_NOTIFICATIONS               35 // U8     Enable the available notifications
 #define ADD_REG_TRIGGER_NOTIFICATIONS       36 // U8     Trigger the correspondent notifications
-#define ADD_REG_TIME_ON_BUZZER              37 // U16    Time the buzzer will be ON
-#define ADD_REG_TIME_ON_LED_TOP             38 // U16    Time the top LED will be ON
-#define ADD_REG_TIME_ON_LED_BOTTOM          39 // U16    Time the bottom LED will be ON
-#define ADD_REG_BUZZER_FREQUENCY            40 // U16    Frequency of buzzer's notification
-#define ADD_REG_LED_TOP_BLINK_PERIOD        41 // U16    Blink period of top LED
-#define ADD_REG_LED_BOTTOM_BLINK_PERIOD     42 // U16    Blink period of bottom LED
+#define ADD_REG_TIME_ON_BUZZER              37 // U16    Time the buzzer will be ON in milliseconds (minimum is 2) (sensitive to multiples of 2)
+#define ADD_REG_TIME_ON_LED_TOP             38 // U16    Time the top LED will be ON in milliseconds (minimum is 2) (sensitive to multiples of 2)
+#define ADD_REG_TIME_ON_LED_BOTTOM          39 // U16    Time the bottom LED will be ON in milliseconds (minimum is 2) (sensitive to multiples of 2)
+#define ADD_REG_BUZZER_FREQUENCY            40 // U16    Frequency of buzzer's notification (between 200 and 15000)
+#define ADD_REG_LED_TOP_BLINK_PERIOD        41 // U16    Blink period of top LED in milliseconds (minimum is 2) (sensitive to multiples of 2)
+#define ADD_REG_LED_BOTTOM_BLINK_PERIOD     42 // U16    Blink period of bottom LED in milliseconds (minimum is 2) (sensitive to multiples of 2)
 #define ADD_REG_RESERVED4                   43 // U8     
 #define ADD_REG_RESERVED5                   44 // U8     Reserved
 #define ADD_REG_TAG_MATCH0                  45 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.

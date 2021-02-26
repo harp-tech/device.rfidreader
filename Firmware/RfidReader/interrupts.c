@@ -50,7 +50,7 @@ extern uint8_t rxbuff_pointer;
 ISR(TCD1_OVF_vect, ISR_NAKED)
 {
 	rxbuff_pointer = 0;
-	timer_type0_stop(&TCC0);
+	timer_type1_stop(&TCD1);
 	
 	reti();
 }
@@ -71,7 +71,7 @@ ISR(TCC0_CCA_vect, ISR_NAKED)
 	clr_BUZZER;
 	
 	if (stop_buzzer == true)
-	{
+	{		
 		timer_type0_stop(&TCC0);
 		clr_BUZZER;
 	}

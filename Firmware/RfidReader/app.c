@@ -50,7 +50,11 @@ void hwbp_app_initialize(void)
 /************************************************************************/
 void core_callback_catastrophic_error_detected(void)
 {
+	timer_type0_stop(&TCC0);
 	
+	clr_BUZZER;
+	clr_LED_DETECT_TOP;
+	clr_LED_DETECT_BOTTOM;
 }
 
 /************************************************************************/
@@ -68,16 +72,17 @@ void core_callback_1st_config_hw_after_boot(void)
 	init_ios();
 	
 	/* Initialize hardware */
-	
+	uart0_init(12, 4, false);   // 1 Mb/s
+	uart0_enable();
 }
 
 void core_callback_reset_registers(void)
 {
 	/* Initialize registers */
 	app_regs.REG_NOTIFICATIONS = B_BUZZER | B_TOP_LED | B_BOTTOM_LED;
-	app_regs.REG_TIME_ON_BUZZER = 1000;			// 1 second
-	app_regs.REG_TIME_ON_LED_TOP = 1000;		// 1 second
-	app_regs.REG_TIME_ON_LED_BOTTOM = 1000;		// 1 second
+	app_regs.REG_TIME_ON_BUZZER = 250;			// 1 second
+	app_regs.REG_TIME_ON_LED_TOP = 250;		// 1 second
+	app_regs.REG_TIME_ON_LED_BOTTOM = 250;		// 1 second
 	app_regs.REG_BUZZER_FREQUENCY = 1000;		// 1 KHz
 	app_regs.REG_LED_TOP_BLINK_PERIOD = 100;	// 100 ms
 	app_regs.REG_LED_BOTTOM_BLINK_PERIOD = 100;	// 100 ms
@@ -124,11 +129,15 @@ extern uint8_t rxbuff_uart0[];
 [03][02]000C845A7EAC
 [03]
 
+[02]000C845A79AB
+[03][02]000C845A79AB
+[03]
+
 STX (02h) DATA (10 ASCII) CHECK SUM (2 ASCII) CR LF ETX (03h)
 
 */
 
-uint64_t buzzer_time_on = 0;
+uint16_t buzzer_time_on = 0;
 uint16_t top_led_time_on = 0;
 uint16_t bottom_led_time_on = 0;
 uint16_t top_led_period = 0;
@@ -143,9 +152,10 @@ void notify(uint8_t notify_mask)
 {
 	if ((notify_mask & B_BUZZER) && (app_regs.REG_TIME_ON_BUZZER > 1))
 	{
-		// Replace with timer TCD0
+		// Replace with timer TCD0 on several places -- do a search
 		timer_type0_pwm(&TCC0, buzzer_prescaler, buzzer_target_count, buzzer_target_count>>1, INT_LEVEL_LOW, INT_LEVEL_LOW);
 		buzzer_time_on = app_regs.REG_TIME_ON_BUZZER;
+		stop_buzzer = false;
 	}
 	
 	if (core_bool_is_visual_enabled())
@@ -173,18 +183,42 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 		timer_type1_enable(&TCD1, TIMER_PRESCALER_DIV1024, 625, INT_LEVEL_LOW);	// 20 ms
 	}
 	
-	rxbuff_uart0[rxbuff_pointer++];
+	rxbuff_uart0[rxbuff_pointer++] = byte_received;
 	
-	if (rxbuff_pointer == 8)
+	if (rxbuff_pointer == 16)
 	{
 		rxbuff_pointer = 0;
-		timer_type0_stop(&TCC0);
+		timer_type1_stop(&TCD1);
+		
+		if (rxbuff_uart0[0] != 0x02) return;	// STX
+		if (rxbuff_uart0[13] != 0x0D) return;	// CR
+		if (rxbuff_uart0[14] != 0x0A) return;	// LF
+		if (rxbuff_uart0[15] != 0x03) return;	// ETX
+		
+		/* Convert from ASCII */
+		for (uint8_t i = 1; i < 13; i++)
+		{
+			if (rxbuff_uart0[i] <= 57)
+				rxbuff_uart0[i] = rxbuff_uart0[i] - 48;
+			else
+				rxbuff_uart0[i] = rxbuff_uart0[i] - 65 + 10;
+		}		
+		for (uint8_t i = 0; i < 6; i++)
+		{
+			rxbuff_uart0[i] = (rxbuff_uart0[i*2+1] << 4) + rxbuff_uart0[i*2+2];
+		}
 		
 		uint8_t checksum = rxbuff_uart0[0] ^ rxbuff_uart0[1] ^ rxbuff_uart0[2] ^ rxbuff_uart0[3] ^ rxbuff_uart0[4];
 		
 		if (checksum == rxbuff_uart0[5])
 		{
-			app_regs.REG_TAG_ID = *((uint64_t*)(rxbuff_uart0));
+			*(((uint8_t*)(&app_regs.REG_TAG_ID))+0) = rxbuff_uart0[4];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID))+1) = rxbuff_uart0[3];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID))+2) = rxbuff_uart0[2];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID))+3) = rxbuff_uart0[1];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID))+4) = rxbuff_uart0[0];
+			
+			//app_regs.REG_TAG_ID = *((uint64_t*)(rxbuff_uart0));
 		
 			if ((app_regs.REG_TAG_MATCH0 != 0) || (app_regs.REG_TAG_MATCH1 != 0) || (app_regs.REG_TAG_MATCH2 != 0) || (app_regs.REG_TAG_MATCH3 != 0 ))
 			{
