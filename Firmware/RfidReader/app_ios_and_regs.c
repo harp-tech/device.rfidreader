@@ -17,7 +17,7 @@ void init_ios(void)
 	/* Configure output pins */
 	io_pin2out(&PORTD, 0, OUT_IO_DIGITAL, IN_EN_IO_EN);                  // BUZZER
 	io_pin2out(&PORTD, 4, OUT_IO_DIGITAL, IN_EN_IO_EN);                  // LED_DETECT_TOP
-	io_pin2out(&PORTC, 2, OUT_IO_DIGITAL, IN_EN_IO_EN);                  // LED_DETECT_BOTTOM
+	io_pin2out(&PORTC, 1, OUT_IO_DIGITAL, IN_EN_IO_EN);                  // LED_DETECT_BOTTOM
 
 	/* Initialize output pins */
 	clr_BUZZER;

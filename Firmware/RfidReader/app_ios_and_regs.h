@@ -32,10 +32,10 @@ void init_ios(void);
 #define read_LED_DETECT_TOP read_io(PORTD, 4)
 
 /* LED_DETECT_BOTTOM */
-#define set_LED_DETECT_BOTTOM set_io(PORTC, 2)
-#define clr_LED_DETECT_BOTTOM clear_io(PORTC, 2)
-#define tgl_LED_DETECT_BOTTOM toggle_io(PORTC, 2)
-#define read_LED_DETECT_BOTTOM read_io(PORTC, 2)
+#define set_LED_DETECT_BOTTOM set_io(PORTC, 1)
+#define clr_LED_DETECT_BOTTOM clear_io(PORTC, 1)
+#define tgl_LED_DETECT_BOTTOM toggle_io(PORTC, 1)
+#define read_LED_DETECT_BOTTOM read_io(PORTC, 1)
 
 
 /************************************************************************/
