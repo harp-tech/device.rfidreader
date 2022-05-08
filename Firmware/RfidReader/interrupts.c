@@ -37,8 +37,25 @@ ISR(PORTA_INT0_vect, ISR_NAKED)
 /************************************************************************/ 
 /* TAG_IN_RANGE                                                         */
 /************************************************************************/
+extern bool id_event_was_sent;
+
 ISR(PORTC_INT0_vect, ISR_NAKED)
 {
+	if (read_TAG_IN_RANGE)
+	{
+		core_func_mark_user_timestamp();
+	}
+	else
+	{
+		if (id_event_was_sent)
+		{
+			id_event_was_sent = false;
+			
+			app_regs.REG_TAG_ID_LEAVED = app_regs.REG_TAG_ID_ARRIVED;
+			core_func_send_event(ADD_REG_TAG_ID_LEAVED, true);
+		}
+	}	
+	
 	reti();
 }
 

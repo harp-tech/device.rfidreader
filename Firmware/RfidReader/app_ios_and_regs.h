@@ -6,10 +6,8 @@ void init_ios(void);
 /************************************************************************/
 /* Definition of input pins                                             */
 /************************************************************************/
-// CARD_PRESENT           Description: Card present notification
 // TAG_IN_RANGE           Description: Tag in range
 
-#define read_CARD_PRESENT read_io(PORTA, 4)     // CARD_PRESENT
 #define read_TAG_IN_RANGE read_io(PORTC, 3)     // TAG_IN_RANGE
 
 /************************************************************************/
@@ -43,9 +41,9 @@ void init_ios(void);
 /************************************************************************/
 typedef struct
 {
-	uint64_t REG_TAG_ID;
+	uint64_t REG_TAG_ID_ARRIVED;
+	uint64_t REG_TAG_ID_LEAVED;
 	uint8_t REG_RESERVED0;
-	uint8_t REG_RESERVED1;
 	uint8_t REG_NOTIFICATIONS;
 	uint8_t REG_TRIGGER_NOTIFICATIONS;
 	uint16_t REG_TIME_ON_BUZZER;
@@ -54,8 +52,8 @@ typedef struct
 	uint16_t REG_BUZZER_FREQUENCY;
 	uint16_t REG_LED_TOP_BLINK_PERIOD;
 	uint16_t REG_LED_BOTTOM_BLINK_PERIOD;
-	uint8_t REG_RESERVED4;
-	uint8_t REG_RESERVED5;
+	uint8_t REG_RESERVED1;
+	uint8_t REG_RESERVED2;
 	uint64_t REG_TAG_MATCH0;
 	uint64_t REG_TAG_MATCH1;
 	uint64_t REG_TAG_MATCH2;
@@ -66,9 +64,9 @@ typedef struct
 /* Registers' address                                                   */
 /************************************************************************/
 /* Registers */
-#define ADD_REG_TAG_ID                      32 // U64    Tag unique number
-#define ADD_REG_RESERVED0                   33 // U8     
-#define ADD_REG_RESERVED1                   34 // U8     
+#define ADD_REG_TAG_ID_ARRIVED              32 // U64    Tag unique number was detected
+#define ADD_REG_TAG_ID_LEAVED               33 // U64    Tag unique number left the antenna coverage area
+#define ADD_REG_RESERVED0                   34 // U8     Reserved
 #define ADD_REG_NOTIFICATIONS               35 // U8     Enable the available notifications
 #define ADD_REG_TRIGGER_NOTIFICATIONS       36 // U8     Trigger the correspondent notifications
 #define ADD_REG_TIME_ON_BUZZER              37 // U16    Time the buzzer will be ON in milliseconds (minimum is 2) (sensitive to multiples of 2)
@@ -77,8 +75,8 @@ typedef struct
 #define ADD_REG_BUZZER_FREQUENCY            40 // U16    Frequency of buzzer's notification (between 200 and 15000)
 #define ADD_REG_LED_TOP_BLINK_PERIOD        41 // U16    Blink period of top LED in milliseconds (minimum is 2) (sensitive to multiples of 2)
 #define ADD_REG_LED_BOTTOM_BLINK_PERIOD     42 // U16    Blink period of bottom LED in milliseconds (minimum is 2) (sensitive to multiples of 2)
-#define ADD_REG_RESERVED4                   43 // U8     
-#define ADD_REG_RESERVED5                   44 // U8     Reserved
+#define ADD_REG_RESERVED1                   43 // U8     Reserved
+#define ADD_REG_RESERVED2                   44 // U8     Reserved
 #define ADD_REG_TAG_MATCH0                  45 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
 #define ADD_REG_TAG_MATCH1                  46 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
 #define ADD_REG_TAG_MATCH2                  47 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
@@ -93,7 +91,7 @@ typedef struct
 /* Memory limits */
 #define APP_REGS_ADD_MIN                    0x20
 #define APP_REGS_ADD_MAX                    0x30
-#define APP_NBYTES_OF_REG_BANK              58
+#define APP_NBYTES_OF_REG_BANK              61
 
 /************************************************************************/
 /* Registers' bits                                                      */

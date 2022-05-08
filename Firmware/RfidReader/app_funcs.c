@@ -9,9 +9,9 @@
 extern AppRegs app_regs;
 
 void (*app_func_rd_pointer[])(void) = {
-	&app_read_REG_TAG_ID,
+	&app_read_REG_TAG_ID_ARRIVED,
+	&app_read_REG_TAG_ID_LEAVED,
 	&app_read_REG_RESERVED0,
-	&app_read_REG_RESERVED1,
 	&app_read_REG_NOTIFICATIONS,
 	&app_read_REG_TRIGGER_NOTIFICATIONS,
 	&app_read_REG_TIME_ON_BUZZER,
@@ -20,8 +20,8 @@ void (*app_func_rd_pointer[])(void) = {
 	&app_read_REG_BUZZER_FREQUENCY,
 	&app_read_REG_LED_TOP_BLINK_PERIOD,
 	&app_read_REG_LED_BOTTOM_BLINK_PERIOD,
-	&app_read_REG_RESERVED4,
-	&app_read_REG_RESERVED5,
+	&app_read_REG_RESERVED1,
+	&app_read_REG_RESERVED2,
 	&app_read_REG_TAG_MATCH0,
 	&app_read_REG_TAG_MATCH1,
 	&app_read_REG_TAG_MATCH2,
@@ -29,9 +29,9 @@ void (*app_func_rd_pointer[])(void) = {
 };
 
 bool (*app_func_wr_pointer[])(void*) = {
-	&app_write_REG_TAG_ID,
+	&app_write_REG_TAG_ID_ARRIVED,
+	&app_write_REG_TAG_ID_LEAVED,
 	&app_write_REG_RESERVED0,
-	&app_write_REG_RESERVED1,
 	&app_write_REG_NOTIFICATIONS,
 	&app_write_REG_TRIGGER_NOTIFICATIONS,
 	&app_write_REG_TIME_ON_BUZZER,
@@ -40,8 +40,8 @@ bool (*app_func_wr_pointer[])(void*) = {
 	&app_write_REG_BUZZER_FREQUENCY,
 	&app_write_REG_LED_TOP_BLINK_PERIOD,
 	&app_write_REG_LED_BOTTOM_BLINK_PERIOD,
-	&app_write_REG_RESERVED4,
-	&app_write_REG_RESERVED5,
+	&app_write_REG_RESERVED1,
+	&app_write_REG_RESERVED2,
 	&app_write_REG_TAG_MATCH0,
 	&app_write_REG_TAG_MATCH1,
 	&app_write_REG_TAG_MATCH2,
@@ -50,10 +50,16 @@ bool (*app_func_wr_pointer[])(void*) = {
 
 
 /************************************************************************/
-/* REG_TAG_ID                                                           */
+/* REG_TAG_ID_ARRIVED                                                   */
 /************************************************************************/
-void app_read_REG_TAG_ID(void) {}
-bool app_write_REG_TAG_ID(void *a) {return false;}
+void app_read_REG_TAG_ID_ARRIVED(void) {}
+bool app_write_REG_TAG_ID_ARRIVED(void *a) {return false;}
+
+/************************************************************************/
+/* REG_TAG_ID_LEAVED                                                    */
+/************************************************************************/
+void app_read_REG_TAG_ID_LEAVED(void) {}
+bool app_write_REG_TAG_ID_LEAVED(void *a) {return false;}
 
 
 /************************************************************************/
@@ -65,19 +71,6 @@ bool app_write_REG_RESERVED0(void *a)
 	uint8_t reg = *((uint8_t*)a);
 
 	app_regs.REG_RESERVED0 = reg;
-	return true;
-}
-
-
-/************************************************************************/
-/* REG_RESERVED1                                                        */
-/************************************************************************/
-void app_read_REG_RESERVED1(void) {}
-bool app_write_REG_RESERVED1(void *a)
-{
-	uint8_t reg = *((uint8_t*)a);
-
-	app_regs.REG_RESERVED1 = reg;
 	return true;
 }
 
@@ -205,14 +198,14 @@ bool app_write_REG_LED_BOTTOM_BLINK_PERIOD(void *a)
 
 
 /************************************************************************/
-/* REG_RESERVED4                                                        */
+/* REG_RESERVED1                                                        */
 /************************************************************************/
-void app_read_REG_RESERVED4(void) {}
-bool app_write_REG_RESERVED4(void *a)
+void app_read_REG_RESERVED1(void) {}
+bool app_write_REG_RESERVED1(void *a)
 {
 	uint8_t reg = *((uint8_t*)a);
 
-	app_regs.REG_RESERVED4 = reg;
+	app_regs.REG_RESERVED1 = reg;
 	return true;
 }
 
@@ -220,12 +213,12 @@ bool app_write_REG_RESERVED4(void *a)
 /************************************************************************/
 /* REG_RESERVED5                                                        */
 /************************************************************************/
-void app_read_REG_RESERVED5(void) {}
-bool app_write_REG_RESERVED5(void *a)
+void app_read_REG_RESERVED2(void) {}
+bool app_write_REG_RESERVED2(void *a)
 {
 	uint8_t reg = *((uint8_t*)a);
 
-	app_regs.REG_RESERVED5 = reg;
+	app_regs.REG_RESERVED2 = reg;
 	return true;
 }
 

@@ -148,6 +148,8 @@ bool stop_buzzer;
 extern uint8_t buzzer_prescaler;
 extern uint16_t buzzer_target_count;
 
+bool id_event_was_sent = false;
+
 void notify(uint8_t notify_mask)
 {
 	if ((notify_mask & B_BUZZER) && (app_regs.REG_TIME_ON_BUZZER > 1))
@@ -181,6 +183,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 	if (rxbuff_pointer == 0)
 	{
 		timer_type1_enable(&TCD1, TIMER_PRESCALER_DIV1024, 625, INT_LEVEL_LOW);	// 20 ms
+		id_event_was_sent = false;
 	}
 	
 	rxbuff_uart0[rxbuff_pointer++] = byte_received;
@@ -212,44 +215,49 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 		
 		if (checksum == rxbuff_uart0[5])
 		{
-			*(((uint8_t*)(&app_regs.REG_TAG_ID))+0) = rxbuff_uart0[4];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID))+1) = rxbuff_uart0[3];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID))+2) = rxbuff_uart0[2];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID))+3) = rxbuff_uart0[1];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID))+4) = rxbuff_uart0[0];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+0) = rxbuff_uart0[4];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+1) = rxbuff_uart0[3];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+2) = rxbuff_uart0[2];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+3) = rxbuff_uart0[1];
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+4) = rxbuff_uart0[0];
 			
 			//app_regs.REG_TAG_ID = *((uint64_t*)(rxbuff_uart0));
 		
 			if ((app_regs.REG_TAG_MATCH0 != 0) || (app_regs.REG_TAG_MATCH1 != 0) || (app_regs.REG_TAG_MATCH2 != 0) || (app_regs.REG_TAG_MATCH3 != 0 ))
 			{
-				if (app_regs.REG_TAG_ID == app_regs.REG_TAG_MATCH0)
+				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH0)
 				{
-					core_func_send_event(ADD_REG_TAG_ID, true);
+					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
+					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
 					return;				
 				}
-				if (app_regs.REG_TAG_ID == app_regs.REG_TAG_MATCH1)
+				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH1)
 				{
-					core_func_send_event(ADD_REG_TAG_ID, true);
+					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
+					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
 					return;
 				}
-				if (app_regs.REG_TAG_ID == app_regs.REG_TAG_MATCH2)
+				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH2)
 				{
-					core_func_send_event(ADD_REG_TAG_ID, true);
+					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
+					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
 					return;
 				}
-				if (app_regs.REG_TAG_ID == app_regs.REG_TAG_MATCH3)
+				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH3)
 				{
-					core_func_send_event(ADD_REG_TAG_ID, true);
+					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
+					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
 					return;
 				}
 			}
 			else
 			{
-				core_func_send_event(ADD_REG_TAG_ID, true);
+				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
+				id_event_was_sent = true;
 				notify(app_regs.REG_NOTIFICATIONS);
 			}
 		}
