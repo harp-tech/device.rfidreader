@@ -171,6 +171,10 @@ int32_t eeprom_rd_i32(uint16_t addr);
 #define PRESCALER_ADC_DIV256	ADC_PRESCALER_DIV256_gc
 #define PRESCALER_ADC_DIV512	ADC_PRESCALER_DIV512_gc
 
+void adc_A_initialize_single_ended(uint8_t analog_reference);
+int16_t adc_A_read_channel(uint8_t index);
+void adc_A_calibrate_offset(uint8_t index);
+
 uint16_t adcA_unsigned_single_ended(ADC_t* adc, uint8_t res, uint8_t ref , uint8_t prescaler, uint8_t adc_pin, TC0_t* timer);
 
 #endif /* _CPU_1V1_H_ */
