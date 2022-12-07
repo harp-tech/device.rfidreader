@@ -116,7 +116,9 @@ void core_callback_visualen_to_on(void)
 void core_callback_visualen_to_off(void)
 {
 	/* Clear all the enabled indicators */
-	
+	clr_LED_DETECT_TOP;
+	clr_LED_DETECT_BOTTOM;
+	clr_LED_OUT0;
 }
 
 /************************************************************************/
