@@ -90,6 +90,11 @@ void core_callback_reset_registers(void)
 	app_regs.REG_TAG_MATCH1 = 0;
 	app_regs.REG_TAG_MATCH2 = 0;
 	app_regs.REG_TAG_MATCH3 = 0;
+	app_regs.REG_TAG_MATCH0_OUT0_PERIOD = 0;
+	app_regs.REG_TAG_MATCH1_OUT0_PERIOD = 0;
+	app_regs.REG_TAG_MATCH2_OUT0_PERIOD = 0;
+	app_regs.REG_TAG_MATCH3_OUT0_PERIOD = 0;
+	app_regs.REG_TAG_ID_ARRIVED_PERIOD = 0;
 }
 
 void core_callback_registers_were_reinitialized(void)

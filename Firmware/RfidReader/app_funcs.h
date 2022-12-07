@@ -22,7 +22,7 @@
 /************************************************************************/
 void app_read_REG_TAG_ID_ARRIVED(void);
 void app_read_REG_TAG_ID_LEAVED(void);
-void app_read_REG_RESERVED0(void);
+void app_read_REG_OUT(void);
 void app_read_REG_NOTIFICATIONS(void);
 void app_read_REG_TRIGGER_NOTIFICATIONS(void);
 void app_read_REG_TIME_ON_BUZZER(void);
@@ -37,10 +37,16 @@ void app_read_REG_TAG_MATCH0(void);
 void app_read_REG_TAG_MATCH1(void);
 void app_read_REG_TAG_MATCH2(void);
 void app_read_REG_TAG_MATCH3(void);
+void app_read_REG_TAG_MATCH0_OUT0_PERIOD(void);
+void app_read_REG_TAG_MATCH1_OUT0_PERIOD(void);
+void app_read_REG_TAG_MATCH2_OUT0_PERIOD(void);
+void app_read_REG_TAG_MATCH3_OUT0_PERIOD(void);
+void app_read_REG_TAG_ID_ARRIVED_PERIOD(void);
+void app_read_REG_OUT0_PERIOD(void);
 
 bool app_write_REG_TAG_ID_ARRIVED(void *a);
 bool app_write_REG_TAG_ID_LEAVED(void *a);
-bool app_write_REG_RESERVED0(void *a);
+bool app_write_REG_OUT(void *a);
 bool app_write_REG_NOTIFICATIONS(void *a);
 bool app_write_REG_TRIGGER_NOTIFICATIONS(void *a);
 bool app_write_REG_TIME_ON_BUZZER(void *a);
@@ -55,6 +61,12 @@ bool app_write_REG_TAG_MATCH0(void *a);
 bool app_write_REG_TAG_MATCH1(void *a);
 bool app_write_REG_TAG_MATCH2(void *a);
 bool app_write_REG_TAG_MATCH3(void *a);
+bool app_write_REG_TAG_MATCH0_OUT0_PERIOD(void *a);
+bool app_write_REG_TAG_MATCH1_OUT0_PERIOD(void *a);
+bool app_write_REG_TAG_MATCH2_OUT0_PERIOD(void *a);
+bool app_write_REG_TAG_MATCH3_OUT0_PERIOD(void *a);
+bool app_write_REG_TAG_ID_ARRIVED_PERIOD(void *a);
+bool app_write_REG_OUT0_PERIOD(void *a);
 
 
 #endif /* _APP_FUNCTIONS_H_ */
