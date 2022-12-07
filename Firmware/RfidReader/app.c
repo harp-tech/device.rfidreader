@@ -80,11 +80,11 @@ void core_callback_reset_registers(void)
 {
 	/* Initialize registers */
 	app_regs.REG_NOTIFICATIONS = B_BUZZER | B_TOP_LED | B_BOTTOM_LED;
-	app_regs.REG_TIME_ON_BUZZER = 250;			// 1 second
-	app_regs.REG_TIME_ON_LED_TOP = 250;		// 1 second
-	app_regs.REG_TIME_ON_LED_BOTTOM = 250;		// 1 second
-	app_regs.REG_BUZZER_FREQUENCY = 1000;		// 1 KHz
-	app_regs.REG_LED_TOP_BLINK_PERIOD = 100;	// 100 ms
+	app_regs.REG_TIME_ON_BUZZER = 500;				// 500 ms second
+	app_regs.REG_TIME_ON_LED_TOP = 500;				// 500 ms second
+	app_regs.REG_TIME_ON_LED_BOTTOM = 500;			// 500 ms second
+	app_regs.REG_BUZZER_FREQUENCY = 1000;			// 1 KHz
+	app_regs.REG_LED_TOP_BLINK_PERIOD = 100;		// 100 ms
 	app_regs.REG_LED_BOTTOM_BLINK_PERIOD = 100;	// 100 ms
 	app_regs.REG_TAG_MATCH0 = 0;
 	app_regs.REG_TAG_MATCH1 = 0;
