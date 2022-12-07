@@ -77,15 +77,27 @@ bool app_write_REG_TAG_ID_LEAVED(void *a) {return false;}
 /************************************************************************/
 /* REG_RESERVED0                                                        */
 /************************************************************************/
-void app_read_REG_RESERVED0(void) {}
 extern uint16_t out0_timeout_ms;
 
 void app_read_REG_OUT(void) {}
 bool app_write_REG_OUT(void *a)
 {
 	uint8_t reg = *((uint8_t*)a);
-
-	app_regs.REG_RESERVED0 = reg;
+	
+	if (reg & B_OUT0)
+	{
+		set_OUT0;
+		
+		if(core_bool_is_visual_enabled())
+			set_LED_OUT0;
+	}
+	
+	if (!(reg & B_OUT0))
+	{
+		clr_OUT0;
+		clr_LED_OUT0;
+		out0_timeout_ms = 0;
+	}
 
 	app_regs.REG_OUT = reg;
 	return true;
@@ -313,6 +325,9 @@ bool app_write_REG_TAG_MATCH1_OUT0_PERIOD(void *a)
 {
 	uint16_t reg = *((uint64_t*)a);	
 	
+	if (reg == 0xFFFF)
+		reg--;	
+
 	app_regs.REG_TAG_MATCH1_OUT0_PERIOD = reg;
 	return true;
 }
@@ -325,6 +340,9 @@ void app_read_REG_TAG_MATCH2_OUT0_PERIOD(void) {}
 bool app_write_REG_TAG_MATCH2_OUT0_PERIOD(void *a)
 {
 	uint16_t reg = *((uint64_t*)a);
+	
+	if (reg == 0xFFFF)
+		reg--;
 	
 	app_regs.REG_TAG_MATCH2_OUT0_PERIOD = reg;
 	return true;
@@ -339,6 +357,9 @@ bool app_write_REG_TAG_MATCH3_OUT0_PERIOD(void *a)
 {
 	uint16_t reg = *((uint64_t*)a);
 	
+	if (reg == 0xFFFF)
+		reg--;	
+
 	app_regs.REG_TAG_MATCH3_OUT0_PERIOD = reg;
 	return true;
 }
@@ -352,6 +373,9 @@ bool app_write_REG_TAG_ID_ARRIVED_PERIOD(void *a)
 {
 	uint16_t reg = *((uint64_t*)a);
 	
+	if (reg == 0xFFFF)
+		reg--;
+	
 	app_regs.REG_TAG_ID_ARRIVED_PERIOD = reg;
 	return true;
 }
@@ -364,6 +388,11 @@ void app_read_REG_OUT0_PERIOD(void) {}
 bool app_write_REG_OUT0_PERIOD(void *a)
 {
 	uint16_t reg = *((uint64_t*)a);
+	
+	if (reg == 0xFFFF)
+		reg--;
+		
+	out0_timeout_ms = reg;
 
 	app_regs.REG_OUT0_PERIOD = reg;
 	return true;

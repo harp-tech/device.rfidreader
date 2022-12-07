@@ -125,6 +125,8 @@ void core_callback_visualen_to_off(void)
 uint8_t rxbuff_pointer = 0;
 extern uint8_t rxbuff_uart0[];
 
+uint16_t out0_timeout_ms = 0;
+
 /*
 [02]000C845A994B
 [03][02]000C845A994B
@@ -235,6 +237,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
 					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
+					out0_timeout_ms = app_regs.REG_TAG_MATCH0_OUT0_PERIOD;
 					return;				
 				}
 				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH1)
@@ -242,6 +245,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
 					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
+					out0_timeout_ms = app_regs.REG_TAG_MATCH1_OUT0_PERIOD;
 					return;
 				}
 				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH2)
@@ -249,6 +253,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
 					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
+					out0_timeout_ms = app_regs.REG_TAG_MATCH2_OUT0_PERIOD;
 					return;
 				}
 				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH3)
@@ -256,6 +261,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
 					id_event_was_sent = true;
 					notify(app_regs.REG_NOTIFICATIONS);
+					out0_timeout_ms = app_regs.REG_TAG_MATCH3_OUT0_PERIOD;
 					return;
 				}
 			}
@@ -263,6 +269,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 			{
 				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
 				id_event_was_sent = true;
+				out0_timeout_ms = app_regs.REG_TAG_ID_ARRIVED_PERIOD;
 				notify(app_regs.REG_NOTIFICATIONS);
 			}
 		}
@@ -288,6 +295,35 @@ void core_callback_t_new_second(void) {}
 void core_callback_t_500us(void) {}
 void core_callback_t_1ms(void)
 {
+	if (out0_timeout_ms)
+	{
+		if (!read_OUT0)
+		{
+			out0_timeout_ms++;
+			
+			set_OUT0;
+			if (core_bool_is_visual_enabled())
+			set_LED_OUT0;
+			
+			app_regs.REG_OUT = B_OUT0;
+			core_func_send_event(ADD_REG_OUT, true);
+		}
+		
+		out0_timeout_ms--;
+		
+		if (out0_timeout_ms == 0)
+		{
+			if (read_OUT0)
+			{
+				clr_OUT0;
+				clr_LED_OUT0;
+				
+				app_regs.REG_OUT = 0;
+				core_func_send_event(ADD_REG_OUT, true);
+			}
+		}
+	}
+	
 	if (buzzer_time_on)
 	{
 		if (--buzzer_time_on == 0)

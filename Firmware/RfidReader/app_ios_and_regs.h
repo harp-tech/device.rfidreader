@@ -16,6 +16,8 @@ void init_ios(void);
 // BUZZER                 Description: Buzzer control
 // LED_DETECT_TOP         Description: Detect notification LED on top
 // LED_DETECT_BOTTOM      Description: Detect notification LED on bottom
+// OUT0                   Description: Digital output OUT0
+// LED_OUT0               Description: Notification of digital output OUT0
 
 /* BUZZER */
 #define set_BUZZER set_io(PORTD, 0)
@@ -35,6 +37,18 @@ void init_ios(void);
 #define tgl_LED_DETECT_BOTTOM toggle_io(PORTC, 1)
 #define read_LED_DETECT_BOTTOM read_io(PORTC, 1)
 
+/* OUT0 */
+#define set_OUT0 set_io(PORTD, 7)
+#define clr_OUT0 clear_io(PORTD, 7)
+#define tgl_OUT0 toggle_io(PORTD, 7)
+#define read_OUT0 read_io(PORTD, 7)
+
+/* LED_OUT0 */
+#define set_LED_OUT0 set_io(PORTD, 6)
+#define clr_LED_OUT0 clear_io(PORTD, 6)
+#define tgl_LED_OUT0 toggle_io(PORTD, 6)
+#define read_LED_OUT0 read_io(PORTD, 6)
+
 
 /************************************************************************/
 /* Registers' structure                                                 */
@@ -43,7 +57,7 @@ typedef struct
 {
 	uint64_t REG_TAG_ID_ARRIVED;
 	uint64_t REG_TAG_ID_LEAVED;
-	uint8_t REG_RESERVED0;
+	uint8_t REG_OUT;
 	uint8_t REG_NOTIFICATIONS;
 	uint8_t REG_TRIGGER_NOTIFICATIONS;
 	uint16_t REG_TIME_ON_BUZZER;
@@ -58,6 +72,12 @@ typedef struct
 	uint64_t REG_TAG_MATCH1;
 	uint64_t REG_TAG_MATCH2;
 	uint64_t REG_TAG_MATCH3;
+	uint16_t REG_TAG_MATCH0_OUT0_PERIOD;
+	uint16_t REG_TAG_MATCH1_OUT0_PERIOD;
+	uint16_t REG_TAG_MATCH2_OUT0_PERIOD;
+	uint16_t REG_TAG_MATCH3_OUT0_PERIOD;
+	uint16_t REG_TAG_ID_ARRIVED_PERIOD;
+	uint16_t REG_OUT0_PERIOD;
 } AppRegs;
 
 /************************************************************************/
@@ -66,7 +86,7 @@ typedef struct
 /* Registers */
 #define ADD_REG_TAG_ID_ARRIVED              32 // U64    Tag unique number was detected
 #define ADD_REG_TAG_ID_LEAVED               33 // U64    Tag unique number left the antenna coverage area
-#define ADD_REG_RESERVED0                   34 // U8     Reserved
+#define ADD_REG_OUT                         34 // U8     Writes to digital outputs
 #define ADD_REG_NOTIFICATIONS               35 // U8     Enable the available notifications
 #define ADD_REG_TRIGGER_NOTIFICATIONS       36 // U8     Trigger the correspondent notifications
 #define ADD_REG_TIME_ON_BUZZER              37 // U16    Time the buzzer will be ON in milliseconds (minimum is 2) (sensitive to multiples of 2)
@@ -81,6 +101,12 @@ typedef struct
 #define ADD_REG_TAG_MATCH1                  46 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
 #define ADD_REG_TAG_MATCH2                  47 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
 #define ADD_REG_TAG_MATCH3                  48 // U64    Notifies and sends TAG_ID event if the readed tag matches. Equal to 0 if not used.
+#define ADD_REG_TAG_MATCH0_OUT0_PERIOD      49 // U16    Defines the amount of time in ms that the digital output OUT0 will be at logic high when TAG_ID0 is detected
+#define ADD_REG_TAG_MATCH1_OUT0_PERIOD      50 // U16    Defines the amount of time in ms that the digital output OUT0 will be at logic high when TAG_ID1 is detected
+#define ADD_REG_TAG_MATCH2_OUT0_PERIOD      51 // U16    Defines the amount of time in ms that the digital output OUT0 will be at logic high when TAG_ID2 is detected
+#define ADD_REG_TAG_MATCH3_OUT0_PERIOD      52 // U16    Defines the amount of time in ms that the digital output OUT0 will be at logic high when TAG_ID3 is detected
+#define ADD_REG_TAG_ID_ARRIVED_PERIOD       53 // U16    When a tag is detected, OUT0 will be at high level for this amount of time in ms
+#define ADD_REG_OUT0_PERIOD                 54 // U16    When writing to this register, the OUT0 will be on for this amount of time in ms
 
 /************************************************************************/
 /* PWM Generator registers' memory limits                               */
@@ -90,12 +116,13 @@ typedef struct
 /************************************************************************/
 /* Memory limits */
 #define APP_REGS_ADD_MIN                    0x20
-#define APP_REGS_ADD_MAX                    0x30
-#define APP_NBYTES_OF_REG_BANK              61
+#define APP_REGS_ADD_MAX                    0x36
+#define APP_NBYTES_OF_REG_BANK              77
 
 /************************************************************************/
 /* Registers' bits                                                      */
 /************************************************************************/
+#define B_OUT0                             (1<<0)       // Digital output 0
 #define B_BUZZER                           (1<<0)       // Enables notification on buzzer
 #define B_TOP_LED                          (1<<0)       // Enables notification on top's LED
 #define B_BOTTOM_LED                       (1<<0)       // Enables notification on bottom's LED
