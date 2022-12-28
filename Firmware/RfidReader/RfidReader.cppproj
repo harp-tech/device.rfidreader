@@ -164,7 +164,7 @@
   <avrgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
-      <Value>libATxmega32A4U-1.9.a</Value>
+      <Value>libATxmega32A4U-1.12.a</Value>
     </ListValues>
   </avrgcccpp.linker.libraries.Libraries>
   <avrgcccpp.linker.libraries.LibrarySearchPaths>

@@ -41,7 +41,10 @@ void hwbp_app_initialize(void)
         (uint8_t*)(&app_regs),
         APP_NBYTES_OF_REG_BANK,
         APP_REGS_ADD_MAX - APP_REGS_ADD_MIN + 1,
-        default_device_name
+        default_device_name,
+        false,	// The device is not able to repeat the harp timestamp clock
+        false,	// The device is not able to generate the harp timestamp clock
+        3		// Default timestamp offset
     );
 }
 
@@ -65,7 +68,12 @@ void core_callback_catastrophic_error_detected(void)
 /************************************************************************/
 /* Initialization Callbacks                                             */
 /************************************************************************/
-void core_callback_1st_config_hw_after_boot(void)
+void core_callback_define_clock_default(void)
+{
+	/* Device don't have clock input or output */
+}
+
+void core_callback_initialize_hardware(void)
 {
 	/* Initialize IOs */
 	/* Don't delete this function!!! */
@@ -362,6 +370,14 @@ void core_callback_t_1ms(void)
 		}
 	}
 }
+
+/************************************************************************/
+/* Callbacks: clock control                                             */
+/************************************************************************/
+void core_callback_clock_to_repeater(void) {}
+void core_callback_clock_to_generator(void) {}
+void core_callback_clock_to_unlock(void) {}
+void core_callback_clock_to_lock(void) {}
 
 /************************************************************************/
 /* Callbacks: uart control                                              */
