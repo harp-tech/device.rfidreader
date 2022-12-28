@@ -1,5 +1,3 @@
-# Harp RFID reader
-
 ## Licensing
 
 The designs, documentation, and photos available in this repository are free: you can redistribute it and/or modify it under the terms of the used license.
