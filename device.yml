@@ -1,0 +1,127 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/harp-tech/reflex-generator/main/schema/device.json
+device: Rfid
+whoAmI: 2094
+firmwareVersion: "0.2"
+hardwareTargets: "1.2"
+registers:
+  InboundDetectionId: &detectionevent
+    address: 32
+    type: U64
+    access: Event
+    description: The ID of the tag that was detected as in entered the area of the reader.
+  OutboundDetectionId:
+    << : *detectionevent
+    address: 33
+    description: The ID of the tag that was detected as in exited the area of the reader.
+  DO0State:
+    address: 34
+    type: U8
+    access: [Write, Event]
+    maskType: DigitalOutputState
+    description: Changes the state of the digital output pin.
+  EnableHardwareNotifications:
+    address: 35
+    type: U8
+    access: Write
+    maskType: HardwareNotifications
+    description: Enables or disables hardware notifications.
+  TriggerHardwareNotifications:
+    address: 36
+    type: U8
+    access: Write
+    maskType: HardwareNotifications
+    description: Triggers hardware notifications.
+  BuzzerNotificationDuration: &notificationduration
+    address: 37
+    type: U16
+    access: Write
+    minValue: 2
+    description: The time the buzzer will stay on (sensitive to multiples of 2).
+  TopLedNotificationDuration:
+    << : *notificationduration
+    address: 38
+    description: The time the top LED will stay on (sensitive to multiples of 2).
+  BottomLedNotificationDuration:
+    << : *notificationduration
+    address: 39
+    description: The time the bottom LED will stay on (sensitive to multiples of 2).
+  BuzzerNotificationFrequency:
+    address: 40
+    type: U16
+    access: Write
+    minValue: 200
+    maxValue: 15000
+    description: The frequency of the buzzer notification.
+  TopLedNotificationPeriod: &notificationblinkperiod
+    address: 41
+    type: U16
+    access: Write
+    minValue: 2
+    description: The blink period of the top LED notification (sensitive to multiples of 2).
+  BottomLedNotificationPeriod:
+    << : *notificationblinkperiod
+    address: 42
+    description: The blink period of the bottom LED notification (sensitive to multiples of 2).
+  Reserved0: &reserved
+    address: 43
+    type: U8
+    access: Read
+    visibility: private
+    description: Reserved for future use.
+  Reserved1:
+    << : *reserved
+    address: 44
+    description: Reserved for future use.
+  MatchTagId0: &matchtagid #TODO not sure what event this triggers...
+    address: 45
+    type: U64
+    access: Write
+    defaultValue: 0
+    description: Sends a notification when the tag with the specified ID is detected.
+  MatchTagId1:
+    << : *matchtagid
+    address: 46
+  MatchTagId2:
+    << : *matchtagid
+    address: 47
+  MatchTagId3:
+    << : *matchtagid
+    address: 48
+  MatchTagId0PulseDuration: &matchidduration
+    address: 49
+    type: U16
+    access: Write
+    description: The time the digital output pin will stay on (ms) if the corresponding tag is detected.
+  MatchTagId1PulseDuration:
+    << : *matchidduration
+    address: 50
+  MatchTagId2PulseDuration:
+    << : *matchidduration
+    address: 51
+  MatchTagId3PulseDuration:
+    << : *matchidduration
+    address: 52
+  AnyTagIdPulseDuration:
+    << : *matchidduration
+    address: 53
+    description: The time the digital output pin will stay on (ms) if any tag is detected.
+  PulseDO0Duration:
+    address: 54
+    type: U16
+    access: Write
+    description: Triggers the digital output pin for the specified duration (ms).
+bitMasks:
+  HardwareNotifications: #TODO SOMETHING IS WRONG HERE
+    description: The available hardware notifications.
+    bits:
+      Buzzer: 0x1
+      TopLed: 0x1
+      BottomLed: 0x1
+groupMasks:
+  DigitalOutputState:
+    description: The state of the digital output pin.
+    values:
+      Low: 0
+      High: 1
