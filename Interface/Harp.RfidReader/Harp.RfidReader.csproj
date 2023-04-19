@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Title>Harp.Rfid</Title>
+    <Title>Harp.RfidReader</Title>
     <Authors></Authors>
     <Copyright>Copyright ©  2023</Copyright>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
-    <Description>Bonsai Library containing interfaces for data acquisition and control of Harp.Rfid devices.</Description>
+    <Description>Bonsai Library containing interfaces for data acquisition and control of Harp.RfidReader devices.</Description>
     <GenerateDocumentationFile Condition="'$(Configuration)'=='Release'">true</GenerateDocumentationFile>
-    <PackageTags>Harp Rfid Bonsai Rx</PackageTags>
+    <PackageTags>Harp RfidReader Bonsai Rx</PackageTags>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageIcon></PackageIcon>

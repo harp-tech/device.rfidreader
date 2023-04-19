@@ -1,14 +1,14 @@
 using Bonsai.Harp;
 using System.Threading.Tasks;
 
-namespace Harp.Rfid
+namespace Harp.RfidReader
 {
     /// <inheritdoc/>
     public partial class Device
     {
         /// <summary>
         /// Initializes a new instance of the asynchronous API to configure and interface
-        /// with Rfid devices on the specified serial port.
+        /// with RfidReader devices on the specified serial port.
         /// </summary>
         /// <param name="portName">
         /// The name of the serial port used to communicate with the Harp device.
@@ -25,7 +25,7 @@ namespace Harp.Rfid
             if (whoAmI != Device.WhoAmI)
             {
                 var errorMessage = string.Format(
-                    "The device ID {1} on {0} was unexpected. Check whether a Rfid device is connected to the specified serial port.",
+                    "The device ID {1} on {0} was unexpected. Check whether a RfidReader device is connected to the specified serial port.",
                     portName, whoAmI);
                 throw new HarpException(errorMessage);
             }
@@ -35,7 +35,7 @@ namespace Harp.Rfid
     }
 
     /// <summary>
-    /// Represents an asynchronous API to configure and interface with Rfid devices.
+    /// Represents an asynchronous API to configure and interface with RfidReader devices.
     /// </summary>
     public partial class AsyncDevice : Bonsai.Harp.AsyncDevice
     {

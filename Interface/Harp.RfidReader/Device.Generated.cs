@@ -7,19 +7,19 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Xml.Serialization;
 
-namespace Harp.Rfid
+namespace Harp.RfidReader
 {
     /// <summary>
-    /// Generates events and processes commands for the Rfid device connected
+    /// Generates events and processes commands for the RfidReader device connected
     /// at the specified serial port.
     /// </summary>
     [Combinator(MethodName = nameof(Generate))]
     [WorkflowElementCategory(ElementCategory.Source)]
-    [Description("Generates events and processes commands for the Rfid device.")]
+    [Description("Generates events and processes commands for the RfidReader device.")]
     public partial class Device : Bonsai.Harp.Device, INamedElement
     {
         /// <summary>
-        /// Represents the unique identity class of the <see cref="Rfid"/> device.
+        /// Represents the unique identity class of the <see cref="RfidReader"/> device.
         /// This field is constant.
         /// </summary>
         public const int WhoAmI = 2094;
@@ -29,7 +29,7 @@ namespace Harp.Rfid
         /// </summary>
         public Device() : base(WhoAmI) { }
 
-        string INamedElement.Name => nameof(Rfid);
+        string INamedElement.Name => nameof(RfidReader);
 
         /// <summary>
         /// Gets a read-only mapping from address to register type.
@@ -62,19 +62,19 @@ namespace Harp.Rfid
     }
 
     /// <summary>
-    /// Represents an operator that groups the sequence of <see cref="Rfid"/>" messages by register type.
+    /// Represents an operator that groups the sequence of <see cref="RfidReader"/>" messages by register type.
     /// </summary>
-    [Description("Groups the sequence of Rfid messages by register type.")]
+    [Description("Groups the sequence of RfidReader messages by register type.")]
     public partial class GroupByRegister : Combinator<HarpMessage, IGroupedObservable<Type, HarpMessage>>
     {
         /// <summary>
-        /// Groups an observable sequence of <see cref="Rfid"/> messages
+        /// Groups an observable sequence of <see cref="RfidReader"/> messages
         /// by register type.
         /// </summary>
         /// <param name="source">The sequence of Harp device messages.</param>
         /// <returns>
         /// A sequence of observable groups, each of which corresponds to a unique
-        /// <see cref="Rfid"/> register.
+        /// <see cref="RfidReader"/> register.
         /// </returns>
         public override IObservable<IGroupedObservable<Type, HarpMessage>> Process(IObservable<HarpMessage> source)
         {
@@ -84,7 +84,7 @@ namespace Harp.Rfid
 
     /// <summary>
     /// Represents an operator that filters register-specific messages
-    /// reported by the <see cref="Rfid"/> device.
+    /// reported by the <see cref="RfidReader"/> device.
     /// </summary>
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
@@ -128,7 +128,7 @@ namespace Harp.Rfid
     [XmlInclude(typeof(MatchTagId3PulseDuration))]
     [XmlInclude(typeof(AnyTagIdPulseDuration))]
     [XmlInclude(typeof(PulseDO0Duration))]
-    [Description("Filters register-specific messages reported by the Rfid device.")]
+    [Description("Filters register-specific messages reported by the RfidReader device.")]
     public class FilterMessage : FilterMessageBuilder, INamedElement
     {
         /// <summary>
@@ -141,13 +141,13 @@ namespace Harp.Rfid
 
         string INamedElement.Name
         {
-            get => $"{nameof(Rfid)}.{GetElementDisplayName(Register)}";
+            get => $"{nameof(RfidReader)}.{GetElementDisplayName(Register)}";
         }
     }
 
     /// <summary>
     /// Represents an operator which filters and selects specific messages
-    /// reported by the Rfid device.
+    /// reported by the RfidReader device.
     /// </summary>
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
@@ -212,7 +212,7 @@ namespace Harp.Rfid
     [XmlInclude(typeof(TimestampedMatchTagId3PulseDuration))]
     [XmlInclude(typeof(TimestampedAnyTagIdPulseDuration))]
     [XmlInclude(typeof(TimestampedPulseDO0Duration))]
-    [Description("Filters and selects specific messages reported by the Rfid device.")]
+    [Description("Filters and selects specific messages reported by the RfidReader device.")]
     public partial class Parse : ParseBuilder, INamedElement
     {
         /// <summary>
@@ -223,12 +223,12 @@ namespace Harp.Rfid
             Register = new InboundDetectionId();
         }
 
-        string INamedElement.Name => $"{nameof(Rfid)}.{GetElementDisplayName(Register)}";
+        string INamedElement.Name => $"{nameof(RfidReader)}.{GetElementDisplayName(Register)}";
     }
 
     /// <summary>
     /// Represents an operator which formats a sequence of values as specific
-    /// Rfid register messages.
+    /// RfidReader register messages.
     /// </summary>
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
@@ -272,7 +272,7 @@ namespace Harp.Rfid
     [XmlInclude(typeof(MatchTagId3PulseDuration))]
     [XmlInclude(typeof(AnyTagIdPulseDuration))]
     [XmlInclude(typeof(PulseDO0Duration))]
-    [Description("Formats a sequence of values as specific Rfid register messages.")]
+    [Description("Formats a sequence of values as specific RfidReader register messages.")]
     public partial class Format : FormatBuilder, INamedElement
     {
         /// <summary>
@@ -283,7 +283,7 @@ namespace Harp.Rfid
             Register = new InboundDetectionId();
         }
 
-        string INamedElement.Name => $"{nameof(Rfid)}.{GetElementDisplayName(Register)}";
+        string INamedElement.Name => $"{nameof(RfidReader)}.{GetElementDisplayName(Register)}";
     }
 
     /// <summary>
@@ -2307,7 +2307,7 @@ namespace Harp.Rfid
 
     /// <summary>
     /// Represents an operator which creates standard message payloads for the
-    /// Rfid device.
+    /// RfidReader device.
     /// </summary>
     /// <seealso cref="CreateInboundDetectionIdPayload"/>
     /// <seealso cref="CreateOutboundDetectionIdPayload"/>
@@ -2351,7 +2351,7 @@ namespace Harp.Rfid
     [XmlInclude(typeof(CreateMatchTagId3PulseDurationPayload))]
     [XmlInclude(typeof(CreateAnyTagIdPulseDurationPayload))]
     [XmlInclude(typeof(CreatePulseDO0DurationPayload))]
-    [Description("Creates standard message payloads for the Rfid device.")]
+    [Description("Creates standard message payloads for the RfidReader device.")]
     public partial class CreateMessage : CreateMessageBuilder, INamedElement
     {
         /// <summary>
@@ -2362,7 +2362,7 @@ namespace Harp.Rfid
             Payload = new CreateInboundDetectionIdPayload();
         }
 
-        string INamedElement.Name => $"{nameof(Rfid)}.{GetElementDisplayName(Payload)}";
+        string INamedElement.Name => $"{nameof(RfidReader)}.{GetElementDisplayName(Payload)}";
     }
 
     /// <summary>
