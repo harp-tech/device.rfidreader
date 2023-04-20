@@ -89,25 +89,25 @@ registers:
   MatchTagId3:
     << : *matchtagid
     address: 48
-  MatchTagId0PulseDuration: &matchidduration
+  MatchTagId0PulseWidth: &matchidwidth
     address: 49
     type: U16
     access: Write
     description: The time the digital output pin will stay on (ms) if the corresponding tag is detected.
-  MatchTagId1PulseDuration:
-    << : *matchidduration
+  MatchTagId1PulseWidth:
+    << : *matchidwidth
     address: 50
-  MatchTagId2PulseDuration:
-    << : *matchidduration
+  MatchTagId2PulseWidth:
+    << : *matchidwidth
     address: 51
-  MatchTagId3PulseDuration:
-    << : *matchidduration
+  MatchTagId3PulseWidth:
+    << : *matchidwidth
     address: 52
-  AnyTagIdPulseDuration:
-    << : *matchidduration
+  AnyTagIdPulseWidth:
+    << : *matchidwidth
     address: 53
     description: The time the digital output pin will stay on (ms) if any tag is detected.
-  PulseDO0Duration:
+  DO0PulseWidth:
     address: 54
     type: U16
     access: Write

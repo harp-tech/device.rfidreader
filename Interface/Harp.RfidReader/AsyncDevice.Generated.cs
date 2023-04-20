@@ -578,224 +578,224 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the MatchTagId0PulseDuration register.
+        /// Asynchronously reads the contents of the MatchTagId0PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadMatchTagId0PulseDurationAsync()
+        public async Task<ushort> ReadMatchTagId0PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId0PulseDuration.Address));
-            return MatchTagId0PulseDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId0PulseWidth.Address));
+            return MatchTagId0PulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the MatchTagId0PulseDuration register.
+        /// Asynchronously reads the timestamped contents of the MatchTagId0PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId0PulseDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId0PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId0PulseDuration.Address));
-            return MatchTagId0PulseDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId0PulseWidth.Address));
+            return MatchTagId0PulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the MatchTagId0PulseDuration register.
+        /// Asynchronously writes a value to the MatchTagId0PulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteMatchTagId0PulseDurationAsync(ushort value)
+        public async Task WriteMatchTagId0PulseWidthAsync(ushort value)
         {
-            var request = MatchTagId0PulseDuration.FromPayload(MessageType.Write, value);
+            var request = MatchTagId0PulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the MatchTagId1PulseDuration register.
+        /// Asynchronously reads the contents of the MatchTagId1PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadMatchTagId1PulseDurationAsync()
+        public async Task<ushort> ReadMatchTagId1PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId1PulseDuration.Address));
-            return MatchTagId1PulseDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId1PulseWidth.Address));
+            return MatchTagId1PulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the MatchTagId1PulseDuration register.
+        /// Asynchronously reads the timestamped contents of the MatchTagId1PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId1PulseDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId1PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId1PulseDuration.Address));
-            return MatchTagId1PulseDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId1PulseWidth.Address));
+            return MatchTagId1PulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the MatchTagId1PulseDuration register.
+        /// Asynchronously writes a value to the MatchTagId1PulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteMatchTagId1PulseDurationAsync(ushort value)
+        public async Task WriteMatchTagId1PulseWidthAsync(ushort value)
         {
-            var request = MatchTagId1PulseDuration.FromPayload(MessageType.Write, value);
+            var request = MatchTagId1PulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the MatchTagId2PulseDuration register.
+        /// Asynchronously reads the contents of the MatchTagId2PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadMatchTagId2PulseDurationAsync()
+        public async Task<ushort> ReadMatchTagId2PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId2PulseDuration.Address));
-            return MatchTagId2PulseDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId2PulseWidth.Address));
+            return MatchTagId2PulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the MatchTagId2PulseDuration register.
+        /// Asynchronously reads the timestamped contents of the MatchTagId2PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId2PulseDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId2PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId2PulseDuration.Address));
-            return MatchTagId2PulseDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId2PulseWidth.Address));
+            return MatchTagId2PulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the MatchTagId2PulseDuration register.
+        /// Asynchronously writes a value to the MatchTagId2PulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteMatchTagId2PulseDurationAsync(ushort value)
+        public async Task WriteMatchTagId2PulseWidthAsync(ushort value)
         {
-            var request = MatchTagId2PulseDuration.FromPayload(MessageType.Write, value);
+            var request = MatchTagId2PulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the MatchTagId3PulseDuration register.
+        /// Asynchronously reads the contents of the MatchTagId3PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadMatchTagId3PulseDurationAsync()
+        public async Task<ushort> ReadMatchTagId3PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId3PulseDuration.Address));
-            return MatchTagId3PulseDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId3PulseWidth.Address));
+            return MatchTagId3PulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the MatchTagId3PulseDuration register.
+        /// Asynchronously reads the timestamped contents of the MatchTagId3PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId3PulseDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedMatchTagId3PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId3PulseDuration.Address));
-            return MatchTagId3PulseDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(MatchTagId3PulseWidth.Address));
+            return MatchTagId3PulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the MatchTagId3PulseDuration register.
+        /// Asynchronously writes a value to the MatchTagId3PulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteMatchTagId3PulseDurationAsync(ushort value)
+        public async Task WriteMatchTagId3PulseWidthAsync(ushort value)
         {
-            var request = MatchTagId3PulseDuration.FromPayload(MessageType.Write, value);
+            var request = MatchTagId3PulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the AnyTagIdPulseDuration register.
+        /// Asynchronously reads the contents of the AnyTagIdPulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadAnyTagIdPulseDurationAsync()
+        public async Task<ushort> ReadAnyTagIdPulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(AnyTagIdPulseDuration.Address));
-            return AnyTagIdPulseDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(AnyTagIdPulseWidth.Address));
+            return AnyTagIdPulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the AnyTagIdPulseDuration register.
+        /// Asynchronously reads the timestamped contents of the AnyTagIdPulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedAnyTagIdPulseDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedAnyTagIdPulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(AnyTagIdPulseDuration.Address));
-            return AnyTagIdPulseDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(AnyTagIdPulseWidth.Address));
+            return AnyTagIdPulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the AnyTagIdPulseDuration register.
+        /// Asynchronously writes a value to the AnyTagIdPulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteAnyTagIdPulseDurationAsync(ushort value)
+        public async Task WriteAnyTagIdPulseWidthAsync(ushort value)
         {
-            var request = AnyTagIdPulseDuration.FromPayload(MessageType.Write, value);
+            var request = AnyTagIdPulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the PulseDO0Duration register.
+        /// Asynchronously reads the contents of the DO0PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadPulseDO0DurationAsync()
+        public async Task<ushort> ReadDO0PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(PulseDO0Duration.Address));
-            return PulseDO0Duration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(DO0PulseWidth.Address));
+            return DO0PulseWidth.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the PulseDO0Duration register.
+        /// Asynchronously reads the timestamped contents of the DO0PulseWidth register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedPulseDO0DurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedDO0PulseWidthAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(PulseDO0Duration.Address));
-            return PulseDO0Duration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(DO0PulseWidth.Address));
+            return DO0PulseWidth.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the PulseDO0Duration register.
+        /// Asynchronously writes a value to the DO0PulseWidth register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WritePulseDO0DurationAsync(ushort value)
+        public async Task WriteDO0PulseWidthAsync(ushort value)
         {
-            var request = PulseDO0Duration.FromPayload(MessageType.Write, value);
+            var request = DO0PulseWidth.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
     }

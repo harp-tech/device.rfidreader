@@ -52,12 +52,12 @@ namespace Harp.RfidReader
             { 46, typeof(MatchTagId1) },
             { 47, typeof(MatchTagId2) },
             { 48, typeof(MatchTagId3) },
-            { 49, typeof(MatchTagId0PulseDuration) },
-            { 50, typeof(MatchTagId1PulseDuration) },
-            { 51, typeof(MatchTagId2PulseDuration) },
-            { 52, typeof(MatchTagId3PulseDuration) },
-            { 53, typeof(AnyTagIdPulseDuration) },
-            { 54, typeof(PulseDO0Duration) }
+            { 49, typeof(MatchTagId0PulseWidth) },
+            { 50, typeof(MatchTagId1PulseWidth) },
+            { 51, typeof(MatchTagId2PulseWidth) },
+            { 52, typeof(MatchTagId3PulseWidth) },
+            { 53, typeof(AnyTagIdPulseWidth) },
+            { 54, typeof(DO0PulseWidth) }
         };
     }
 
@@ -101,12 +101,12 @@ namespace Harp.RfidReader
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
     /// <seealso cref="MatchTagId3"/>
-    /// <seealso cref="MatchTagId0PulseDuration"/>
-    /// <seealso cref="MatchTagId1PulseDuration"/>
-    /// <seealso cref="MatchTagId2PulseDuration"/>
-    /// <seealso cref="MatchTagId3PulseDuration"/>
-    /// <seealso cref="AnyTagIdPulseDuration"/>
-    /// <seealso cref="PulseDO0Duration"/>
+    /// <seealso cref="MatchTagId0PulseWidth"/>
+    /// <seealso cref="MatchTagId1PulseWidth"/>
+    /// <seealso cref="MatchTagId2PulseWidth"/>
+    /// <seealso cref="MatchTagId3PulseWidth"/>
+    /// <seealso cref="AnyTagIdPulseWidth"/>
+    /// <seealso cref="DO0PulseWidth"/>
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
@@ -122,12 +122,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
     [XmlInclude(typeof(MatchTagId3))]
-    [XmlInclude(typeof(MatchTagId0PulseDuration))]
-    [XmlInclude(typeof(MatchTagId1PulseDuration))]
-    [XmlInclude(typeof(MatchTagId2PulseDuration))]
-    [XmlInclude(typeof(MatchTagId3PulseDuration))]
-    [XmlInclude(typeof(AnyTagIdPulseDuration))]
-    [XmlInclude(typeof(PulseDO0Duration))]
+    [XmlInclude(typeof(MatchTagId0PulseWidth))]
+    [XmlInclude(typeof(MatchTagId1PulseWidth))]
+    [XmlInclude(typeof(MatchTagId2PulseWidth))]
+    [XmlInclude(typeof(MatchTagId3PulseWidth))]
+    [XmlInclude(typeof(AnyTagIdPulseWidth))]
+    [XmlInclude(typeof(DO0PulseWidth))]
     [Description("Filters register-specific messages reported by the RfidReader device.")]
     public class FilterMessage : FilterMessageBuilder, INamedElement
     {
@@ -164,12 +164,12 @@ namespace Harp.RfidReader
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
     /// <seealso cref="MatchTagId3"/>
-    /// <seealso cref="MatchTagId0PulseDuration"/>
-    /// <seealso cref="MatchTagId1PulseDuration"/>
-    /// <seealso cref="MatchTagId2PulseDuration"/>
-    /// <seealso cref="MatchTagId3PulseDuration"/>
-    /// <seealso cref="AnyTagIdPulseDuration"/>
-    /// <seealso cref="PulseDO0Duration"/>
+    /// <seealso cref="MatchTagId0PulseWidth"/>
+    /// <seealso cref="MatchTagId1PulseWidth"/>
+    /// <seealso cref="MatchTagId2PulseWidth"/>
+    /// <seealso cref="MatchTagId3PulseWidth"/>
+    /// <seealso cref="AnyTagIdPulseWidth"/>
+    /// <seealso cref="DO0PulseWidth"/>
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
@@ -185,12 +185,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
     [XmlInclude(typeof(MatchTagId3))]
-    [XmlInclude(typeof(MatchTagId0PulseDuration))]
-    [XmlInclude(typeof(MatchTagId1PulseDuration))]
-    [XmlInclude(typeof(MatchTagId2PulseDuration))]
-    [XmlInclude(typeof(MatchTagId3PulseDuration))]
-    [XmlInclude(typeof(AnyTagIdPulseDuration))]
-    [XmlInclude(typeof(PulseDO0Duration))]
+    [XmlInclude(typeof(MatchTagId0PulseWidth))]
+    [XmlInclude(typeof(MatchTagId1PulseWidth))]
+    [XmlInclude(typeof(MatchTagId2PulseWidth))]
+    [XmlInclude(typeof(MatchTagId3PulseWidth))]
+    [XmlInclude(typeof(AnyTagIdPulseWidth))]
+    [XmlInclude(typeof(DO0PulseWidth))]
     [XmlInclude(typeof(TimestampedInboundDetectionId))]
     [XmlInclude(typeof(TimestampedOutboundDetectionId))]
     [XmlInclude(typeof(TimestampedDO0State))]
@@ -206,12 +206,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(TimestampedMatchTagId1))]
     [XmlInclude(typeof(TimestampedMatchTagId2))]
     [XmlInclude(typeof(TimestampedMatchTagId3))]
-    [XmlInclude(typeof(TimestampedMatchTagId0PulseDuration))]
-    [XmlInclude(typeof(TimestampedMatchTagId1PulseDuration))]
-    [XmlInclude(typeof(TimestampedMatchTagId2PulseDuration))]
-    [XmlInclude(typeof(TimestampedMatchTagId3PulseDuration))]
-    [XmlInclude(typeof(TimestampedAnyTagIdPulseDuration))]
-    [XmlInclude(typeof(TimestampedPulseDO0Duration))]
+    [XmlInclude(typeof(TimestampedMatchTagId0PulseWidth))]
+    [XmlInclude(typeof(TimestampedMatchTagId1PulseWidth))]
+    [XmlInclude(typeof(TimestampedMatchTagId2PulseWidth))]
+    [XmlInclude(typeof(TimestampedMatchTagId3PulseWidth))]
+    [XmlInclude(typeof(TimestampedAnyTagIdPulseWidth))]
+    [XmlInclude(typeof(TimestampedDO0PulseWidth))]
     [Description("Filters and selects specific messages reported by the RfidReader device.")]
     public partial class Parse : ParseBuilder, INamedElement
     {
@@ -245,12 +245,12 @@ namespace Harp.RfidReader
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
     /// <seealso cref="MatchTagId3"/>
-    /// <seealso cref="MatchTagId0PulseDuration"/>
-    /// <seealso cref="MatchTagId1PulseDuration"/>
-    /// <seealso cref="MatchTagId2PulseDuration"/>
-    /// <seealso cref="MatchTagId3PulseDuration"/>
-    /// <seealso cref="AnyTagIdPulseDuration"/>
-    /// <seealso cref="PulseDO0Duration"/>
+    /// <seealso cref="MatchTagId0PulseWidth"/>
+    /// <seealso cref="MatchTagId1PulseWidth"/>
+    /// <seealso cref="MatchTagId2PulseWidth"/>
+    /// <seealso cref="MatchTagId3PulseWidth"/>
+    /// <seealso cref="AnyTagIdPulseWidth"/>
+    /// <seealso cref="DO0PulseWidth"/>
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
@@ -266,12 +266,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
     [XmlInclude(typeof(MatchTagId3))]
-    [XmlInclude(typeof(MatchTagId0PulseDuration))]
-    [XmlInclude(typeof(MatchTagId1PulseDuration))]
-    [XmlInclude(typeof(MatchTagId2PulseDuration))]
-    [XmlInclude(typeof(MatchTagId3PulseDuration))]
-    [XmlInclude(typeof(AnyTagIdPulseDuration))]
-    [XmlInclude(typeof(PulseDO0Duration))]
+    [XmlInclude(typeof(MatchTagId0PulseWidth))]
+    [XmlInclude(typeof(MatchTagId1PulseWidth))]
+    [XmlInclude(typeof(MatchTagId2PulseWidth))]
+    [XmlInclude(typeof(MatchTagId3PulseWidth))]
+    [XmlInclude(typeof(AnyTagIdPulseWidth))]
+    [XmlInclude(typeof(DO0PulseWidth))]
     [Description("Formats a sequence of values as specific RfidReader register messages.")]
     public partial class Format : FormatBuilder, INamedElement
     {
@@ -1733,25 +1733,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [Description("The time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class MatchTagId0PulseDuration
+    public partial class MatchTagId0PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId0PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 49;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="MatchTagId0PulseDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="MatchTagId0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="MatchTagId0PulseDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="MatchTagId0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="MatchTagId0PulseDuration"/> register messages.
+        /// Returns the payload data for <see cref="MatchTagId0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1761,7 +1761,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="MatchTagId0PulseDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="MatchTagId0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1771,12 +1771,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="MatchTagId0PulseDuration"/> register.
+        /// Returns a Harp message for the <see cref="MatchTagId0PulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId0PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId0PulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1785,14 +1785,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="MatchTagId0PulseDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="MatchTagId0PulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId0PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId0PulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1803,25 +1803,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// MatchTagId0PulseDuration register.
+    /// MatchTagId0PulseWidth register.
     /// </summary>
-    /// <seealso cref="MatchTagId0PulseDuration"/>
-    [Description("Filters and selects timestamped messages from the MatchTagId0PulseDuration register.")]
-    public partial class TimestampedMatchTagId0PulseDuration
+    /// <seealso cref="MatchTagId0PulseWidth"/>
+    [Description("Filters and selects timestamped messages from the MatchTagId0PulseWidth register.")]
+    public partial class TimestampedMatchTagId0PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId0PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId0PulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = MatchTagId0PulseDuration.Address;
+        public const int Address = MatchTagId0PulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="MatchTagId0PulseDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="MatchTagId0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return MatchTagId0PulseDuration.GetTimestampedPayload(message);
+            return MatchTagId0PulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -1829,25 +1829,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [Description("The time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class MatchTagId1PulseDuration
+    public partial class MatchTagId1PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId1PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId1PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 50;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="MatchTagId1PulseDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="MatchTagId1PulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="MatchTagId1PulseDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="MatchTagId1PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="MatchTagId1PulseDuration"/> register messages.
+        /// Returns the payload data for <see cref="MatchTagId1PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1857,7 +1857,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="MatchTagId1PulseDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="MatchTagId1PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1867,12 +1867,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="MatchTagId1PulseDuration"/> register.
+        /// Returns a Harp message for the <see cref="MatchTagId1PulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId1PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId1PulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1881,14 +1881,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="MatchTagId1PulseDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="MatchTagId1PulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId1PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId1PulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1899,25 +1899,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// MatchTagId1PulseDuration register.
+    /// MatchTagId1PulseWidth register.
     /// </summary>
-    /// <seealso cref="MatchTagId1PulseDuration"/>
-    [Description("Filters and selects timestamped messages from the MatchTagId1PulseDuration register.")]
-    public partial class TimestampedMatchTagId1PulseDuration
+    /// <seealso cref="MatchTagId1PulseWidth"/>
+    [Description("Filters and selects timestamped messages from the MatchTagId1PulseWidth register.")]
+    public partial class TimestampedMatchTagId1PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId1PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId1PulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = MatchTagId1PulseDuration.Address;
+        public const int Address = MatchTagId1PulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="MatchTagId1PulseDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="MatchTagId1PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return MatchTagId1PulseDuration.GetTimestampedPayload(message);
+            return MatchTagId1PulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -1925,25 +1925,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [Description("The time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class MatchTagId2PulseDuration
+    public partial class MatchTagId2PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId2PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId2PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 51;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="MatchTagId2PulseDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="MatchTagId2PulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="MatchTagId2PulseDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="MatchTagId2PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="MatchTagId2PulseDuration"/> register messages.
+        /// Returns the payload data for <see cref="MatchTagId2PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1953,7 +1953,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="MatchTagId2PulseDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="MatchTagId2PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1963,12 +1963,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="MatchTagId2PulseDuration"/> register.
+        /// Returns a Harp message for the <see cref="MatchTagId2PulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId2PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId2PulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1977,14 +1977,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="MatchTagId2PulseDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="MatchTagId2PulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId2PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId2PulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1995,25 +1995,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// MatchTagId2PulseDuration register.
+    /// MatchTagId2PulseWidth register.
     /// </summary>
-    /// <seealso cref="MatchTagId2PulseDuration"/>
-    [Description("Filters and selects timestamped messages from the MatchTagId2PulseDuration register.")]
-    public partial class TimestampedMatchTagId2PulseDuration
+    /// <seealso cref="MatchTagId2PulseWidth"/>
+    [Description("Filters and selects timestamped messages from the MatchTagId2PulseWidth register.")]
+    public partial class TimestampedMatchTagId2PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId2PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId2PulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = MatchTagId2PulseDuration.Address;
+        public const int Address = MatchTagId2PulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="MatchTagId2PulseDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="MatchTagId2PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return MatchTagId2PulseDuration.GetTimestampedPayload(message);
+            return MatchTagId2PulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -2021,25 +2021,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [Description("The time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class MatchTagId3PulseDuration
+    public partial class MatchTagId3PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId3PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId3PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 52;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="MatchTagId3PulseDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="MatchTagId3PulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="MatchTagId3PulseDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="MatchTagId3PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="MatchTagId3PulseDuration"/> register messages.
+        /// Returns the payload data for <see cref="MatchTagId3PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -2049,7 +2049,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="MatchTagId3PulseDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="MatchTagId3PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -2059,12 +2059,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="MatchTagId3PulseDuration"/> register.
+        /// Returns a Harp message for the <see cref="MatchTagId3PulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId3PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId3PulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -2073,14 +2073,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="MatchTagId3PulseDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="MatchTagId3PulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId3PulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="MatchTagId3PulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -2091,25 +2091,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// MatchTagId3PulseDuration register.
+    /// MatchTagId3PulseWidth register.
     /// </summary>
-    /// <seealso cref="MatchTagId3PulseDuration"/>
-    [Description("Filters and selects timestamped messages from the MatchTagId3PulseDuration register.")]
-    public partial class TimestampedMatchTagId3PulseDuration
+    /// <seealso cref="MatchTagId3PulseWidth"/>
+    [Description("Filters and selects timestamped messages from the MatchTagId3PulseWidth register.")]
+    public partial class TimestampedMatchTagId3PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="MatchTagId3PulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="MatchTagId3PulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = MatchTagId3PulseDuration.Address;
+        public const int Address = MatchTagId3PulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="MatchTagId3PulseDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="MatchTagId3PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return MatchTagId3PulseDuration.GetTimestampedPayload(message);
+            return MatchTagId3PulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -2117,25 +2117,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the digital output pin will stay on (ms) if any tag is detected.
     /// </summary>
     [Description("The time the digital output pin will stay on (ms) if any tag is detected.")]
-    public partial class AnyTagIdPulseDuration
+    public partial class AnyTagIdPulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="AnyTagIdPulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="AnyTagIdPulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 53;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="AnyTagIdPulseDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="AnyTagIdPulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="AnyTagIdPulseDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="AnyTagIdPulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="AnyTagIdPulseDuration"/> register messages.
+        /// Returns the payload data for <see cref="AnyTagIdPulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -2145,7 +2145,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="AnyTagIdPulseDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="AnyTagIdPulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -2155,12 +2155,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="AnyTagIdPulseDuration"/> register.
+        /// Returns a Harp message for the <see cref="AnyTagIdPulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="AnyTagIdPulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="AnyTagIdPulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -2169,14 +2169,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="AnyTagIdPulseDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="AnyTagIdPulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="AnyTagIdPulseDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="AnyTagIdPulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -2187,25 +2187,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// AnyTagIdPulseDuration register.
+    /// AnyTagIdPulseWidth register.
     /// </summary>
-    /// <seealso cref="AnyTagIdPulseDuration"/>
-    [Description("Filters and selects timestamped messages from the AnyTagIdPulseDuration register.")]
-    public partial class TimestampedAnyTagIdPulseDuration
+    /// <seealso cref="AnyTagIdPulseWidth"/>
+    [Description("Filters and selects timestamped messages from the AnyTagIdPulseWidth register.")]
+    public partial class TimestampedAnyTagIdPulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="AnyTagIdPulseDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="AnyTagIdPulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = AnyTagIdPulseDuration.Address;
+        public const int Address = AnyTagIdPulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="AnyTagIdPulseDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="AnyTagIdPulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return AnyTagIdPulseDuration.GetTimestampedPayload(message);
+            return AnyTagIdPulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -2213,25 +2213,25 @@ namespace Harp.RfidReader
     /// Represents a register that triggers the digital output pin for the specified duration (ms).
     /// </summary>
     [Description("Triggers the digital output pin for the specified duration (ms).")]
-    public partial class PulseDO0Duration
+    public partial class DO0PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="PulseDO0Duration"/> register. This field is constant.
+        /// Represents the address of the <see cref="DO0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int Address = 54;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="PulseDO0Duration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="DO0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="PulseDO0Duration"/> register. This field is constant.
+        /// Represents the length of the <see cref="DO0PulseWidth"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="PulseDO0Duration"/> register messages.
+        /// Returns the payload data for <see cref="DO0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -2241,7 +2241,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="PulseDO0Duration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="DO0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -2251,12 +2251,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="PulseDO0Duration"/> register.
+        /// Returns a Harp message for the <see cref="DO0PulseWidth"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="PulseDO0Duration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="DO0PulseWidth"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -2265,14 +2265,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="PulseDO0Duration"/>
+        /// Returns a timestamped Harp message for the <see cref="DO0PulseWidth"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="PulseDO0Duration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="DO0PulseWidth"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -2283,25 +2283,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// PulseDO0Duration register.
+    /// DO0PulseWidth register.
     /// </summary>
-    /// <seealso cref="PulseDO0Duration"/>
-    [Description("Filters and selects timestamped messages from the PulseDO0Duration register.")]
-    public partial class TimestampedPulseDO0Duration
+    /// <seealso cref="DO0PulseWidth"/>
+    [Description("Filters and selects timestamped messages from the DO0PulseWidth register.")]
+    public partial class TimestampedDO0PulseWidth
     {
         /// <summary>
-        /// Represents the address of the <see cref="PulseDO0Duration"/> register. This field is constant.
+        /// Represents the address of the <see cref="DO0PulseWidth"/> register. This field is constant.
         /// </summary>
-        public const int Address = PulseDO0Duration.Address;
+        public const int Address = DO0PulseWidth.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="PulseDO0Duration"/> register messages.
+        /// Returns timestamped payload data for <see cref="DO0PulseWidth"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return PulseDO0Duration.GetTimestampedPayload(message);
+            return DO0PulseWidth.GetTimestampedPayload(message);
         }
     }
 
@@ -2324,12 +2324,12 @@ namespace Harp.RfidReader
     /// <seealso cref="CreateMatchTagId1Payload"/>
     /// <seealso cref="CreateMatchTagId2Payload"/>
     /// <seealso cref="CreateMatchTagId3Payload"/>
-    /// <seealso cref="CreateMatchTagId0PulseDurationPayload"/>
-    /// <seealso cref="CreateMatchTagId1PulseDurationPayload"/>
-    /// <seealso cref="CreateMatchTagId2PulseDurationPayload"/>
-    /// <seealso cref="CreateMatchTagId3PulseDurationPayload"/>
-    /// <seealso cref="CreateAnyTagIdPulseDurationPayload"/>
-    /// <seealso cref="CreatePulseDO0DurationPayload"/>
+    /// <seealso cref="CreateMatchTagId0PulseWidthPayload"/>
+    /// <seealso cref="CreateMatchTagId1PulseWidthPayload"/>
+    /// <seealso cref="CreateMatchTagId2PulseWidthPayload"/>
+    /// <seealso cref="CreateMatchTagId3PulseWidthPayload"/>
+    /// <seealso cref="CreateAnyTagIdPulseWidthPayload"/>
+    /// <seealso cref="CreateDO0PulseWidthPayload"/>
     [XmlInclude(typeof(CreateInboundDetectionIdPayload))]
     [XmlInclude(typeof(CreateOutboundDetectionIdPayload))]
     [XmlInclude(typeof(CreateDO0StatePayload))]
@@ -2345,12 +2345,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(CreateMatchTagId1Payload))]
     [XmlInclude(typeof(CreateMatchTagId2Payload))]
     [XmlInclude(typeof(CreateMatchTagId3Payload))]
-    [XmlInclude(typeof(CreateMatchTagId0PulseDurationPayload))]
-    [XmlInclude(typeof(CreateMatchTagId1PulseDurationPayload))]
-    [XmlInclude(typeof(CreateMatchTagId2PulseDurationPayload))]
-    [XmlInclude(typeof(CreateMatchTagId3PulseDurationPayload))]
-    [XmlInclude(typeof(CreateAnyTagIdPulseDurationPayload))]
-    [XmlInclude(typeof(CreatePulseDO0DurationPayload))]
+    [XmlInclude(typeof(CreateMatchTagId0PulseWidthPayload))]
+    [XmlInclude(typeof(CreateMatchTagId1PulseWidthPayload))]
+    [XmlInclude(typeof(CreateMatchTagId2PulseWidthPayload))]
+    [XmlInclude(typeof(CreateMatchTagId3PulseWidthPayload))]
+    [XmlInclude(typeof(CreateAnyTagIdPulseWidthPayload))]
+    [XmlInclude(typeof(CreateDO0PulseWidthPayload))]
     [Description("Creates standard message payloads for the RfidReader device.")]
     public partial class CreateMessage : CreateMessageBuilder, INamedElement
     {
@@ -3101,10 +3101,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
-    [DisplayName("MatchTagId0PulseDurationPayload")]
+    [DisplayName("MatchTagId0PulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId0PulseDurationPayload : HarpCombinator
+    public partial class CreateMatchTagId0PulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
@@ -3141,7 +3141,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => MatchTagId0PulseDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => MatchTagId0PulseWidth.FromPayload(MessageType, Value));
         }
     }
 
@@ -3149,10 +3149,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
-    [DisplayName("MatchTagId1PulseDurationPayload")]
+    [DisplayName("MatchTagId1PulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId1PulseDurationPayload : HarpCombinator
+    public partial class CreateMatchTagId1PulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
@@ -3189,7 +3189,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => MatchTagId1PulseDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => MatchTagId1PulseWidth.FromPayload(MessageType, Value));
         }
     }
 
@@ -3197,10 +3197,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
-    [DisplayName("MatchTagId2PulseDurationPayload")]
+    [DisplayName("MatchTagId2PulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId2PulseDurationPayload : HarpCombinator
+    public partial class CreateMatchTagId2PulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
@@ -3237,7 +3237,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => MatchTagId2PulseDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => MatchTagId2PulseWidth.FromPayload(MessageType, Value));
         }
     }
 
@@ -3245,10 +3245,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
-    [DisplayName("MatchTagId3PulseDurationPayload")]
+    [DisplayName("MatchTagId3PulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId3PulseDurationPayload : HarpCombinator
+    public partial class CreateMatchTagId3PulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
@@ -3285,7 +3285,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => MatchTagId3PulseDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => MatchTagId3PulseWidth.FromPayload(MessageType, Value));
         }
     }
 
@@ -3293,10 +3293,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the digital output pin will stay on (ms) if any tag is detected.
     /// </summary>
-    [DisplayName("AnyTagIdPulseDurationPayload")]
+    [DisplayName("AnyTagIdPulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if any tag is detected.")]
-    public partial class CreateAnyTagIdPulseDurationPayload : HarpCombinator
+    public partial class CreateAnyTagIdPulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if any tag is detected.
@@ -3333,7 +3333,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => AnyTagIdPulseDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => AnyTagIdPulseWidth.FromPayload(MessageType, Value));
         }
     }
 
@@ -3341,10 +3341,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that triggers the digital output pin for the specified duration (ms).
     /// </summary>
-    [DisplayName("PulseDO0DurationPayload")]
+    [DisplayName("DO0PulseWidthPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that triggers the digital output pin for the specified duration (ms).")]
-    public partial class CreatePulseDO0DurationPayload : HarpCombinator
+    public partial class CreateDO0PulseWidthPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that triggers the digital output pin for the specified duration (ms).
@@ -3381,7 +3381,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => PulseDO0Duration.FromPayload(MessageType, Value));
+            return source.Select(_ => DO0PulseWidth.FromPayload(MessageType, Value));
         }
     }
 
