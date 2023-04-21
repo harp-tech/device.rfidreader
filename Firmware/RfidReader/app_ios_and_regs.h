@@ -124,10 +124,10 @@ typedef struct
 /************************************************************************/
 #define B_OUT0                             (1<<0)       // Digital output 0
 #define B_BUZZER                           (1<<0)       // Enables notification on buzzer
-#define B_TOP_LED                          (1<<0)       // Enables notification on top's LED
-#define B_BOTTOM_LED                       (1<<0)       // Enables notification on bottom's LED
-#define B_TRIG_BUZZER                      (1<<0)       // Enables notification on buzzer
-#define B_TRIG_TOP_LED                     (1<<0)       // Enables notification on top's LED
-#define B_TRIG_BOTTOM_LED                  (1<<0)       // Enables notification on bottom's LED
+#define B_TOP_LED                          (1<<1)       // Enables notification on top's LED
+#define B_BOTTOM_LED                       (1<<2)       // Enables notification on bottom's LED
+#define B_TRIG_BUZZER                      (1<<0)       // Triggers notification on buzzer
+#define B_TRIG_TOP_LED                     (1<<1)       // Triggers notification on top's LED
+#define B_TRIG_BOTTOM_LED                  (1<<2)       // Triggers notification on bottom's LED
 
 #endif /* _APP_REGS_H_ */
