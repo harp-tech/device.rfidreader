@@ -113,12 +113,12 @@ registers:
     access: Write
     description: Triggers the digital output pin for the specified duration (ms).
 bitMasks:
-  HardwareNotifications: #TODO SOMETHING IS WRONG HERE
+  HardwareNotifications:
     description: The available hardware notifications.
     bits:
       Buzzer: 0x1
-      TopLed: 0x1
-      BottomLed: 0x1
+      TopLed: 0x2
+      BottomLed: 0x4
 groupMasks:
   DigitalOutputState:
     description: The state of the digital output pin.
