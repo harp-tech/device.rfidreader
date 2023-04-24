@@ -33,34 +33,34 @@ registers:
     access: Write
     maskType: HardwareNotifications
     description: Triggers hardware notifications.
-  BuzzerNotificationDuration: &notificationduration
+  BuzzerDuration: &notificationduration
     address: 37
     type: U16
     access: Write
     minValue: 2
     description: The time the buzzer will stay on (sensitive to multiples of 2).
-  TopLedNotificationDuration:
+  TopLedDuration:
     << : *notificationduration
     address: 38
     description: The time the top LED will stay on (sensitive to multiples of 2).
-  BottomLedNotificationDuration:
+  BottomLedDuration:
     << : *notificationduration
     address: 39
     description: The time the bottom LED will stay on (sensitive to multiples of 2).
-  BuzzerNotificationFrequency:
+  BuzzerFrequency:
     address: 40
     type: U16
     access: Write
     minValue: 200
     maxValue: 15000
     description: The frequency of the buzzer notification.
-  TopLedNotificationPeriod: &notificationblinkperiod
+  TopLedPeriod: &notificationblinkperiod
     address: 41
     type: U16
     access: Write
     minValue: 2
     description: The blink period of the top LED notification (sensitive to multiples of 2).
-  BottomLedNotificationPeriod:
+  BottomLedPeriod:
     << : *notificationblinkperiod
     address: 42
     description: The blink period of the bottom LED notification (sensitive to multiples of 2).
