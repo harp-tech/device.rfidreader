@@ -103,7 +103,7 @@ namespace Harp.RfidReader
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<DigitalOutputState> ReadDO0StateAsync()
+        public async Task<DigitalState> ReadDO0StateAsync()
         {
             var reply = await CommandAsync(HarpCommand.ReadByte(DO0State.Address));
             return DO0State.GetPayload(reply);
@@ -116,7 +116,7 @@ namespace Harp.RfidReader
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<DigitalOutputState>> ReadTimestampedDO0StateAsync()
+        public async Task<Timestamped<DigitalState>> ReadTimestampedDO0StateAsync()
         {
             var reply = await CommandAsync(HarpCommand.ReadByte(DO0State.Address));
             return DO0State.GetTimestampedPayload(reply);
@@ -127,305 +127,305 @@ namespace Harp.RfidReader
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteDO0StateAsync(DigitalOutputState value)
+        public async Task WriteDO0StateAsync(DigitalState value)
         {
             var request = DO0State.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the EnableHardwareNotifications register.
+        /// Asynchronously reads the contents of the HardwareNotificationsState register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<HardwareNotifications> ReadEnableHardwareNotificationsAsync()
+        public async Task<HardwareNotifications> ReadHardwareNotificationsStateAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadByte(EnableHardwareNotifications.Address));
-            return EnableHardwareNotifications.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadByte(HardwareNotificationsState.Address));
+            return HardwareNotificationsState.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the EnableHardwareNotifications register.
+        /// Asynchronously reads the timestamped contents of the HardwareNotificationsState register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<HardwareNotifications>> ReadTimestampedEnableHardwareNotificationsAsync()
+        public async Task<Timestamped<HardwareNotifications>> ReadTimestampedHardwareNotificationsStateAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadByte(EnableHardwareNotifications.Address));
-            return EnableHardwareNotifications.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadByte(HardwareNotificationsState.Address));
+            return HardwareNotificationsState.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the EnableHardwareNotifications register.
+        /// Asynchronously writes a value to the HardwareNotificationsState register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteEnableHardwareNotificationsAsync(HardwareNotifications value)
+        public async Task WriteHardwareNotificationsStateAsync(HardwareNotifications value)
         {
-            var request = EnableHardwareNotifications.FromPayload(MessageType.Write, value);
+            var request = HardwareNotificationsState.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the TriggerHardwareNotifications register.
+        /// Asynchronously reads the contents of the HardwareNotificationsTrigger register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<HardwareNotifications> ReadTriggerHardwareNotificationsAsync()
+        public async Task<HardwareNotifications> ReadHardwareNotificationsTriggerAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadByte(TriggerHardwareNotifications.Address));
-            return TriggerHardwareNotifications.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadByte(HardwareNotificationsTrigger.Address));
+            return HardwareNotificationsTrigger.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the TriggerHardwareNotifications register.
+        /// Asynchronously reads the timestamped contents of the HardwareNotificationsTrigger register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<HardwareNotifications>> ReadTimestampedTriggerHardwareNotificationsAsync()
+        public async Task<Timestamped<HardwareNotifications>> ReadTimestampedHardwareNotificationsTriggerAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadByte(TriggerHardwareNotifications.Address));
-            return TriggerHardwareNotifications.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadByte(HardwareNotificationsTrigger.Address));
+            return HardwareNotificationsTrigger.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the TriggerHardwareNotifications register.
+        /// Asynchronously writes a value to the HardwareNotificationsTrigger register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteTriggerHardwareNotificationsAsync(HardwareNotifications value)
+        public async Task WriteHardwareNotificationsTriggerAsync(HardwareNotifications value)
         {
-            var request = TriggerHardwareNotifications.FromPayload(MessageType.Write, value);
+            var request = HardwareNotificationsTrigger.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the BuzzerNotificationDuration register.
+        /// Asynchronously reads the contents of the BuzzerDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadBuzzerNotificationDurationAsync()
+        public async Task<ushort> ReadBuzzerDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerNotificationDuration.Address));
-            return BuzzerNotificationDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerDuration.Address));
+            return BuzzerDuration.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the BuzzerNotificationDuration register.
+        /// Asynchronously reads the timestamped contents of the BuzzerDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedBuzzerNotificationDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedBuzzerDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerNotificationDuration.Address));
-            return BuzzerNotificationDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerDuration.Address));
+            return BuzzerDuration.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the BuzzerNotificationDuration register.
+        /// Asynchronously writes a value to the BuzzerDuration register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteBuzzerNotificationDurationAsync(ushort value)
+        public async Task WriteBuzzerDurationAsync(ushort value)
         {
-            var request = BuzzerNotificationDuration.FromPayload(MessageType.Write, value);
+            var request = BuzzerDuration.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the TopLedNotificationDuration register.
+        /// Asynchronously reads the contents of the TopLedDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadTopLedNotificationDurationAsync()
+        public async Task<ushort> ReadTopLedDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedNotificationDuration.Address));
-            return TopLedNotificationDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedDuration.Address));
+            return TopLedDuration.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the TopLedNotificationDuration register.
+        /// Asynchronously reads the timestamped contents of the TopLedDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedTopLedNotificationDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedTopLedDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedNotificationDuration.Address));
-            return TopLedNotificationDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedDuration.Address));
+            return TopLedDuration.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the TopLedNotificationDuration register.
+        /// Asynchronously writes a value to the TopLedDuration register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteTopLedNotificationDurationAsync(ushort value)
+        public async Task WriteTopLedDurationAsync(ushort value)
         {
-            var request = TopLedNotificationDuration.FromPayload(MessageType.Write, value);
+            var request = TopLedDuration.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the BottomLedNotificationDuration register.
+        /// Asynchronously reads the contents of the BottomLedDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadBottomLedNotificationDurationAsync()
+        public async Task<ushort> ReadBottomLedDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedNotificationDuration.Address));
-            return BottomLedNotificationDuration.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedDuration.Address));
+            return BottomLedDuration.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the BottomLedNotificationDuration register.
+        /// Asynchronously reads the timestamped contents of the BottomLedDuration register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedBottomLedNotificationDurationAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedBottomLedDurationAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedNotificationDuration.Address));
-            return BottomLedNotificationDuration.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedDuration.Address));
+            return BottomLedDuration.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the BottomLedNotificationDuration register.
+        /// Asynchronously writes a value to the BottomLedDuration register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteBottomLedNotificationDurationAsync(ushort value)
+        public async Task WriteBottomLedDurationAsync(ushort value)
         {
-            var request = BottomLedNotificationDuration.FromPayload(MessageType.Write, value);
+            var request = BottomLedDuration.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the BuzzerNotificationFrequency register.
+        /// Asynchronously reads the contents of the BuzzerFrequency register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadBuzzerNotificationFrequencyAsync()
+        public async Task<ushort> ReadBuzzerFrequencyAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerNotificationFrequency.Address));
-            return BuzzerNotificationFrequency.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerFrequency.Address));
+            return BuzzerFrequency.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the BuzzerNotificationFrequency register.
+        /// Asynchronously reads the timestamped contents of the BuzzerFrequency register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedBuzzerNotificationFrequencyAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedBuzzerFrequencyAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerNotificationFrequency.Address));
-            return BuzzerNotificationFrequency.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BuzzerFrequency.Address));
+            return BuzzerFrequency.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the BuzzerNotificationFrequency register.
+        /// Asynchronously writes a value to the BuzzerFrequency register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteBuzzerNotificationFrequencyAsync(ushort value)
+        public async Task WriteBuzzerFrequencyAsync(ushort value)
         {
-            var request = BuzzerNotificationFrequency.FromPayload(MessageType.Write, value);
+            var request = BuzzerFrequency.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the TopLedNotificationPeriod register.
+        /// Asynchronously reads the contents of the TopLedPeriod register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadTopLedNotificationPeriodAsync()
+        public async Task<ushort> ReadTopLedPeriodAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedNotificationPeriod.Address));
-            return TopLedNotificationPeriod.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedPeriod.Address));
+            return TopLedPeriod.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the TopLedNotificationPeriod register.
+        /// Asynchronously reads the timestamped contents of the TopLedPeriod register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedTopLedNotificationPeriodAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedTopLedPeriodAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedNotificationPeriod.Address));
-            return TopLedNotificationPeriod.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(TopLedPeriod.Address));
+            return TopLedPeriod.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the TopLedNotificationPeriod register.
+        /// Asynchronously writes a value to the TopLedPeriod register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteTopLedNotificationPeriodAsync(ushort value)
+        public async Task WriteTopLedPeriodAsync(ushort value)
         {
-            var request = TopLedNotificationPeriod.FromPayload(MessageType.Write, value);
+            var request = TopLedPeriod.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 
         /// <summary>
-        /// Asynchronously reads the contents of the BottomLedNotificationPeriod register.
+        /// Asynchronously reads the contents of the BottomLedPeriod register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the register payload.
         /// </returns>
-        public async Task<ushort> ReadBottomLedNotificationPeriodAsync()
+        public async Task<ushort> ReadBottomLedPeriodAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedNotificationPeriod.Address));
-            return BottomLedNotificationPeriod.GetPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedPeriod.Address));
+            return BottomLedPeriod.GetPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously reads the timestamped contents of the BottomLedNotificationPeriod register.
+        /// Asynchronously reads the timestamped contents of the BottomLedPeriod register.
         /// </summary>
         /// <returns>
         /// A task that represents the asynchronous read operation. The <see cref="Task{TResult}.Result"/>
         /// property contains the timestamped register payload.
         /// </returns>
-        public async Task<Timestamped<ushort>> ReadTimestampedBottomLedNotificationPeriodAsync()
+        public async Task<Timestamped<ushort>> ReadTimestampedBottomLedPeriodAsync()
         {
-            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedNotificationPeriod.Address));
-            return BottomLedNotificationPeriod.GetTimestampedPayload(reply);
+            var reply = await CommandAsync(HarpCommand.ReadUInt16(BottomLedPeriod.Address));
+            return BottomLedPeriod.GetTimestampedPayload(reply);
         }
 
         /// <summary>
-        /// Asynchronously writes a value to the BottomLedNotificationPeriod register.
+        /// Asynchronously writes a value to the BottomLedPeriod register.
         /// </summary>
         /// <param name="value">The value to be stored in the register.</param>
         /// <returns>The task object representing the asynchronous write operation.</returns>
-        public async Task WriteBottomLedNotificationPeriodAsync(ushort value)
+        public async Task WriteBottomLedPeriodAsync(ushort value)
         {
-            var request = BottomLedNotificationPeriod.FromPayload(MessageType.Write, value);
+            var request = BottomLedPeriod.FromPayload(MessageType.Write, value);
             await CommandAsync(request);
         }
 

@@ -40,14 +40,14 @@ namespace Harp.RfidReader
             { 32, typeof(InboundDetectionId) },
             { 33, typeof(OutboundDetectionId) },
             { 34, typeof(DO0State) },
-            { 35, typeof(EnableHardwareNotifications) },
-            { 36, typeof(TriggerHardwareNotifications) },
-            { 37, typeof(BuzzerNotificationDuration) },
-            { 38, typeof(TopLedNotificationDuration) },
-            { 39, typeof(BottomLedNotificationDuration) },
-            { 40, typeof(BuzzerNotificationFrequency) },
-            { 41, typeof(TopLedNotificationPeriod) },
-            { 42, typeof(BottomLedNotificationPeriod) },
+            { 35, typeof(HardwareNotificationsState) },
+            { 36, typeof(HardwareNotificationsTrigger) },
+            { 37, typeof(BuzzerDuration) },
+            { 38, typeof(TopLedDuration) },
+            { 39, typeof(BottomLedDuration) },
+            { 40, typeof(BuzzerFrequency) },
+            { 41, typeof(TopLedPeriod) },
+            { 42, typeof(BottomLedPeriod) },
             { 45, typeof(MatchTagId0) },
             { 46, typeof(MatchTagId1) },
             { 47, typeof(MatchTagId2) },
@@ -89,14 +89,14 @@ namespace Harp.RfidReader
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
     /// <seealso cref="DO0State"/>
-    /// <seealso cref="EnableHardwareNotifications"/>
-    /// <seealso cref="TriggerHardwareNotifications"/>
-    /// <seealso cref="BuzzerNotificationDuration"/>
-    /// <seealso cref="TopLedNotificationDuration"/>
-    /// <seealso cref="BottomLedNotificationDuration"/>
-    /// <seealso cref="BuzzerNotificationFrequency"/>
-    /// <seealso cref="TopLedNotificationPeriod"/>
-    /// <seealso cref="BottomLedNotificationPeriod"/>
+    /// <seealso cref="HardwareNotificationsState"/>
+    /// <seealso cref="HardwareNotificationsTrigger"/>
+    /// <seealso cref="BuzzerDuration"/>
+    /// <seealso cref="TopLedDuration"/>
+    /// <seealso cref="BottomLedDuration"/>
+    /// <seealso cref="BuzzerFrequency"/>
+    /// <seealso cref="TopLedPeriod"/>
+    /// <seealso cref="BottomLedPeriod"/>
     /// <seealso cref="MatchTagId0"/>
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
@@ -110,14 +110,14 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
-    [XmlInclude(typeof(EnableHardwareNotifications))]
-    [XmlInclude(typeof(TriggerHardwareNotifications))]
-    [XmlInclude(typeof(BuzzerNotificationDuration))]
-    [XmlInclude(typeof(TopLedNotificationDuration))]
-    [XmlInclude(typeof(BottomLedNotificationDuration))]
-    [XmlInclude(typeof(BuzzerNotificationFrequency))]
-    [XmlInclude(typeof(TopLedNotificationPeriod))]
-    [XmlInclude(typeof(BottomLedNotificationPeriod))]
+    [XmlInclude(typeof(HardwareNotificationsState))]
+    [XmlInclude(typeof(HardwareNotificationsTrigger))]
+    [XmlInclude(typeof(BuzzerDuration))]
+    [XmlInclude(typeof(TopLedDuration))]
+    [XmlInclude(typeof(BottomLedDuration))]
+    [XmlInclude(typeof(BuzzerFrequency))]
+    [XmlInclude(typeof(TopLedPeriod))]
+    [XmlInclude(typeof(BottomLedPeriod))]
     [XmlInclude(typeof(MatchTagId0))]
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
@@ -152,14 +152,14 @@ namespace Harp.RfidReader
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
     /// <seealso cref="DO0State"/>
-    /// <seealso cref="EnableHardwareNotifications"/>
-    /// <seealso cref="TriggerHardwareNotifications"/>
-    /// <seealso cref="BuzzerNotificationDuration"/>
-    /// <seealso cref="TopLedNotificationDuration"/>
-    /// <seealso cref="BottomLedNotificationDuration"/>
-    /// <seealso cref="BuzzerNotificationFrequency"/>
-    /// <seealso cref="TopLedNotificationPeriod"/>
-    /// <seealso cref="BottomLedNotificationPeriod"/>
+    /// <seealso cref="HardwareNotificationsState"/>
+    /// <seealso cref="HardwareNotificationsTrigger"/>
+    /// <seealso cref="BuzzerDuration"/>
+    /// <seealso cref="TopLedDuration"/>
+    /// <seealso cref="BottomLedDuration"/>
+    /// <seealso cref="BuzzerFrequency"/>
+    /// <seealso cref="TopLedPeriod"/>
+    /// <seealso cref="BottomLedPeriod"/>
     /// <seealso cref="MatchTagId0"/>
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
@@ -173,14 +173,14 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
-    [XmlInclude(typeof(EnableHardwareNotifications))]
-    [XmlInclude(typeof(TriggerHardwareNotifications))]
-    [XmlInclude(typeof(BuzzerNotificationDuration))]
-    [XmlInclude(typeof(TopLedNotificationDuration))]
-    [XmlInclude(typeof(BottomLedNotificationDuration))]
-    [XmlInclude(typeof(BuzzerNotificationFrequency))]
-    [XmlInclude(typeof(TopLedNotificationPeriod))]
-    [XmlInclude(typeof(BottomLedNotificationPeriod))]
+    [XmlInclude(typeof(HardwareNotificationsState))]
+    [XmlInclude(typeof(HardwareNotificationsTrigger))]
+    [XmlInclude(typeof(BuzzerDuration))]
+    [XmlInclude(typeof(TopLedDuration))]
+    [XmlInclude(typeof(BottomLedDuration))]
+    [XmlInclude(typeof(BuzzerFrequency))]
+    [XmlInclude(typeof(TopLedPeriod))]
+    [XmlInclude(typeof(BottomLedPeriod))]
     [XmlInclude(typeof(MatchTagId0))]
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
@@ -194,14 +194,14 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(TimestampedInboundDetectionId))]
     [XmlInclude(typeof(TimestampedOutboundDetectionId))]
     [XmlInclude(typeof(TimestampedDO0State))]
-    [XmlInclude(typeof(TimestampedEnableHardwareNotifications))]
-    [XmlInclude(typeof(TimestampedTriggerHardwareNotifications))]
-    [XmlInclude(typeof(TimestampedBuzzerNotificationDuration))]
-    [XmlInclude(typeof(TimestampedTopLedNotificationDuration))]
-    [XmlInclude(typeof(TimestampedBottomLedNotificationDuration))]
-    [XmlInclude(typeof(TimestampedBuzzerNotificationFrequency))]
-    [XmlInclude(typeof(TimestampedTopLedNotificationPeriod))]
-    [XmlInclude(typeof(TimestampedBottomLedNotificationPeriod))]
+    [XmlInclude(typeof(TimestampedHardwareNotificationsState))]
+    [XmlInclude(typeof(TimestampedHardwareNotificationsTrigger))]
+    [XmlInclude(typeof(TimestampedBuzzerDuration))]
+    [XmlInclude(typeof(TimestampedTopLedDuration))]
+    [XmlInclude(typeof(TimestampedBottomLedDuration))]
+    [XmlInclude(typeof(TimestampedBuzzerFrequency))]
+    [XmlInclude(typeof(TimestampedTopLedPeriod))]
+    [XmlInclude(typeof(TimestampedBottomLedPeriod))]
     [XmlInclude(typeof(TimestampedMatchTagId0))]
     [XmlInclude(typeof(TimestampedMatchTagId1))]
     [XmlInclude(typeof(TimestampedMatchTagId2))]
@@ -233,14 +233,14 @@ namespace Harp.RfidReader
     /// <seealso cref="InboundDetectionId"/>
     /// <seealso cref="OutboundDetectionId"/>
     /// <seealso cref="DO0State"/>
-    /// <seealso cref="EnableHardwareNotifications"/>
-    /// <seealso cref="TriggerHardwareNotifications"/>
-    /// <seealso cref="BuzzerNotificationDuration"/>
-    /// <seealso cref="TopLedNotificationDuration"/>
-    /// <seealso cref="BottomLedNotificationDuration"/>
-    /// <seealso cref="BuzzerNotificationFrequency"/>
-    /// <seealso cref="TopLedNotificationPeriod"/>
-    /// <seealso cref="BottomLedNotificationPeriod"/>
+    /// <seealso cref="HardwareNotificationsState"/>
+    /// <seealso cref="HardwareNotificationsTrigger"/>
+    /// <seealso cref="BuzzerDuration"/>
+    /// <seealso cref="TopLedDuration"/>
+    /// <seealso cref="BottomLedDuration"/>
+    /// <seealso cref="BuzzerFrequency"/>
+    /// <seealso cref="TopLedPeriod"/>
+    /// <seealso cref="BottomLedPeriod"/>
     /// <seealso cref="MatchTagId0"/>
     /// <seealso cref="MatchTagId1"/>
     /// <seealso cref="MatchTagId2"/>
@@ -254,14 +254,14 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(InboundDetectionId))]
     [XmlInclude(typeof(OutboundDetectionId))]
     [XmlInclude(typeof(DO0State))]
-    [XmlInclude(typeof(EnableHardwareNotifications))]
-    [XmlInclude(typeof(TriggerHardwareNotifications))]
-    [XmlInclude(typeof(BuzzerNotificationDuration))]
-    [XmlInclude(typeof(TopLedNotificationDuration))]
-    [XmlInclude(typeof(BottomLedNotificationDuration))]
-    [XmlInclude(typeof(BuzzerNotificationFrequency))]
-    [XmlInclude(typeof(TopLedNotificationPeriod))]
-    [XmlInclude(typeof(BottomLedNotificationPeriod))]
+    [XmlInclude(typeof(HardwareNotificationsState))]
+    [XmlInclude(typeof(HardwareNotificationsTrigger))]
+    [XmlInclude(typeof(BuzzerDuration))]
+    [XmlInclude(typeof(TopLedDuration))]
+    [XmlInclude(typeof(BottomLedDuration))]
+    [XmlInclude(typeof(BuzzerFrequency))]
+    [XmlInclude(typeof(TopLedPeriod))]
+    [XmlInclude(typeof(BottomLedPeriod))]
     [XmlInclude(typeof(MatchTagId0))]
     [XmlInclude(typeof(MatchTagId1))]
     [XmlInclude(typeof(MatchTagId2))]
@@ -504,9 +504,9 @@ namespace Harp.RfidReader
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
-        public static DigitalOutputState GetPayload(HarpMessage message)
+        public static DigitalState GetPayload(HarpMessage message)
         {
-            return (DigitalOutputState)message.GetPayloadByte();
+            return (DigitalState)message.GetPayloadByte();
         }
 
         /// <summary>
@@ -514,10 +514,10 @@ namespace Harp.RfidReader
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
-        public static Timestamped<DigitalOutputState> GetTimestampedPayload(HarpMessage message)
+        public static Timestamped<DigitalState> GetTimestampedPayload(HarpMessage message)
         {
             var payload = message.GetTimestampedPayloadByte();
-            return Timestamped.Create((DigitalOutputState)payload.Value, payload.Seconds);
+            return Timestamped.Create((DigitalState)payload.Value, payload.Seconds);
         }
 
         /// <summary>
@@ -529,7 +529,7 @@ namespace Harp.RfidReader
         /// A <see cref="HarpMessage"/> object for the <see cref="DO0State"/> register
         /// with the specified message type and payload.
         /// </returns>
-        public static HarpMessage FromPayload(MessageType messageType, DigitalOutputState value)
+        public static HarpMessage FromPayload(MessageType messageType, DigitalState value)
         {
             return HarpMessage.FromByte(Address, messageType, (byte)value);
         }
@@ -545,7 +545,7 @@ namespace Harp.RfidReader
         /// A <see cref="HarpMessage"/> object for the <see cref="DO0State"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
-        public static HarpMessage FromPayload(double timestamp, MessageType messageType, DigitalOutputState value)
+        public static HarpMessage FromPayload(double timestamp, MessageType messageType, DigitalState value)
         {
             return HarpMessage.FromByte(Address, timestamp, messageType, (byte)value);
         }
@@ -569,7 +569,7 @@ namespace Harp.RfidReader
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
-        public static Timestamped<DigitalOutputState> GetPayload(HarpMessage message)
+        public static Timestamped<DigitalState> GetPayload(HarpMessage message)
         {
             return DO0State.GetTimestampedPayload(message);
         }
@@ -579,25 +579,25 @@ namespace Harp.RfidReader
     /// Represents a register that enables or disables hardware notifications.
     /// </summary>
     [Description("Enables or disables hardware notifications.")]
-    public partial class EnableHardwareNotifications
+    public partial class HardwareNotificationsState
     {
         /// <summary>
-        /// Represents the address of the <see cref="EnableHardwareNotifications"/> register. This field is constant.
+        /// Represents the address of the <see cref="HardwareNotificationsState"/> register. This field is constant.
         /// </summary>
         public const int Address = 35;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="EnableHardwareNotifications"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="HardwareNotificationsState"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U8;
 
         /// <summary>
-        /// Represents the length of the <see cref="EnableHardwareNotifications"/> register. This field is constant.
+        /// Represents the length of the <see cref="HardwareNotificationsState"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="EnableHardwareNotifications"/> register messages.
+        /// Returns the payload data for <see cref="HardwareNotificationsState"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -607,7 +607,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="EnableHardwareNotifications"/> register messages.
+        /// Returns the timestamped payload data for <see cref="HardwareNotificationsState"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -618,12 +618,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="EnableHardwareNotifications"/> register.
+        /// Returns a Harp message for the <see cref="HardwareNotificationsState"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="EnableHardwareNotifications"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="HardwareNotificationsState"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, HardwareNotifications value)
@@ -632,14 +632,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="EnableHardwareNotifications"/>
+        /// Returns a timestamped Harp message for the <see cref="HardwareNotificationsState"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="EnableHardwareNotifications"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="HardwareNotificationsState"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, HardwareNotifications value)
@@ -650,25 +650,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// EnableHardwareNotifications register.
+    /// HardwareNotificationsState register.
     /// </summary>
-    /// <seealso cref="EnableHardwareNotifications"/>
-    [Description("Filters and selects timestamped messages from the EnableHardwareNotifications register.")]
-    public partial class TimestampedEnableHardwareNotifications
+    /// <seealso cref="HardwareNotificationsState"/>
+    [Description("Filters and selects timestamped messages from the HardwareNotificationsState register.")]
+    public partial class TimestampedHardwareNotificationsState
     {
         /// <summary>
-        /// Represents the address of the <see cref="EnableHardwareNotifications"/> register. This field is constant.
+        /// Represents the address of the <see cref="HardwareNotificationsState"/> register. This field is constant.
         /// </summary>
-        public const int Address = EnableHardwareNotifications.Address;
+        public const int Address = HardwareNotificationsState.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="EnableHardwareNotifications"/> register messages.
+        /// Returns timestamped payload data for <see cref="HardwareNotificationsState"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<HardwareNotifications> GetPayload(HarpMessage message)
         {
-            return EnableHardwareNotifications.GetTimestampedPayload(message);
+            return HardwareNotificationsState.GetTimestampedPayload(message);
         }
     }
 
@@ -676,25 +676,25 @@ namespace Harp.RfidReader
     /// Represents a register that triggers hardware notifications.
     /// </summary>
     [Description("Triggers hardware notifications.")]
-    public partial class TriggerHardwareNotifications
+    public partial class HardwareNotificationsTrigger
     {
         /// <summary>
-        /// Represents the address of the <see cref="TriggerHardwareNotifications"/> register. This field is constant.
+        /// Represents the address of the <see cref="HardwareNotificationsTrigger"/> register. This field is constant.
         /// </summary>
         public const int Address = 36;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="TriggerHardwareNotifications"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="HardwareNotificationsTrigger"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U8;
 
         /// <summary>
-        /// Represents the length of the <see cref="TriggerHardwareNotifications"/> register. This field is constant.
+        /// Represents the length of the <see cref="HardwareNotificationsTrigger"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="TriggerHardwareNotifications"/> register messages.
+        /// Returns the payload data for <see cref="HardwareNotificationsTrigger"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -704,7 +704,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="TriggerHardwareNotifications"/> register messages.
+        /// Returns the timestamped payload data for <see cref="HardwareNotificationsTrigger"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -715,12 +715,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="TriggerHardwareNotifications"/> register.
+        /// Returns a Harp message for the <see cref="HardwareNotificationsTrigger"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TriggerHardwareNotifications"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="HardwareNotificationsTrigger"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, HardwareNotifications value)
@@ -729,14 +729,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="TriggerHardwareNotifications"/>
+        /// Returns a timestamped Harp message for the <see cref="HardwareNotificationsTrigger"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TriggerHardwareNotifications"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="HardwareNotificationsTrigger"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, HardwareNotifications value)
@@ -747,25 +747,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// TriggerHardwareNotifications register.
+    /// HardwareNotificationsTrigger register.
     /// </summary>
-    /// <seealso cref="TriggerHardwareNotifications"/>
-    [Description("Filters and selects timestamped messages from the TriggerHardwareNotifications register.")]
-    public partial class TimestampedTriggerHardwareNotifications
+    /// <seealso cref="HardwareNotificationsTrigger"/>
+    [Description("Filters and selects timestamped messages from the HardwareNotificationsTrigger register.")]
+    public partial class TimestampedHardwareNotificationsTrigger
     {
         /// <summary>
-        /// Represents the address of the <see cref="TriggerHardwareNotifications"/> register. This field is constant.
+        /// Represents the address of the <see cref="HardwareNotificationsTrigger"/> register. This field is constant.
         /// </summary>
-        public const int Address = TriggerHardwareNotifications.Address;
+        public const int Address = HardwareNotificationsTrigger.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="TriggerHardwareNotifications"/> register messages.
+        /// Returns timestamped payload data for <see cref="HardwareNotificationsTrigger"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<HardwareNotifications> GetPayload(HarpMessage message)
         {
-            return TriggerHardwareNotifications.GetTimestampedPayload(message);
+            return HardwareNotificationsTrigger.GetTimestampedPayload(message);
         }
     }
 
@@ -773,25 +773,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the buzzer will stay on (sensitive to multiples of 2).
     /// </summary>
     [Description("The time the buzzer will stay on (sensitive to multiples of 2).")]
-    public partial class BuzzerNotificationDuration
+    public partial class BuzzerDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="BuzzerNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="BuzzerDuration"/> register. This field is constant.
         /// </summary>
         public const int Address = 37;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="BuzzerNotificationDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="BuzzerDuration"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="BuzzerNotificationDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="BuzzerDuration"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="BuzzerNotificationDuration"/> register messages.
+        /// Returns the payload data for <see cref="BuzzerDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -801,7 +801,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="BuzzerNotificationDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="BuzzerDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -811,12 +811,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="BuzzerNotificationDuration"/> register.
+        /// Returns a Harp message for the <see cref="BuzzerDuration"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerDuration"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -825,14 +825,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="BuzzerNotificationDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="BuzzerDuration"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerDuration"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -843,25 +843,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// BuzzerNotificationDuration register.
+    /// BuzzerDuration register.
     /// </summary>
-    /// <seealso cref="BuzzerNotificationDuration"/>
-    [Description("Filters and selects timestamped messages from the BuzzerNotificationDuration register.")]
-    public partial class TimestampedBuzzerNotificationDuration
+    /// <seealso cref="BuzzerDuration"/>
+    [Description("Filters and selects timestamped messages from the BuzzerDuration register.")]
+    public partial class TimestampedBuzzerDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="BuzzerNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="BuzzerDuration"/> register. This field is constant.
         /// </summary>
-        public const int Address = BuzzerNotificationDuration.Address;
+        public const int Address = BuzzerDuration.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="BuzzerNotificationDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="BuzzerDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return BuzzerNotificationDuration.GetTimestampedPayload(message);
+            return BuzzerDuration.GetTimestampedPayload(message);
         }
     }
 
@@ -869,25 +869,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the top LED will stay on (sensitive to multiples of 2).
     /// </summary>
     [Description("The time the top LED will stay on (sensitive to multiples of 2).")]
-    public partial class TopLedNotificationDuration
+    public partial class TopLedDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="TopLedNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="TopLedDuration"/> register. This field is constant.
         /// </summary>
         public const int Address = 38;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="TopLedNotificationDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="TopLedDuration"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="TopLedNotificationDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="TopLedDuration"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="TopLedNotificationDuration"/> register messages.
+        /// Returns the payload data for <see cref="TopLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -897,7 +897,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="TopLedNotificationDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="TopLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -907,12 +907,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="TopLedNotificationDuration"/> register.
+        /// Returns a Harp message for the <see cref="TopLedDuration"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedDuration"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -921,14 +921,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="TopLedNotificationDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="TopLedDuration"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedDuration"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -939,25 +939,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// TopLedNotificationDuration register.
+    /// TopLedDuration register.
     /// </summary>
-    /// <seealso cref="TopLedNotificationDuration"/>
-    [Description("Filters and selects timestamped messages from the TopLedNotificationDuration register.")]
-    public partial class TimestampedTopLedNotificationDuration
+    /// <seealso cref="TopLedDuration"/>
+    [Description("Filters and selects timestamped messages from the TopLedDuration register.")]
+    public partial class TimestampedTopLedDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="TopLedNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="TopLedDuration"/> register. This field is constant.
         /// </summary>
-        public const int Address = TopLedNotificationDuration.Address;
+        public const int Address = TopLedDuration.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="TopLedNotificationDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="TopLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return TopLedNotificationDuration.GetTimestampedPayload(message);
+            return TopLedDuration.GetTimestampedPayload(message);
         }
     }
 
@@ -965,25 +965,25 @@ namespace Harp.RfidReader
     /// Represents a register that the time the bottom LED will stay on (sensitive to multiples of 2).
     /// </summary>
     [Description("The time the bottom LED will stay on (sensitive to multiples of 2).")]
-    public partial class BottomLedNotificationDuration
+    public partial class BottomLedDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="BottomLedNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="BottomLedDuration"/> register. This field is constant.
         /// </summary>
         public const int Address = 39;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="BottomLedNotificationDuration"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="BottomLedDuration"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="BottomLedNotificationDuration"/> register. This field is constant.
+        /// Represents the length of the <see cref="BottomLedDuration"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="BottomLedNotificationDuration"/> register messages.
+        /// Returns the payload data for <see cref="BottomLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -993,7 +993,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="BottomLedNotificationDuration"/> register messages.
+        /// Returns the timestamped payload data for <see cref="BottomLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1003,12 +1003,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="BottomLedNotificationDuration"/> register.
+        /// Returns a Harp message for the <see cref="BottomLedDuration"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedDuration"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1017,14 +1017,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="BottomLedNotificationDuration"/>
+        /// Returns a timestamped Harp message for the <see cref="BottomLedDuration"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedNotificationDuration"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedDuration"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1035,25 +1035,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// BottomLedNotificationDuration register.
+    /// BottomLedDuration register.
     /// </summary>
-    /// <seealso cref="BottomLedNotificationDuration"/>
-    [Description("Filters and selects timestamped messages from the BottomLedNotificationDuration register.")]
-    public partial class TimestampedBottomLedNotificationDuration
+    /// <seealso cref="BottomLedDuration"/>
+    [Description("Filters and selects timestamped messages from the BottomLedDuration register.")]
+    public partial class TimestampedBottomLedDuration
     {
         /// <summary>
-        /// Represents the address of the <see cref="BottomLedNotificationDuration"/> register. This field is constant.
+        /// Represents the address of the <see cref="BottomLedDuration"/> register. This field is constant.
         /// </summary>
-        public const int Address = BottomLedNotificationDuration.Address;
+        public const int Address = BottomLedDuration.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="BottomLedNotificationDuration"/> register messages.
+        /// Returns timestamped payload data for <see cref="BottomLedDuration"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return BottomLedNotificationDuration.GetTimestampedPayload(message);
+            return BottomLedDuration.GetTimestampedPayload(message);
         }
     }
 
@@ -1061,25 +1061,25 @@ namespace Harp.RfidReader
     /// Represents a register that the frequency of the buzzer notification.
     /// </summary>
     [Description("The frequency of the buzzer notification.")]
-    public partial class BuzzerNotificationFrequency
+    public partial class BuzzerFrequency
     {
         /// <summary>
-        /// Represents the address of the <see cref="BuzzerNotificationFrequency"/> register. This field is constant.
+        /// Represents the address of the <see cref="BuzzerFrequency"/> register. This field is constant.
         /// </summary>
         public const int Address = 40;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="BuzzerNotificationFrequency"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="BuzzerFrequency"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="BuzzerNotificationFrequency"/> register. This field is constant.
+        /// Represents the length of the <see cref="BuzzerFrequency"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="BuzzerNotificationFrequency"/> register messages.
+        /// Returns the payload data for <see cref="BuzzerFrequency"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1089,7 +1089,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="BuzzerNotificationFrequency"/> register messages.
+        /// Returns the timestamped payload data for <see cref="BuzzerFrequency"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1099,12 +1099,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="BuzzerNotificationFrequency"/> register.
+        /// Returns a Harp message for the <see cref="BuzzerFrequency"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerNotificationFrequency"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerFrequency"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1113,14 +1113,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="BuzzerNotificationFrequency"/>
+        /// Returns a timestamped Harp message for the <see cref="BuzzerFrequency"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerNotificationFrequency"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BuzzerFrequency"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1131,25 +1131,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// BuzzerNotificationFrequency register.
+    /// BuzzerFrequency register.
     /// </summary>
-    /// <seealso cref="BuzzerNotificationFrequency"/>
-    [Description("Filters and selects timestamped messages from the BuzzerNotificationFrequency register.")]
-    public partial class TimestampedBuzzerNotificationFrequency
+    /// <seealso cref="BuzzerFrequency"/>
+    [Description("Filters and selects timestamped messages from the BuzzerFrequency register.")]
+    public partial class TimestampedBuzzerFrequency
     {
         /// <summary>
-        /// Represents the address of the <see cref="BuzzerNotificationFrequency"/> register. This field is constant.
+        /// Represents the address of the <see cref="BuzzerFrequency"/> register. This field is constant.
         /// </summary>
-        public const int Address = BuzzerNotificationFrequency.Address;
+        public const int Address = BuzzerFrequency.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="BuzzerNotificationFrequency"/> register messages.
+        /// Returns timestamped payload data for <see cref="BuzzerFrequency"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return BuzzerNotificationFrequency.GetTimestampedPayload(message);
+            return BuzzerFrequency.GetTimestampedPayload(message);
         }
     }
 
@@ -1157,25 +1157,25 @@ namespace Harp.RfidReader
     /// Represents a register that the blink period of the top LED notification (sensitive to multiples of 2).
     /// </summary>
     [Description("The blink period of the top LED notification (sensitive to multiples of 2).")]
-    public partial class TopLedNotificationPeriod
+    public partial class TopLedPeriod
     {
         /// <summary>
-        /// Represents the address of the <see cref="TopLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the address of the <see cref="TopLedPeriod"/> register. This field is constant.
         /// </summary>
         public const int Address = 41;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="TopLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="TopLedPeriod"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="TopLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the length of the <see cref="TopLedPeriod"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="TopLedNotificationPeriod"/> register messages.
+        /// Returns the payload data for <see cref="TopLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1185,7 +1185,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="TopLedNotificationPeriod"/> register messages.
+        /// Returns the timestamped payload data for <see cref="TopLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1195,12 +1195,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="TopLedNotificationPeriod"/> register.
+        /// Returns a Harp message for the <see cref="TopLedPeriod"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedNotificationPeriod"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedPeriod"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1209,14 +1209,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="TopLedNotificationPeriod"/>
+        /// Returns a timestamped Harp message for the <see cref="TopLedPeriod"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedNotificationPeriod"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="TopLedPeriod"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1227,25 +1227,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// TopLedNotificationPeriod register.
+    /// TopLedPeriod register.
     /// </summary>
-    /// <seealso cref="TopLedNotificationPeriod"/>
-    [Description("Filters and selects timestamped messages from the TopLedNotificationPeriod register.")]
-    public partial class TimestampedTopLedNotificationPeriod
+    /// <seealso cref="TopLedPeriod"/>
+    [Description("Filters and selects timestamped messages from the TopLedPeriod register.")]
+    public partial class TimestampedTopLedPeriod
     {
         /// <summary>
-        /// Represents the address of the <see cref="TopLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the address of the <see cref="TopLedPeriod"/> register. This field is constant.
         /// </summary>
-        public const int Address = TopLedNotificationPeriod.Address;
+        public const int Address = TopLedPeriod.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="TopLedNotificationPeriod"/> register messages.
+        /// Returns timestamped payload data for <see cref="TopLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return TopLedNotificationPeriod.GetTimestampedPayload(message);
+            return TopLedPeriod.GetTimestampedPayload(message);
         }
     }
 
@@ -1253,25 +1253,25 @@ namespace Harp.RfidReader
     /// Represents a register that the blink period of the bottom LED notification (sensitive to multiples of 2).
     /// </summary>
     [Description("The blink period of the bottom LED notification (sensitive to multiples of 2).")]
-    public partial class BottomLedNotificationPeriod
+    public partial class BottomLedPeriod
     {
         /// <summary>
-        /// Represents the address of the <see cref="BottomLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the address of the <see cref="BottomLedPeriod"/> register. This field is constant.
         /// </summary>
         public const int Address = 42;
 
         /// <summary>
-        /// Represents the payload type of the <see cref="BottomLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the payload type of the <see cref="BottomLedPeriod"/> register. This field is constant.
         /// </summary>
         public const PayloadType RegisterType = PayloadType.U16;
 
         /// <summary>
-        /// Represents the length of the <see cref="BottomLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the length of the <see cref="BottomLedPeriod"/> register. This field is constant.
         /// </summary>
         public const int RegisterLength = 1;
 
         /// <summary>
-        /// Returns the payload data for <see cref="BottomLedNotificationPeriod"/> register messages.
+        /// Returns the payload data for <see cref="BottomLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the message payload.</returns>
@@ -1281,7 +1281,7 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns the timestamped payload data for <see cref="BottomLedNotificationPeriod"/> register messages.
+        /// Returns the timestamped payload data for <see cref="BottomLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
@@ -1291,12 +1291,12 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a Harp message for the <see cref="BottomLedNotificationPeriod"/> register.
+        /// Returns a Harp message for the <see cref="BottomLedPeriod"/> register.
         /// </summary>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedNotificationPeriod"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedPeriod"/> register
         /// with the specified message type and payload.
         /// </returns>
         public static HarpMessage FromPayload(MessageType messageType, ushort value)
@@ -1305,14 +1305,14 @@ namespace Harp.RfidReader
         }
 
         /// <summary>
-        /// Returns a timestamped Harp message for the <see cref="BottomLedNotificationPeriod"/>
+        /// Returns a timestamped Harp message for the <see cref="BottomLedPeriod"/>
         /// register.
         /// </summary>
         /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
         /// <param name="messageType">The type of the Harp message.</param>
         /// <param name="value">The value to be stored in the message payload.</param>
         /// <returns>
-        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedNotificationPeriod"/> register
+        /// A <see cref="HarpMessage"/> object for the <see cref="BottomLedPeriod"/> register
         /// with the specified message type, timestamp, and payload.
         /// </returns>
         public static HarpMessage FromPayload(double timestamp, MessageType messageType, ushort value)
@@ -1323,25 +1323,25 @@ namespace Harp.RfidReader
 
     /// <summary>
     /// Provides methods for manipulating timestamped messages from the
-    /// BottomLedNotificationPeriod register.
+    /// BottomLedPeriod register.
     /// </summary>
-    /// <seealso cref="BottomLedNotificationPeriod"/>
-    [Description("Filters and selects timestamped messages from the BottomLedNotificationPeriod register.")]
-    public partial class TimestampedBottomLedNotificationPeriod
+    /// <seealso cref="BottomLedPeriod"/>
+    [Description("Filters and selects timestamped messages from the BottomLedPeriod register.")]
+    public partial class TimestampedBottomLedPeriod
     {
         /// <summary>
-        /// Represents the address of the <see cref="BottomLedNotificationPeriod"/> register. This field is constant.
+        /// Represents the address of the <see cref="BottomLedPeriod"/> register. This field is constant.
         /// </summary>
-        public const int Address = BottomLedNotificationPeriod.Address;
+        public const int Address = BottomLedPeriod.Address;
 
         /// <summary>
-        /// Returns timestamped payload data for <see cref="BottomLedNotificationPeriod"/> register messages.
+        /// Returns timestamped payload data for <see cref="BottomLedPeriod"/> register messages.
         /// </summary>
         /// <param name="message">A <see cref="HarpMessage"/> object representing the register message.</param>
         /// <returns>A value representing the timestamped message payload.</returns>
         public static Timestamped<ushort> GetPayload(HarpMessage message)
         {
-            return BottomLedNotificationPeriod.GetTimestampedPayload(message);
+            return BottomLedPeriod.GetTimestampedPayload(message);
         }
     }
 
@@ -2312,14 +2312,14 @@ namespace Harp.RfidReader
     /// <seealso cref="CreateInboundDetectionIdPayload"/>
     /// <seealso cref="CreateOutboundDetectionIdPayload"/>
     /// <seealso cref="CreateDO0StatePayload"/>
-    /// <seealso cref="CreateEnableHardwareNotificationsPayload"/>
-    /// <seealso cref="CreateTriggerHardwareNotificationsPayload"/>
-    /// <seealso cref="CreateBuzzerNotificationDurationPayload"/>
-    /// <seealso cref="CreateTopLedNotificationDurationPayload"/>
-    /// <seealso cref="CreateBottomLedNotificationDurationPayload"/>
-    /// <seealso cref="CreateBuzzerNotificationFrequencyPayload"/>
-    /// <seealso cref="CreateTopLedNotificationPeriodPayload"/>
-    /// <seealso cref="CreateBottomLedNotificationPeriodPayload"/>
+    /// <seealso cref="CreateHardwareNotificationsStatePayload"/>
+    /// <seealso cref="CreateHardwareNotificationsTriggerPayload"/>
+    /// <seealso cref="CreateBuzzerDurationPayload"/>
+    /// <seealso cref="CreateTopLedDurationPayload"/>
+    /// <seealso cref="CreateBottomLedDurationPayload"/>
+    /// <seealso cref="CreateBuzzerFrequencyPayload"/>
+    /// <seealso cref="CreateTopLedPeriodPayload"/>
+    /// <seealso cref="CreateBottomLedPeriodPayload"/>
     /// <seealso cref="CreateMatchTagId0Payload"/>
     /// <seealso cref="CreateMatchTagId1Payload"/>
     /// <seealso cref="CreateMatchTagId2Payload"/>
@@ -2333,14 +2333,14 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(CreateInboundDetectionIdPayload))]
     [XmlInclude(typeof(CreateOutboundDetectionIdPayload))]
     [XmlInclude(typeof(CreateDO0StatePayload))]
-    [XmlInclude(typeof(CreateEnableHardwareNotificationsPayload))]
-    [XmlInclude(typeof(CreateTriggerHardwareNotificationsPayload))]
-    [XmlInclude(typeof(CreateBuzzerNotificationDurationPayload))]
-    [XmlInclude(typeof(CreateTopLedNotificationDurationPayload))]
-    [XmlInclude(typeof(CreateBottomLedNotificationDurationPayload))]
-    [XmlInclude(typeof(CreateBuzzerNotificationFrequencyPayload))]
-    [XmlInclude(typeof(CreateTopLedNotificationPeriodPayload))]
-    [XmlInclude(typeof(CreateBottomLedNotificationPeriodPayload))]
+    [XmlInclude(typeof(CreateHardwareNotificationsStatePayload))]
+    [XmlInclude(typeof(CreateHardwareNotificationsTriggerPayload))]
+    [XmlInclude(typeof(CreateBuzzerDurationPayload))]
+    [XmlInclude(typeof(CreateTopLedDurationPayload))]
+    [XmlInclude(typeof(CreateBottomLedDurationPayload))]
+    [XmlInclude(typeof(CreateBuzzerFrequencyPayload))]
+    [XmlInclude(typeof(CreateTopLedPeriodPayload))]
+    [XmlInclude(typeof(CreateBottomLedPeriodPayload))]
     [XmlInclude(typeof(CreateMatchTagId0Payload))]
     [XmlInclude(typeof(CreateMatchTagId1Payload))]
     [XmlInclude(typeof(CreateMatchTagId2Payload))]
@@ -2474,7 +2474,7 @@ namespace Harp.RfidReader
         /// Gets or sets the value that changes the state of the digital output pin.
         /// </summary>
         [Description("The value that changes the state of the digital output pin.")]
-        public DigitalOutputState Value { get; set; }
+        public DigitalState Value { get; set; }
 
         /// <summary>
         /// Creates an observable sequence that contains a single message
@@ -2513,10 +2513,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that enables or disables hardware notifications.
     /// </summary>
-    [DisplayName("EnableHardwareNotificationsPayload")]
+    [DisplayName("HardwareNotificationsStatePayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that enables or disables hardware notifications.")]
-    public partial class CreateEnableHardwareNotificationsPayload : HarpCombinator
+    public partial class CreateHardwareNotificationsStatePayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that enables or disables hardware notifications.
@@ -2553,7 +2553,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => EnableHardwareNotifications.FromPayload(MessageType, Value));
+            return source.Select(_ => HardwareNotificationsState.FromPayload(MessageType, Value));
         }
     }
 
@@ -2561,10 +2561,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that triggers hardware notifications.
     /// </summary>
-    [DisplayName("TriggerHardwareNotificationsPayload")]
+    [DisplayName("HardwareNotificationsTriggerPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that triggers hardware notifications.")]
-    public partial class CreateTriggerHardwareNotificationsPayload : HarpCombinator
+    public partial class CreateHardwareNotificationsTriggerPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that triggers hardware notifications.
@@ -2601,7 +2601,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => TriggerHardwareNotifications.FromPayload(MessageType, Value));
+            return source.Select(_ => HardwareNotificationsTrigger.FromPayload(MessageType, Value));
         }
     }
 
@@ -2609,10 +2609,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the buzzer will stay on (sensitive to multiples of 2).
     /// </summary>
-    [DisplayName("BuzzerNotificationDurationPayload")]
+    [DisplayName("BuzzerDurationPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the buzzer will stay on (sensitive to multiples of 2).")]
-    public partial class CreateBuzzerNotificationDurationPayload : HarpCombinator
+    public partial class CreateBuzzerDurationPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the buzzer will stay on (sensitive to multiples of 2).
@@ -2651,7 +2651,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => BuzzerNotificationDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => BuzzerDuration.FromPayload(MessageType, Value));
         }
     }
 
@@ -2659,10 +2659,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the top LED will stay on (sensitive to multiples of 2).
     /// </summary>
-    [DisplayName("TopLedNotificationDurationPayload")]
+    [DisplayName("TopLedDurationPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the top LED will stay on (sensitive to multiples of 2).")]
-    public partial class CreateTopLedNotificationDurationPayload : HarpCombinator
+    public partial class CreateTopLedDurationPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the top LED will stay on (sensitive to multiples of 2).
@@ -2701,7 +2701,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => TopLedNotificationDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => TopLedDuration.FromPayload(MessageType, Value));
         }
     }
 
@@ -2709,10 +2709,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the time the bottom LED will stay on (sensitive to multiples of 2).
     /// </summary>
-    [DisplayName("BottomLedNotificationDurationPayload")]
+    [DisplayName("BottomLedDurationPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the time the bottom LED will stay on (sensitive to multiples of 2).")]
-    public partial class CreateBottomLedNotificationDurationPayload : HarpCombinator
+    public partial class CreateBottomLedDurationPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the time the bottom LED will stay on (sensitive to multiples of 2).
@@ -2751,7 +2751,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => BottomLedNotificationDuration.FromPayload(MessageType, Value));
+            return source.Select(_ => BottomLedDuration.FromPayload(MessageType, Value));
         }
     }
 
@@ -2759,10 +2759,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the frequency of the buzzer notification.
     /// </summary>
-    [DisplayName("BuzzerNotificationFrequencyPayload")]
+    [DisplayName("BuzzerFrequencyPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the frequency of the buzzer notification.")]
-    public partial class CreateBuzzerNotificationFrequencyPayload : HarpCombinator
+    public partial class CreateBuzzerFrequencyPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the frequency of the buzzer notification.
@@ -2801,7 +2801,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => BuzzerNotificationFrequency.FromPayload(MessageType, Value));
+            return source.Select(_ => BuzzerFrequency.FromPayload(MessageType, Value));
         }
     }
 
@@ -2809,10 +2809,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the blink period of the top LED notification (sensitive to multiples of 2).
     /// </summary>
-    [DisplayName("TopLedNotificationPeriodPayload")]
+    [DisplayName("TopLedPeriodPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the blink period of the top LED notification (sensitive to multiples of 2).")]
-    public partial class CreateTopLedNotificationPeriodPayload : HarpCombinator
+    public partial class CreateTopLedPeriodPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the blink period of the top LED notification (sensitive to multiples of 2).
@@ -2851,7 +2851,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => TopLedNotificationPeriod.FromPayload(MessageType, Value));
+            return source.Select(_ => TopLedPeriod.FromPayload(MessageType, Value));
         }
     }
 
@@ -2859,10 +2859,10 @@ namespace Harp.RfidReader
     /// Represents an operator that creates a sequence of message payloads
     /// that the blink period of the bottom LED notification (sensitive to multiples of 2).
     /// </summary>
-    [DisplayName("BottomLedNotificationPeriodPayload")]
+    [DisplayName("BottomLedPeriodPayload")]
     [WorkflowElementCategory(ElementCategory.Transform)]
     [Description("Creates a sequence of message payloads that the blink period of the bottom LED notification (sensitive to multiples of 2).")]
-    public partial class CreateBottomLedNotificationPeriodPayload : HarpCombinator
+    public partial class CreateBottomLedPeriodPayload : HarpCombinator
     {
         /// <summary>
         /// Gets or sets the value that the blink period of the bottom LED notification (sensitive to multiples of 2).
@@ -2901,7 +2901,7 @@ namespace Harp.RfidReader
         /// </returns>
         public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
         {
-            return source.Select(_ => BottomLedNotificationPeriod.FromPayload(MessageType, Value));
+            return source.Select(_ => BottomLedPeriod.FromPayload(MessageType, Value));
         }
     }
 
@@ -3392,14 +3392,14 @@ namespace Harp.RfidReader
     public enum HardwareNotifications : byte
     {
         Buzzer = 0x1,
-        TopLed = 0x1,
-        BottomLed = 0x1
+        TopLed = 0x2,
+        BottomLed = 0x4
     }
 
     /// <summary>
     /// The state of the digital output pin.
     /// </summary>
-    public enum DigitalOutputState : byte
+    public enum DigitalState : byte
     {
         Low = 0,
         High = 1
