@@ -19,15 +19,15 @@ registers:
     address: 34
     type: U8
     access: [Write, Event]
-    maskType: DigitalOutputState
+    maskType: DigitalState
     description: Changes the state of the digital output pin.
-  EnableHardwareNotifications:
+  HardwareNotificationsState:
     address: 35
     type: U8
     access: Write
     maskType: HardwareNotifications
     description: Enables or disables hardware notifications.
-  TriggerHardwareNotifications:
+  HardwareNotificationsTrigger:
     address: 36
     type: U8
     access: Write
@@ -120,7 +120,7 @@ bitMasks:
       TopLed: 0x2
       BottomLed: 0x4
 groupMasks:
-  DigitalOutputState:
+  DigitalState:
     description: The state of the digital output pin.
     values:
       Low: 0
