@@ -199,91 +199,13 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 {
 	if (rxbuff_pointer == 0)
 	{
-		timer_type1_enable(&TCD1, TIMER_PRESCALER_DIV1024, 625, INT_LEVEL_LOW);	// 20 ms
+		timer_type1_enable(&TCD1, TIMER_PRESCALER_DIV1024, 156, INT_LEVEL_LOW);		// ~5 ms
+																											// 1 byte = 833 us @ 9600bps
 		id_event_was_sent = false;
 	}
 	
 	rxbuff_uart0[rxbuff_pointer++] = byte_received;
-	
-	if (rxbuff_pointer == 16)
-	{
-		rxbuff_pointer = 0;
-		timer_type1_stop(&TCD1);
-		
-		if (rxbuff_uart0[0] != 0x02) return;	// STX
-		if (rxbuff_uart0[13] != 0x0D) return;	// CR
-		if (rxbuff_uart0[14] != 0x0A) return;	// LF
-		if (rxbuff_uart0[15] != 0x03) return;	// ETX
-		
-		/* Convert from ASCII */
-		for (uint8_t i = 1; i < 13; i++)
-		{
-			if (rxbuff_uart0[i] <= 57)
-				rxbuff_uart0[i] = rxbuff_uart0[i] - 48;
-			else
-				rxbuff_uart0[i] = rxbuff_uart0[i] - 65 + 10;
-		}		
-		for (uint8_t i = 0; i < 6; i++)
-		{
-			rxbuff_uart0[i] = (rxbuff_uart0[i*2+1] << 4) + rxbuff_uart0[i*2+2];
-		}
-		
-		uint8_t checksum = rxbuff_uart0[0] ^ rxbuff_uart0[1] ^ rxbuff_uart0[2] ^ rxbuff_uart0[3] ^ rxbuff_uart0[4];
-		
-		if (checksum == rxbuff_uart0[5])
-		{
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+0) = rxbuff_uart0[4];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+1) = rxbuff_uart0[3];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+2) = rxbuff_uart0[2];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+3) = rxbuff_uart0[1];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+4) = rxbuff_uart0[0];
-			
-			//app_regs.REG_TAG_ID = *((uint64_t*)(rxbuff_uart0));
-		
-			if ((app_regs.REG_TAG_MATCH0 != 0) || (app_regs.REG_TAG_MATCH1 != 0) || (app_regs.REG_TAG_MATCH2 != 0) || (app_regs.REG_TAG_MATCH3 != 0 ))
-			{
-				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH0)
-				{
-					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
-					id_event_was_sent = true;
-					notify(app_regs.REG_NOTIFICATIONS);
-					out0_timeout_ms = app_regs.REG_TAG_MATCH0_OUT0_PERIOD;
-					return;				
-				}
-				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH1)
-				{
-					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
-					id_event_was_sent = true;
-					notify(app_regs.REG_NOTIFICATIONS);
-					out0_timeout_ms = app_regs.REG_TAG_MATCH1_OUT0_PERIOD;
-					return;
-				}
-				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH2)
-				{
-					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
-					id_event_was_sent = true;
-					notify(app_regs.REG_NOTIFICATIONS);
-					out0_timeout_ms = app_regs.REG_TAG_MATCH2_OUT0_PERIOD;
-					return;
-				}
-				if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH3)
-				{
-					core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
-					id_event_was_sent = true;
-					notify(app_regs.REG_NOTIFICATIONS);
-					out0_timeout_ms = app_regs.REG_TAG_MATCH3_OUT0_PERIOD;
-					return;
-				}
-			}
-			else
-			{
-				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, false);
-				id_event_was_sent = true;
-				out0_timeout_ms = app_regs.REG_TAG_ID_ARRIVED_PERIOD;
-				notify(app_regs.REG_NOTIFICATIONS);
-			}
-		}
-	}
+	TCD1_CNT = 0;
 }
 
 
