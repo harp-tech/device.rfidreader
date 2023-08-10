@@ -10,11 +10,11 @@ registers:
     address: 32
     type: U64
     access: Event
-    description: The ID of the tag that was detected as in entered the area of the reader.
+    description: The ID of the tag that was detected as having entered the area of the reader.
   OutboundDetectionId:
     << : *detectionevent
     address: 33
-    description: The ID of the tag that was detected as in exited the area of the reader.
+    description: The ID of the tag that was detected as having exited the area of the reader.
   DO0State:
     address: 34
     type: U8
@@ -74,12 +74,12 @@ registers:
     << : *reserved
     address: 44
     description: Reserved for future use.
-  MatchTagId0: &matchtagid #TODO not sure what event this triggers...
+  MatchTagId0: &matchtagid
     address: 45
     type: U64
     access: Write
     defaultValue: 0
-    description: Sends a notification when the tag with the specified ID is detected.
+    description: Sends detection event notifications only when the tag with the specified ID is detected.
   MatchTagId1:
     << : *matchtagid
     address: 46
