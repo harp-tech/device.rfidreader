@@ -129,12 +129,12 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(AnyTagIdPulseWidth))]
     [XmlInclude(typeof(DO0PulseWidth))]
     [Description("Filters register-specific messages reported by the RfidReader device.")]
-    public class FilterMessage : FilterMessageBuilder, INamedElement
+    public class FilterRegister : FilterRegisterBuilder, INamedElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilterMessage"/> class.
+        /// Initializes a new instance of the <see cref="FilterRegister"/> class.
         /// </summary>
-        public FilterMessage()
+        public FilterRegister()
         {
             Register = new InboundDetectionId();
         }
@@ -287,9 +287,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that the ID of the tag that was detected as in entered the area of the reader.
+    /// Represents a register that the ID of the tag that was detected as having entered the area of the reader.
     /// </summary>
-    [Description("The ID of the tag that was detected as in entered the area of the reader.")]
+    [Description("The ID of the tag that was detected as having entered the area of the reader.")]
     public partial class InboundDetectionId
     {
         /// <summary>
@@ -383,9 +383,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that the ID of the tag that was detected as in exited the area of the reader.
+    /// Represents a register that the ID of the tag that was detected as having exited the area of the reader.
     /// </summary>
-    [Description("The ID of the tag that was detected as in exited the area of the reader.")]
+    [Description("The ID of the tag that was detected as having exited the area of the reader.")]
     public partial class OutboundDetectionId
     {
         /// <summary>
@@ -1346,9 +1346,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that sends a notification when the tag with the specified ID is detected.
+    /// Represents a register that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
-    [Description("Sends a notification when the tag with the specified ID is detected.")]
+    [Description("Sends detection event notifications only when the tag with the specified ID is detected.")]
     public partial class MatchTagId0
     {
         /// <summary>
@@ -1442,9 +1442,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that sends a notification when the tag with the specified ID is detected.
+    /// Represents a register that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
-    [Description("Sends a notification when the tag with the specified ID is detected.")]
+    [Description("Sends detection event notifications only when the tag with the specified ID is detected.")]
     public partial class MatchTagId1
     {
         /// <summary>
@@ -1538,9 +1538,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that sends a notification when the tag with the specified ID is detected.
+    /// Represents a register that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
-    [Description("Sends a notification when the tag with the specified ID is detected.")]
+    [Description("Sends detection event notifications only when the tag with the specified ID is detected.")]
     public partial class MatchTagId2
     {
         /// <summary>
@@ -1634,9 +1634,9 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents a register that sends a notification when the tag with the specified ID is detected.
+    /// Represents a register that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
-    [Description("Sends a notification when the tag with the specified ID is detected.")]
+    [Description("Sends detection event notifications only when the tag with the specified ID is detected.")]
     public partial class MatchTagId3
     {
         /// <summary>
@@ -2351,6 +2351,27 @@ namespace Harp.RfidReader
     [XmlInclude(typeof(CreateMatchTagId3PulseWidthPayload))]
     [XmlInclude(typeof(CreateAnyTagIdPulseWidthPayload))]
     [XmlInclude(typeof(CreateDO0PulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedInboundDetectionIdPayload))]
+    [XmlInclude(typeof(CreateTimestampedOutboundDetectionIdPayload))]
+    [XmlInclude(typeof(CreateTimestampedDO0StatePayload))]
+    [XmlInclude(typeof(CreateTimestampedHardwareNotificationsStatePayload))]
+    [XmlInclude(typeof(CreateTimestampedHardwareNotificationsTriggerPayload))]
+    [XmlInclude(typeof(CreateTimestampedBuzzerDurationPayload))]
+    [XmlInclude(typeof(CreateTimestampedTopLedDurationPayload))]
+    [XmlInclude(typeof(CreateTimestampedBottomLedDurationPayload))]
+    [XmlInclude(typeof(CreateTimestampedBuzzerFrequencyPayload))]
+    [XmlInclude(typeof(CreateTimestampedTopLedPeriodPayload))]
+    [XmlInclude(typeof(CreateTimestampedBottomLedPeriodPayload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId0Payload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId1Payload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId2Payload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId3Payload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId0PulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId1PulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId2PulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedMatchTagId3PulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedAnyTagIdPulseWidthPayload))]
+    [XmlInclude(typeof(CreateTimestampedDO0PulseWidthPayload))]
     [Description("Creates standard message payloads for the RfidReader device.")]
     public partial class CreateMessage : CreateMessageBuilder, INamedElement
     {
@@ -2366,253 +2387,282 @@ namespace Harp.RfidReader
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that the ID of the tag that was detected as in entered the area of the reader.
+    /// Represents an operator that creates a message payload
+    /// that the ID of the tag that was detected as having entered the area of the reader.
     /// </summary>
     [DisplayName("InboundDetectionIdPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the ID of the tag that was detected as in entered the area of the reader.")]
-    public partial class CreateInboundDetectionIdPayload : HarpCombinator
+    [Description("Creates a message payload that the ID of the tag that was detected as having entered the area of the reader.")]
+    public partial class CreateInboundDetectionIdPayload
     {
         /// <summary>
-        /// Gets or sets the value that the ID of the tag that was detected as in entered the area of the reader.
+        /// Gets or sets the value that the ID of the tag that was detected as having entered the area of the reader.
         /// </summary>
-        [Description("The value that the ID of the tag that was detected as in entered the area of the reader.")]
-        public ulong Value { get; set; }
+        [Description("The value that the ID of the tag that was detected as having entered the area of the reader.")]
+        public ulong InboundDetectionId { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the ID of the tag that was detected as in entered the area of the reader.
+        /// Creates a message payload for the InboundDetectionId register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return InboundDetectionId;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the ID of the tag that was detected as in entered the area of the reader.
+        /// Creates a message that the ID of the tag that was detected as having entered the area of the reader.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the InboundDetectionId register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => InboundDetectionId.FromPayload(MessageType, Value));
+            return Harp.RfidReader.InboundDetectionId.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that the ID of the tag that was detected as in exited the area of the reader.
+    /// Represents an operator that creates a timestamped message payload
+    /// that the ID of the tag that was detected as having entered the area of the reader.
+    /// </summary>
+    [DisplayName("TimestampedInboundDetectionIdPayload")]
+    [Description("Creates a timestamped message payload that the ID of the tag that was detected as having entered the area of the reader.")]
+    public partial class CreateTimestampedInboundDetectionIdPayload : CreateInboundDetectionIdPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the ID of the tag that was detected as having entered the area of the reader.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the InboundDetectionId register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.InboundDetectionId.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
+    /// that the ID of the tag that was detected as having exited the area of the reader.
     /// </summary>
     [DisplayName("OutboundDetectionIdPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the ID of the tag that was detected as in exited the area of the reader.")]
-    public partial class CreateOutboundDetectionIdPayload : HarpCombinator
+    [Description("Creates a message payload that the ID of the tag that was detected as having exited the area of the reader.")]
+    public partial class CreateOutboundDetectionIdPayload
     {
         /// <summary>
-        /// Gets or sets the value that the ID of the tag that was detected as in exited the area of the reader.
+        /// Gets or sets the value that the ID of the tag that was detected as having exited the area of the reader.
         /// </summary>
-        [Description("The value that the ID of the tag that was detected as in exited the area of the reader.")]
-        public ulong Value { get; set; }
+        [Description("The value that the ID of the tag that was detected as having exited the area of the reader.")]
+        public ulong OutboundDetectionId { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the ID of the tag that was detected as in exited the area of the reader.
+        /// Creates a message payload for the OutboundDetectionId register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return OutboundDetectionId;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the ID of the tag that was detected as in exited the area of the reader.
+        /// Creates a message that the ID of the tag that was detected as having exited the area of the reader.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the OutboundDetectionId register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => OutboundDetectionId.FromPayload(MessageType, Value));
+            return Harp.RfidReader.OutboundDetectionId.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the ID of the tag that was detected as having exited the area of the reader.
+    /// </summary>
+    [DisplayName("TimestampedOutboundDetectionIdPayload")]
+    [Description("Creates a timestamped message payload that the ID of the tag that was detected as having exited the area of the reader.")]
+    public partial class CreateTimestampedOutboundDetectionIdPayload : CreateOutboundDetectionIdPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the ID of the tag that was detected as having exited the area of the reader.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the OutboundDetectionId register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.OutboundDetectionId.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that changes the state of the digital output pin.
     /// </summary>
     [DisplayName("DO0StatePayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that changes the state of the digital output pin.")]
-    public partial class CreateDO0StatePayload : HarpCombinator
+    [Description("Creates a message payload that changes the state of the digital output pin.")]
+    public partial class CreateDO0StatePayload
     {
         /// <summary>
         /// Gets or sets the value that changes the state of the digital output pin.
         /// </summary>
         [Description("The value that changes the state of the digital output pin.")]
-        public DigitalState Value { get; set; }
+        public DigitalState DO0State { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that changes the state of the digital output pin.
+        /// Creates a message payload for the DO0State register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public DigitalState GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return DO0State;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that changes the state of the digital output pin.
+        /// Creates a message that changes the state of the digital output pin.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the DO0State register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => DO0State.FromPayload(MessageType, Value));
+            return Harp.RfidReader.DO0State.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that changes the state of the digital output pin.
+    /// </summary>
+    [DisplayName("TimestampedDO0StatePayload")]
+    [Description("Creates a timestamped message payload that changes the state of the digital output pin.")]
+    public partial class CreateTimestampedDO0StatePayload : CreateDO0StatePayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that changes the state of the digital output pin.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the DO0State register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.DO0State.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that enables or disables hardware notifications.
     /// </summary>
     [DisplayName("HardwareNotificationsStatePayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that enables or disables hardware notifications.")]
-    public partial class CreateHardwareNotificationsStatePayload : HarpCombinator
+    [Description("Creates a message payload that enables or disables hardware notifications.")]
+    public partial class CreateHardwareNotificationsStatePayload
     {
         /// <summary>
         /// Gets or sets the value that enables or disables hardware notifications.
         /// </summary>
         [Description("The value that enables or disables hardware notifications.")]
-        public HardwareNotifications Value { get; set; }
+        public HardwareNotifications HardwareNotificationsState { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that enables or disables hardware notifications.
+        /// Creates a message payload for the HardwareNotificationsState register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public HardwareNotifications GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return HardwareNotificationsState;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that enables or disables hardware notifications.
+        /// Creates a message that enables or disables hardware notifications.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the HardwareNotificationsState register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => HardwareNotificationsState.FromPayload(MessageType, Value));
+            return Harp.RfidReader.HardwareNotificationsState.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that enables or disables hardware notifications.
+    /// </summary>
+    [DisplayName("TimestampedHardwareNotificationsStatePayload")]
+    [Description("Creates a timestamped message payload that enables or disables hardware notifications.")]
+    public partial class CreateTimestampedHardwareNotificationsStatePayload : CreateHardwareNotificationsStatePayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that enables or disables hardware notifications.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the HardwareNotificationsState register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.HardwareNotificationsState.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that triggers hardware notifications.
     /// </summary>
     [DisplayName("HardwareNotificationsTriggerPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that triggers hardware notifications.")]
-    public partial class CreateHardwareNotificationsTriggerPayload : HarpCombinator
+    [Description("Creates a message payload that triggers hardware notifications.")]
+    public partial class CreateHardwareNotificationsTriggerPayload
     {
         /// <summary>
         /// Gets or sets the value that triggers hardware notifications.
         /// </summary>
         [Description("The value that triggers hardware notifications.")]
-        public HardwareNotifications Value { get; set; }
+        public HardwareNotifications HardwareNotificationsTrigger { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that triggers hardware notifications.
+        /// Creates a message payload for the HardwareNotificationsTrigger register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public HardwareNotifications GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return HardwareNotificationsTrigger;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that triggers hardware notifications.
+        /// Creates a message that triggers hardware notifications.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the HardwareNotificationsTrigger register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => HardwareNotificationsTrigger.FromPayload(MessageType, Value));
+            return Harp.RfidReader.HardwareNotificationsTrigger.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that triggers hardware notifications.
+    /// </summary>
+    [DisplayName("TimestampedHardwareNotificationsTriggerPayload")]
+    [Description("Creates a timestamped message payload that triggers hardware notifications.")]
+    public partial class CreateTimestampedHardwareNotificationsTriggerPayload : CreateHardwareNotificationsTriggerPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that triggers hardware notifications.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the HardwareNotificationsTrigger register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.HardwareNotificationsTrigger.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the buzzer will stay on (sensitive to multiples of 2).
     /// </summary>
     [DisplayName("BuzzerDurationPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the buzzer will stay on (sensitive to multiples of 2).")]
-    public partial class CreateBuzzerDurationPayload : HarpCombinator
+    [Description("Creates a message payload that the time the buzzer will stay on (sensitive to multiples of 2).")]
+    public partial class CreateBuzzerDurationPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the buzzer will stay on (sensitive to multiples of 2).
@@ -2620,49 +2670,55 @@ namespace Harp.RfidReader
         [Range(min: 2, max: long.MaxValue)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the time the buzzer will stay on (sensitive to multiples of 2).")]
-        public ushort Value { get; set; } = 2;
+        public ushort BuzzerDuration { get; set; } = 2;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the buzzer will stay on (sensitive to multiples of 2).
+        /// Creates a message payload for the BuzzerDuration register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return BuzzerDuration;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the buzzer will stay on (sensitive to multiples of 2).
+        /// Creates a message that the time the buzzer will stay on (sensitive to multiples of 2).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the BuzzerDuration register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => BuzzerDuration.FromPayload(MessageType, Value));
+            return Harp.RfidReader.BuzzerDuration.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the buzzer will stay on (sensitive to multiples of 2).
+    /// </summary>
+    [DisplayName("TimestampedBuzzerDurationPayload")]
+    [Description("Creates a timestamped message payload that the time the buzzer will stay on (sensitive to multiples of 2).")]
+    public partial class CreateTimestampedBuzzerDurationPayload : CreateBuzzerDurationPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the buzzer will stay on (sensitive to multiples of 2).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the BuzzerDuration register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.BuzzerDuration.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the top LED will stay on (sensitive to multiples of 2).
     /// </summary>
     [DisplayName("TopLedDurationPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the top LED will stay on (sensitive to multiples of 2).")]
-    public partial class CreateTopLedDurationPayload : HarpCombinator
+    [Description("Creates a message payload that the time the top LED will stay on (sensitive to multiples of 2).")]
+    public partial class CreateTopLedDurationPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the top LED will stay on (sensitive to multiples of 2).
@@ -2670,49 +2726,55 @@ namespace Harp.RfidReader
         [Range(min: 2, max: long.MaxValue)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the time the top LED will stay on (sensitive to multiples of 2).")]
-        public ushort Value { get; set; } = 2;
+        public ushort TopLedDuration { get; set; } = 2;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the top LED will stay on (sensitive to multiples of 2).
+        /// Creates a message payload for the TopLedDuration register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return TopLedDuration;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the top LED will stay on (sensitive to multiples of 2).
+        /// Creates a message that the time the top LED will stay on (sensitive to multiples of 2).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the TopLedDuration register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => TopLedDuration.FromPayload(MessageType, Value));
+            return Harp.RfidReader.TopLedDuration.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the top LED will stay on (sensitive to multiples of 2).
+    /// </summary>
+    [DisplayName("TimestampedTopLedDurationPayload")]
+    [Description("Creates a timestamped message payload that the time the top LED will stay on (sensitive to multiples of 2).")]
+    public partial class CreateTimestampedTopLedDurationPayload : CreateTopLedDurationPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the top LED will stay on (sensitive to multiples of 2).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the TopLedDuration register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.TopLedDuration.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the bottom LED will stay on (sensitive to multiples of 2).
     /// </summary>
     [DisplayName("BottomLedDurationPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the bottom LED will stay on (sensitive to multiples of 2).")]
-    public partial class CreateBottomLedDurationPayload : HarpCombinator
+    [Description("Creates a message payload that the time the bottom LED will stay on (sensitive to multiples of 2).")]
+    public partial class CreateBottomLedDurationPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the bottom LED will stay on (sensitive to multiples of 2).
@@ -2720,49 +2782,55 @@ namespace Harp.RfidReader
         [Range(min: 2, max: long.MaxValue)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the time the bottom LED will stay on (sensitive to multiples of 2).")]
-        public ushort Value { get; set; } = 2;
+        public ushort BottomLedDuration { get; set; } = 2;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the bottom LED will stay on (sensitive to multiples of 2).
+        /// Creates a message payload for the BottomLedDuration register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return BottomLedDuration;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the bottom LED will stay on (sensitive to multiples of 2).
+        /// Creates a message that the time the bottom LED will stay on (sensitive to multiples of 2).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the BottomLedDuration register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => BottomLedDuration.FromPayload(MessageType, Value));
+            return Harp.RfidReader.BottomLedDuration.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the bottom LED will stay on (sensitive to multiples of 2).
+    /// </summary>
+    [DisplayName("TimestampedBottomLedDurationPayload")]
+    [Description("Creates a timestamped message payload that the time the bottom LED will stay on (sensitive to multiples of 2).")]
+    public partial class CreateTimestampedBottomLedDurationPayload : CreateBottomLedDurationPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the bottom LED will stay on (sensitive to multiples of 2).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the BottomLedDuration register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.BottomLedDuration.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the frequency of the buzzer notification.
     /// </summary>
     [DisplayName("BuzzerFrequencyPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the frequency of the buzzer notification.")]
-    public partial class CreateBuzzerFrequencyPayload : HarpCombinator
+    [Description("Creates a message payload that the frequency of the buzzer notification.")]
+    public partial class CreateBuzzerFrequencyPayload
     {
         /// <summary>
         /// Gets or sets the value that the frequency of the buzzer notification.
@@ -2770,49 +2838,55 @@ namespace Harp.RfidReader
         [Range(min: 200, max: 15000)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the frequency of the buzzer notification.")]
-        public ushort Value { get; set; } = 200;
+        public ushort BuzzerFrequency { get; set; } = 200;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the frequency of the buzzer notification.
+        /// Creates a message payload for the BuzzerFrequency register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return BuzzerFrequency;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the frequency of the buzzer notification.
+        /// Creates a message that the frequency of the buzzer notification.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the BuzzerFrequency register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => BuzzerFrequency.FromPayload(MessageType, Value));
+            return Harp.RfidReader.BuzzerFrequency.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the frequency of the buzzer notification.
+    /// </summary>
+    [DisplayName("TimestampedBuzzerFrequencyPayload")]
+    [Description("Creates a timestamped message payload that the frequency of the buzzer notification.")]
+    public partial class CreateTimestampedBuzzerFrequencyPayload : CreateBuzzerFrequencyPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the frequency of the buzzer notification.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the BuzzerFrequency register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.BuzzerFrequency.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the blink period of the top LED notification (sensitive to multiples of 2).
     /// </summary>
     [DisplayName("TopLedPeriodPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the blink period of the top LED notification (sensitive to multiples of 2).")]
-    public partial class CreateTopLedPeriodPayload : HarpCombinator
+    [Description("Creates a message payload that the blink period of the top LED notification (sensitive to multiples of 2).")]
+    public partial class CreateTopLedPeriodPayload
     {
         /// <summary>
         /// Gets or sets the value that the blink period of the top LED notification (sensitive to multiples of 2).
@@ -2820,49 +2894,55 @@ namespace Harp.RfidReader
         [Range(min: 2, max: long.MaxValue)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the blink period of the top LED notification (sensitive to multiples of 2).")]
-        public ushort Value { get; set; } = 2;
+        public ushort TopLedPeriod { get; set; } = 2;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the blink period of the top LED notification (sensitive to multiples of 2).
+        /// Creates a message payload for the TopLedPeriod register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return TopLedPeriod;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the blink period of the top LED notification (sensitive to multiples of 2).
+        /// Creates a message that the blink period of the top LED notification (sensitive to multiples of 2).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the TopLedPeriod register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => TopLedPeriod.FromPayload(MessageType, Value));
+            return Harp.RfidReader.TopLedPeriod.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the blink period of the top LED notification (sensitive to multiples of 2).
+    /// </summary>
+    [DisplayName("TimestampedTopLedPeriodPayload")]
+    [Description("Creates a timestamped message payload that the blink period of the top LED notification (sensitive to multiples of 2).")]
+    public partial class CreateTimestampedTopLedPeriodPayload : CreateTopLedPeriodPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the blink period of the top LED notification (sensitive to multiples of 2).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the TopLedPeriod register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.TopLedPeriod.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the blink period of the bottom LED notification (sensitive to multiples of 2).
     /// </summary>
     [DisplayName("BottomLedPeriodPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the blink period of the bottom LED notification (sensitive to multiples of 2).")]
-    public partial class CreateBottomLedPeriodPayload : HarpCombinator
+    [Description("Creates a message payload that the blink period of the bottom LED notification (sensitive to multiples of 2).")]
+    public partial class CreateBottomLedPeriodPayload
     {
         /// <summary>
         /// Gets or sets the value that the blink period of the bottom LED notification (sensitive to multiples of 2).
@@ -2870,518 +2950,585 @@ namespace Harp.RfidReader
         [Range(min: 2, max: long.MaxValue)]
         [Editor(DesignTypes.NumericUpDownEditor, DesignTypes.UITypeEditor)]
         [Description("The value that the blink period of the bottom LED notification (sensitive to multiples of 2).")]
-        public ushort Value { get; set; } = 2;
+        public ushort BottomLedPeriod { get; set; } = 2;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the blink period of the bottom LED notification (sensitive to multiples of 2).
+        /// Creates a message payload for the BottomLedPeriod register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return BottomLedPeriod;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the blink period of the bottom LED notification (sensitive to multiples of 2).
+        /// Creates a message that the blink period of the bottom LED notification (sensitive to multiples of 2).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the BottomLedPeriod register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => BottomLedPeriod.FromPayload(MessageType, Value));
+            return Harp.RfidReader.BottomLedPeriod.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that sends a notification when the tag with the specified ID is detected.
+    /// Represents an operator that creates a timestamped message payload
+    /// that the blink period of the bottom LED notification (sensitive to multiples of 2).
+    /// </summary>
+    [DisplayName("TimestampedBottomLedPeriodPayload")]
+    [Description("Creates a timestamped message payload that the blink period of the bottom LED notification (sensitive to multiples of 2).")]
+    public partial class CreateTimestampedBottomLedPeriodPayload : CreateBottomLedPeriodPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the blink period of the bottom LED notification (sensitive to multiples of 2).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the BottomLedPeriod register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.BottomLedPeriod.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
     [DisplayName("MatchTagId0Payload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that sends a notification when the tag with the specified ID is detected.")]
-    public partial class CreateMatchTagId0Payload : HarpCombinator
+    [Description("Creates a message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateMatchTagId0Payload
     {
         /// <summary>
-        /// Gets or sets the value that sends a notification when the tag with the specified ID is detected.
+        /// Gets or sets the value that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        [Description("The value that sends a notification when the tag with the specified ID is detected.")]
-        public ulong Value { get; set; } = 0;
+        [Description("The value that sends detection event notifications only when the tag with the specified ID is detected.")]
+        public ulong MatchTagId0 { get; set; } = 0;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message payload for the MatchTagId0 register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId0;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId0 register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId0.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId0.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that sends a notification when the tag with the specified ID is detected.
+    /// Represents an operator that creates a timestamped message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId0Payload")]
+    [Description("Creates a timestamped message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateTimestampedMatchTagId0Payload : CreateMatchTagId0Payload
+    {
+        /// <summary>
+        /// Creates a timestamped message that sends detection event notifications only when the tag with the specified ID is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId0 register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId0.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
     [DisplayName("MatchTagId1Payload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that sends a notification when the tag with the specified ID is detected.")]
-    public partial class CreateMatchTagId1Payload : HarpCombinator
+    [Description("Creates a message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateMatchTagId1Payload
     {
         /// <summary>
-        /// Gets or sets the value that sends a notification when the tag with the specified ID is detected.
+        /// Gets or sets the value that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        [Description("The value that sends a notification when the tag with the specified ID is detected.")]
-        public ulong Value { get; set; } = 0;
+        [Description("The value that sends detection event notifications only when the tag with the specified ID is detected.")]
+        public ulong MatchTagId1 { get; set; } = 0;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message payload for the MatchTagId1 register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId1;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId1 register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId1.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId1.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that sends a notification when the tag with the specified ID is detected.
+    /// Represents an operator that creates a timestamped message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId1Payload")]
+    [Description("Creates a timestamped message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateTimestampedMatchTagId1Payload : CreateMatchTagId1Payload
+    {
+        /// <summary>
+        /// Creates a timestamped message that sends detection event notifications only when the tag with the specified ID is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId1 register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId1.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
     [DisplayName("MatchTagId2Payload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that sends a notification when the tag with the specified ID is detected.")]
-    public partial class CreateMatchTagId2Payload : HarpCombinator
+    [Description("Creates a message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateMatchTagId2Payload
     {
         /// <summary>
-        /// Gets or sets the value that sends a notification when the tag with the specified ID is detected.
+        /// Gets or sets the value that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        [Description("The value that sends a notification when the tag with the specified ID is detected.")]
-        public ulong Value { get; set; } = 0;
+        [Description("The value that sends detection event notifications only when the tag with the specified ID is detected.")]
+        public ulong MatchTagId2 { get; set; } = 0;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message payload for the MatchTagId2 register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId2;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId2 register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId2.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId2.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
-    /// that sends a notification when the tag with the specified ID is detected.
+    /// Represents an operator that creates a timestamped message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId2Payload")]
+    [Description("Creates a timestamped message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateTimestampedMatchTagId2Payload : CreateMatchTagId2Payload
+    {
+        /// <summary>
+        /// Creates a timestamped message that sends detection event notifications only when the tag with the specified ID is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId2 register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId2.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
     /// </summary>
     [DisplayName("MatchTagId3Payload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that sends a notification when the tag with the specified ID is detected.")]
-    public partial class CreateMatchTagId3Payload : HarpCombinator
+    [Description("Creates a message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateMatchTagId3Payload
     {
         /// <summary>
-        /// Gets or sets the value that sends a notification when the tag with the specified ID is detected.
+        /// Gets or sets the value that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        [Description("The value that sends a notification when the tag with the specified ID is detected.")]
-        public ulong Value { get; set; } = 0;
+        [Description("The value that sends detection event notifications only when the tag with the specified ID is detected.")]
+        public ulong MatchTagId3 { get; set; } = 0;
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message payload for the MatchTagId3 register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ulong GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId3;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that sends a notification when the tag with the specified ID is detected.
+        /// Creates a message that sends detection event notifications only when the tag with the specified ID is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId3 register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId3.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId3.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that sends detection event notifications only when the tag with the specified ID is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId3Payload")]
+    [Description("Creates a timestamped message payload that sends detection event notifications only when the tag with the specified ID is detected.")]
+    public partial class CreateTimestampedMatchTagId3Payload : CreateMatchTagId3Payload
+    {
+        /// <summary>
+        /// Creates a timestamped message that sends detection event notifications only when the tag with the specified ID is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId3 register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId3.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [DisplayName("MatchTagId0PulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId0PulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateMatchTagId0PulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
         [Description("The value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-        public ushort Value { get; set; }
+        public ushort MatchTagId0PulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message payload for the MatchTagId0PulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId0PulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId0PulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId0PulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId0PulseWidth.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId0PulseWidthPayload")]
+    [Description("Creates a timestamped message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateTimestampedMatchTagId0PulseWidthPayload : CreateMatchTagId0PulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId0PulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId0PulseWidth.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [DisplayName("MatchTagId1PulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId1PulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateMatchTagId1PulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
         [Description("The value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-        public ushort Value { get; set; }
+        public ushort MatchTagId1PulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message payload for the MatchTagId1PulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId1PulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId1PulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId1PulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId1PulseWidth.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId1PulseWidthPayload")]
+    [Description("Creates a timestamped message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateTimestampedMatchTagId1PulseWidthPayload : CreateMatchTagId1PulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId1PulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId1PulseWidth.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [DisplayName("MatchTagId2PulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId2PulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateMatchTagId2PulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
         [Description("The value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-        public ushort Value { get; set; }
+        public ushort MatchTagId2PulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message payload for the MatchTagId2PulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId2PulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId2PulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId2PulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId2PulseWidth.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId2PulseWidthPayload")]
+    [Description("Creates a timestamped message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateTimestampedMatchTagId2PulseWidthPayload : CreateMatchTagId2PulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId2PulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId2PulseWidth.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
     /// </summary>
     [DisplayName("MatchTagId3PulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-    public partial class CreateMatchTagId3PulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateMatchTagId3PulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
         [Description("The value that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
-        public ushort Value { get; set; }
+        public ushort MatchTagId3PulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message payload for the MatchTagId3PulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return MatchTagId3PulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// Creates a message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the MatchTagId3PulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => MatchTagId3PulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.MatchTagId3PulseWidth.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+    /// </summary>
+    [DisplayName("TimestampedMatchTagId3PulseWidthPayload")]
+    [Description("Creates a timestamped message payload that the time the digital output pin will stay on (ms) if the corresponding tag is detected.")]
+    public partial class CreateTimestampedMatchTagId3PulseWidthPayload : CreateMatchTagId3PulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the digital output pin will stay on (ms) if the corresponding tag is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the MatchTagId3PulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.MatchTagId3PulseWidth.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that the time the digital output pin will stay on (ms) if any tag is detected.
     /// </summary>
     [DisplayName("AnyTagIdPulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that the time the digital output pin will stay on (ms) if any tag is detected.")]
-    public partial class CreateAnyTagIdPulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that the time the digital output pin will stay on (ms) if any tag is detected.")]
+    public partial class CreateAnyTagIdPulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that the time the digital output pin will stay on (ms) if any tag is detected.
         /// </summary>
         [Description("The value that the time the digital output pin will stay on (ms) if any tag is detected.")]
-        public ushort Value { get; set; }
+        public ushort AnyTagIdPulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that the time the digital output pin will stay on (ms) if any tag is detected.
+        /// Creates a message payload for the AnyTagIdPulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return AnyTagIdPulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that the time the digital output pin will stay on (ms) if any tag is detected.
+        /// Creates a message that the time the digital output pin will stay on (ms) if any tag is detected.
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the AnyTagIdPulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => AnyTagIdPulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.AnyTagIdPulseWidth.FromPayload(messageType, GetPayload());
         }
     }
 
     /// <summary>
-    /// Represents an operator that creates a sequence of message payloads
+    /// Represents an operator that creates a timestamped message payload
+    /// that the time the digital output pin will stay on (ms) if any tag is detected.
+    /// </summary>
+    [DisplayName("TimestampedAnyTagIdPulseWidthPayload")]
+    [Description("Creates a timestamped message payload that the time the digital output pin will stay on (ms) if any tag is detected.")]
+    public partial class CreateTimestampedAnyTagIdPulseWidthPayload : CreateAnyTagIdPulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that the time the digital output pin will stay on (ms) if any tag is detected.
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the AnyTagIdPulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.AnyTagIdPulseWidth.FromPayload(timestamp, messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a message payload
     /// that triggers the digital output pin for the specified duration (ms).
     /// </summary>
     [DisplayName("DO0PulseWidthPayload")]
-    [WorkflowElementCategory(ElementCategory.Transform)]
-    [Description("Creates a sequence of message payloads that triggers the digital output pin for the specified duration (ms).")]
-    public partial class CreateDO0PulseWidthPayload : HarpCombinator
+    [Description("Creates a message payload that triggers the digital output pin for the specified duration (ms).")]
+    public partial class CreateDO0PulseWidthPayload
     {
         /// <summary>
         /// Gets or sets the value that triggers the digital output pin for the specified duration (ms).
         /// </summary>
         [Description("The value that triggers the digital output pin for the specified duration (ms).")]
-        public ushort Value { get; set; }
+        public ushort DO0PulseWidth { get; set; }
 
         /// <summary>
-        /// Creates an observable sequence that contains a single message
-        /// that triggers the digital output pin for the specified duration (ms).
+        /// Creates a message payload for the DO0PulseWidth register.
         /// </summary>
-        /// <returns>
-        /// A sequence containing a single <see cref="HarpMessage"/> object
-        /// representing the created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process()
+        /// <returns>The created message payload value.</returns>
+        public ushort GetPayload()
         {
-            return Process(Observable.Return(System.Reactive.Unit.Default));
+            return DO0PulseWidth;
         }
 
         /// <summary>
-        /// Creates an observable sequence of message payloads
-        /// that triggers the digital output pin for the specified duration (ms).
+        /// Creates a message that triggers the digital output pin for the specified duration (ms).
         /// </summary>
-        /// <typeparam name="TSource">
-        /// The type of the elements in the <paramref name="source"/> sequence.
-        /// </typeparam>
-        /// <param name="source">
-        /// The sequence containing the notifications used for emitting message payloads.
-        /// </param>
-        /// <returns>
-        /// A sequence of <see cref="HarpMessage"/> objects representing each
-        /// created message payload.
-        /// </returns>
-        public IObservable<HarpMessage> Process<TSource>(IObservable<TSource> source)
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new message for the DO0PulseWidth register.</returns>
+        public HarpMessage GetMessage(MessageType messageType)
         {
-            return source.Select(_ => DO0PulseWidth.FromPayload(MessageType, Value));
+            return Harp.RfidReader.DO0PulseWidth.FromPayload(messageType, GetPayload());
+        }
+    }
+
+    /// <summary>
+    /// Represents an operator that creates a timestamped message payload
+    /// that triggers the digital output pin for the specified duration (ms).
+    /// </summary>
+    [DisplayName("TimestampedDO0PulseWidthPayload")]
+    [Description("Creates a timestamped message payload that triggers the digital output pin for the specified duration (ms).")]
+    public partial class CreateTimestampedDO0PulseWidthPayload : CreateDO0PulseWidthPayload
+    {
+        /// <summary>
+        /// Creates a timestamped message that triggers the digital output pin for the specified duration (ms).
+        /// </summary>
+        /// <param name="timestamp">The timestamp of the message payload, in seconds.</param>
+        /// <param name="messageType">Specifies the type of the created message.</param>
+        /// <returns>A new timestamped message for the DO0PulseWidth register.</returns>
+        public HarpMessage GetMessage(double timestamp, MessageType messageType)
+        {
+            return Harp.RfidReader.DO0PulseWidth.FromPayload(timestamp, messageType, GetPayload());
         }
     }
 
@@ -3391,6 +3538,7 @@ namespace Harp.RfidReader
     [Flags]
     public enum HardwareNotifications : byte
     {
+        None = 0x0,
         Buzzer = 0x1,
         TopLed = 0x2,
         BottomLed = 0x4
