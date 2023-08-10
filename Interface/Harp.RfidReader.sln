@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4CC17AD6-DCDE-44F7-BAD4-FC739BB56B49}") = "Harp.RfidReader", "Harp.RfidReader\Harp.RfidReader.csproj", "{C46A878B-969A-48A4-B5F5-FD1DEE22B2E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C46A878B-969A-48A4-B5F5-FD1DEE22B2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46A878B-969A-48A4-B5F5-FD1DEE22B2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46A878B-969A-48A4-B5F5-FD1DEE22B2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46A878B-969A-48A4-B5F5-FD1DEE22B2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95C28EFB-E777-4DCD-91D7-E0DADDA4897D}
+	EndGlobalSection
+EndGlobal
