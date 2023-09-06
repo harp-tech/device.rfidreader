@@ -69,6 +69,22 @@ extern uint16_t out0_timeout_ms;
 
 extern void notify(uint8_t notify_mask);
 
+uint8_t reverse_byte(uint8_t num)
+{
+    uint8_t NO_OF_BITS = 8;
+    uint8_t reverse_num = 0;
+    uint8_t i;
+	 
+    for (i = 0; i < NO_OF_BITS; i++)
+	 {
+        if ((num & (1 << i)))
+		  {
+            reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
+		  }
+    }
+    return reverse_num;
+}
+
 ISR(TCD1_OVF_vect, ISR_NAKED)
 {
 	/* Stop timer */
@@ -141,14 +157,19 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 		}
 		else
 		{
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+0) = rxbuff_uart0[7];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+1) = rxbuff_uart0[6];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+2) = rxbuff_uart0[5];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+3) = rxbuff_uart0[4];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+4) = rxbuff_uart0[3];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+5) = rxbuff_uart0[2];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+6) = rxbuff_uart0[1];
-			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+7) = rxbuff_uart0[0];			
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+0) = reverse_byte(rxbuff_uart0[0]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+1) = reverse_byte(rxbuff_uart0[1]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+2) = reverse_byte(rxbuff_uart0[2]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+3) = reverse_byte(rxbuff_uart0[3]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+4) = reverse_byte(rxbuff_uart0[4]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+5) = reverse_byte(rxbuff_uart0[5]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+6) = reverse_byte(rxbuff_uart0[6]);
+			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+7) = reverse_byte(rxbuff_uart0[7]);
+			
+			uint64_t id           = (app_regs.REG_TAG_ID_ARRIVED & 0x3FFFFFFFFF);
+ 			uint64_t country_code = (app_regs.REG_TAG_ID_ARRIVED & 0xFFC000000000) >> 38;
+			 
+			app_regs.REG_TAG_ID_ARRIVED = country_code * 1000000000000 + id;
 		}
 		
 		/* Check for matching */
