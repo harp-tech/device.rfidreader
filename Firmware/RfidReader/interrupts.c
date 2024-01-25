@@ -39,6 +39,8 @@ ISR(PORTA_INT0_vect, ISR_NAKED)
 /************************************************************************/
 extern bool id_event_was_sent;
 
+uint64_t id_leaved_temp = 0;
+
 ISR(PORTC_INT0_vect, ISR_NAKED)
 {
 	if (read_TAG_IN_RANGE)
@@ -51,8 +53,12 @@ ISR(PORTC_INT0_vect, ISR_NAKED)
 		{
 			id_event_was_sent = false;
 			
-			app_regs.REG_TAG_ID_LEAVED = app_regs.REG_TAG_ID_ARRIVED;
-			core_func_send_event(ADD_REG_TAG_ID_LEAVED, true);
+			if (app_regs.REG_TAG_ID_ARRIVED != 0)		// if != 0 it's a 125 KHz antenna
+			{
+				app_regs.REG_TAG_ID_LEAVED = app_regs.REG_TAG_ID_ARRIVED;
+				core_func_send_event(ADD_REG_TAG_ID_LEAVED, true);
+				app_regs.REG_TAG_ID_ARRIVED = 0;
+			}
 		}
 	}	
 	
@@ -154,6 +160,8 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+5) = 0;
 			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+6) = 0;
 			*(((uint8_t*)(&app_regs.REG_TAG_ID_ARRIVED))+7) = 0;
+			
+			id_leaved_temp = app_regs.REG_TAG_ID_ARRIVED;
 		}
 		else
 		{
@@ -178,6 +186,12 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 			if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH0)
 			{
 				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, (rxbuff_pointer == 16) ? false : true);
+				if (rxbuff_pointer == 30)
+				{
+					app_regs.REG_TAG_ID_ARRIVED = 0;
+					app_regs.REG_TAG_ID_LEAVED = 0;
+				}
+				
 				id_event_was_sent = true;
 				notify(app_regs.REG_NOTIFICATIONS);
 				out0_timeout_ms = app_regs.REG_TAG_MATCH0_OUT0_PERIOD;
@@ -186,6 +200,12 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 			if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH1)
 			{
 				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, (rxbuff_pointer == 16) ? false : true);
+				if (rxbuff_pointer == 30)
+				{
+					app_regs.REG_TAG_ID_ARRIVED = 0;
+					app_regs.REG_TAG_ID_LEAVED = 0;
+				}
+				
 				id_event_was_sent = true;
 				notify(app_regs.REG_NOTIFICATIONS);
 				out0_timeout_ms = app_regs.REG_TAG_MATCH1_OUT0_PERIOD;
@@ -194,6 +214,12 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 			if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH2)
 			{
 				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, (rxbuff_pointer == 16) ? false : true);
+				if (rxbuff_pointer == 30)
+				{
+					app_regs.REG_TAG_ID_ARRIVED = 0;
+					app_regs.REG_TAG_ID_LEAVED = 0;
+				}
+				
 				id_event_was_sent = true;
 				notify(app_regs.REG_NOTIFICATIONS);
 				out0_timeout_ms = app_regs.REG_TAG_MATCH2_OUT0_PERIOD;
@@ -202,6 +228,12 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 			if (app_regs.REG_TAG_ID_ARRIVED == app_regs.REG_TAG_MATCH3)
 			{
 				core_func_send_event(ADD_REG_TAG_ID_ARRIVED, (rxbuff_pointer == 16) ? false : true);
+				if (rxbuff_pointer == 30)
+				{
+					app_regs.REG_TAG_ID_ARRIVED = 0;
+					app_regs.REG_TAG_ID_LEAVED = 0;
+				}
+				
 				id_event_was_sent = true;
 				notify(app_regs.REG_NOTIFICATIONS);
 				out0_timeout_ms = app_regs.REG_TAG_MATCH3_OUT0_PERIOD;
@@ -211,10 +243,16 @@ ISR(TCD1_OVF_vect, ISR_NAKED)
 		else
 		{
 			core_func_send_event(ADD_REG_TAG_ID_ARRIVED, (rxbuff_pointer == 16) ? false : true);
+			if (rxbuff_pointer == 30)
+			{
+				app_regs.REG_TAG_ID_ARRIVED = 0;
+				app_regs.REG_TAG_ID_LEAVED = 0;
+			}
+			
 			id_event_was_sent = true;
 			out0_timeout_ms = app_regs.REG_TAG_ID_ARRIVED_PERIOD;
 			notify(app_regs.REG_NOTIFICATIONS);
-		}
+		}		
 	}
 	
 	rxbuff_pointer = 0;	
