@@ -29,7 +29,7 @@ void hwbp_app_initialize(void)
     uint8_t hwH = 1;
     uint8_t hwL = 2;
     uint8_t fwH = 1;
-    uint8_t fwL = 2;
+    uint8_t fwL = 3;
     uint8_t ass = 0;
     
    	/* Start core */
@@ -202,6 +202,7 @@ void uart0_rcv_byte_callback(uint8_t byte_received)
 		timer_type1_enable(&TCD1, TIMER_PRESCALER_DIV1024, 156, INT_LEVEL_LOW);		// ~5 ms
 																											// 1 byte = 833 us @ 9600bps
 		id_event_was_sent = false;
+		app_regs.REG_TAG_ID_ARRIVED = 0;
 	}
 	
 	rxbuff_uart0[rxbuff_pointer++] = byte_received;
