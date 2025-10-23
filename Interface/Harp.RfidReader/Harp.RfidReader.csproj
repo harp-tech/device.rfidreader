@@ -9,6 +9,7 @@
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
     <Description>Bonsai Library containing interfaces for data acquisition and control of Harp RfidReader devices.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageType>Dependency;BonsaiLibrary</PackageType>
     <PackageTags>Harp RfidReader Bonsai Rx</PackageTags>
     <PackageProjectUrl>https://harp-tech.org</PackageProjectUrl>
     <RepositoryUrl>https://github.com/harp-tech/device.rfidreader.git</RepositoryUrl>
