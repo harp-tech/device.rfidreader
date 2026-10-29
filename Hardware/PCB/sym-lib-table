@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "harp rfid reader") (type "KiCad") (uri "${KIPRJMOD}/harp rfid reader.kicad_sym") (options "") (descr ""))
+)
