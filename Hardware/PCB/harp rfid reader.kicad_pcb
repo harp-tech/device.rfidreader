@@ -3967,7 +3967,7 @@
 				(justify left top)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "1da4012b-f6a9-4e95-9a34-09b339961788")
@@ -4000,7 +4000,7 @@
 				)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4026,7 +4026,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4039,7 +4039,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6205,7 +6205,7 @@
 				)
 			)
 		)
-		(property "Value" "FT232RL"
+		(property "Value" "FT232RNL-REEL"
 			(at 0 6.05 90)
 			(layer "F.Fab")
 			(uuid "3bc109ef-b6e9-47ad-ba1f-d50e223318c8")
@@ -6238,7 +6238,7 @@
 				)
 			)
 		)
-		(property "MPN" "FT232RL-REEL"
+		(property "MPN" "FT232RNL-REEL"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6264,7 +6264,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "IC:   USB Interface IC USB to Serial UART (OEPS NP1 073)   [FT232RL-REEL] [SSOP-28]"
+		(property "OEPS Description" "IC:   USB Interface IC USB to Serial UART   [FT232RNL-REEL] [SSOP-28]"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6277,7 +6277,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS080013"
+		(property "OEPS PN" "OEPS080093"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9716,7 +9716,7 @@
 				(justify left bottom mirror)
 			)
 		)
-		(property "Value" "O 32,0-JT32C-A-K-3,3-LF"
+		(property "Value" "ECS-TXO-3225MV-320-TR"
 			(at -2.36 -2.98 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -9754,7 +9754,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "O 32,0-JT32C-A-K-3,3-LF"
+		(property "MPN" "ECS-TXO-3225MV-320-TR"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -9782,7 +9782,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS Description" "IC:   XTAL OSC TCXO 32MHz HCMOS 2.5ppm   [O 32,0-JT32C-A-K-3,3-LF] [4-SMD]"
+		(property "OEPS Description" "IC:   XTAL OSC TCXO 32MHz HCMOS 2.5ppm   [ECS-TXO-3225MV-320-TR] [4-SMD]"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -9796,7 +9796,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS PN" "OEPS080014"
+		(property "OEPS PN" "OEPS080257"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -10499,7 +10499,7 @@
 				(justify left top mirror)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 0 -1.43 0)
 			(layer "B.Fab")
 			(uuid "938222ac-1c13-4960-a9b7-46d9fd2be635")
@@ -10535,7 +10535,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -10563,7 +10563,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -10577,7 +10577,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -12074,7 +12074,7 @@
 				(justify left top mirror)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 0 -1.43 90)
 			(layer "B.Fab")
 			(uuid "35190898-3efc-45cb-bc86-4a13ccd1cee9")
@@ -12110,7 +12110,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -12138,7 +12138,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -12152,7 +12152,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -16465,7 +16465,7 @@
 				(justify left top mirror)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 0 -1.43 0)
 			(layer "B.Fab")
 			(uuid "0ef06f20-7267-4584-8944-68879cac971e")
@@ -16501,7 +16501,7 @@
 				(justify mirror)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -16529,7 +16529,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -16543,7 +16543,7 @@
 				(justify mirror)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32070,6 +32070,14 @@
 			(pts
 				(xy 143.95 91.739201) (xy 143.95 95.279201) (xy 147.78 95.279201) (xy 147.78 91.739201)
 			)
+		)
+	)
+	(group ""
+		(uuid "11e17338-c2cc-4ce6-9aa9-6c176015fc33")
+		(members "0117fa77-4f84-4f14-bd85-1e7142e5b6d3" "0663e8e1-a3b6-4b9d-8007-25effbad8090"
+			"3833f8a5-e29f-4d57-9875-3236e0910da4" "6b867d57-935c-40df-8099-f7b061f22456"
+			"6b8b5028-fd2c-45bc-adc2-8b66c2e07cb6" "9f583474-bb61-4cd0-ac94-ca188d07b55b"
+			"ac018e82-d6a3-4b3e-8ae5-07b3b9d908f8"
 		)
 	)
 	(embedded_fonts no)

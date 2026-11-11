@@ -10510,7 +10510,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 114.3 156.5274 90)
 			(hide yes)
 			(show_name no)
@@ -10555,7 +10555,7 @@
 				)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 110.49 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -10577,7 +10577,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 110.49 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -10588,7 +10588,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 110.49 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11521,7 +11521,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 152.4 156.5274 90)
 			(hide yes)
 			(show_name no)
@@ -11566,7 +11566,7 @@
 				)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 148.59 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11588,7 +11588,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 148.59 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11599,7 +11599,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 148.59 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11648,7 +11648,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 127 156.5274 90)
 			(hide yes)
 			(show_name no)
@@ -11693,7 +11693,7 @@
 				)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 123.19 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11715,7 +11715,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 123.19 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -11726,7 +11726,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 123.19 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -12144,7 +12144,7 @@
 				)
 			)
 		)
-		(property "Value" "O 32,0-JT32C-A-K-3,3-LF"
+		(property "Value" "ECS-TXO-3225MV-320-TR"
 			(at 49.53 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -12189,7 +12189,7 @@
 				)
 			)
 		)
-		(property "MPN" "O 32,0-JT32C-A-K-3,3-LF"
+		(property "MPN" "ECS-TXO-3225MV-320-TR"
 			(at 39.37 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12211,7 +12211,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "IC:   XTAL OSC TCXO 32MHz HCMOS 2.5ppm   [O 32,0-JT32C-A-K-3,3-LF] [4-SMD]"
+		(property "OEPS Description" "IC:   XTAL OSC TCXO 32MHz HCMOS 2.5ppm   [ECS-TXO-3225MV-320-TR] [4-SMD]"
 			(at 39.37 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12222,7 +12222,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS080014"
+		(property "OEPS PN" "OEPS080257"
 			(at 39.37 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -13679,7 +13679,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "5975004407F"
+		(property "Value" "5990010007F"
 			(at 139.7 156.5274 90)
 			(hide yes)
 			(show_name no)
@@ -13724,7 +13724,7 @@
 				)
 			)
 		)
-		(property "MPN" "5975004407F"
+		(property "MPN" "5990010007F"
 			(at 135.89 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -13746,7 +13746,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "DIODE:   LED 0603 Red 635nm 20mA   [5975004407F] [0603]"
+		(property "OEPS Description" "DIODE:   LED 0603 Red 633nm 20mA   [5990010007F] [0603]"
 			(at 135.89 153.67 90)
 			(hide yes)
 			(show_name no)
@@ -13757,7 +13757,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS030006"
+		(property "OEPS PN" "OEPS030044"
 			(at 135.89 153.67 90)
 			(hide yes)
 			(show_name no)

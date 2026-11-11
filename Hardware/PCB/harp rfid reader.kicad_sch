@@ -10518,7 +10518,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "FT232RL"
+		(property "Value" "FT232RNL-REEL"
 			(at 234.5533 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10562,7 +10562,7 @@
 				)
 			)
 		)
-		(property "MPN" "FT232RL-REEL"
+		(property "MPN" "FT232RNL-REEL"
 			(at 229.87 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -10584,7 +10584,7 @@
 				)
 			)
 		)
-		(property "OEPS Description" "IC:   USB Interface IC USB to Serial UART (OEPS NP1 073)   [FT232RL-REEL] [SSOP-28]"
+		(property "OEPS Description" "IC:   USB Interface IC USB to Serial UART   [FT232RNL-REEL] [SSOP-28]"
 			(at 229.87 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -10595,7 +10595,7 @@
 				)
 			)
 		)
-		(property "OEPS PN" "OEPS080013"
+		(property "OEPS PN" "OEPS080093"
 			(at 229.87 72.39 0)
 			(hide yes)
 			(show_name no)
